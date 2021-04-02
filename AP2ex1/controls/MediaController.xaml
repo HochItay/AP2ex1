@@ -23,7 +23,7 @@
         </Grid.RowDefinitions>
         <Label x:Name="LVideoCurrentTime" Content="0:00" Foreground="White" FontSize="15"/>
         <Label x:Name="LVideoLength" Grid.Column="2" Content="0:00" Foreground="White" FontSize="15" />
-        <Slider x:Name="slider" Grid.Column="1" Margin="10.4,6,5.4,0"/>
+        <Slider x:Name="STime" Grid.Column="1" Margin="10.4,6,5.4,0" ValueChanged="slider_ValueChanged"/>
         <Button x:Name="BPlay" Grid.Column="1" Grid.Row="1" Width="50" Height="50" Content="{StaticResource IPlay}">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -41,7 +41,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button x:Name="BFastForward" Content="Button" Grid.Column="1" Grid.Row="1" Width="50" Height="35" Margin="125,0,0,0">
+        <Button x:Name="BFastForward" Grid.Column="1" Grid.Row="1" Width="50" Height="35" Margin="125,0,0,0">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
@@ -50,7 +50,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button x:Name="BFastBackward" Content="Button" Grid.Column="1" Grid.Row="1" Width="50" Height="35" Margin="0,0,125,0">
+        <Button x:Name="BFastBackward" Grid.Column="1" Grid.Row="1" Width="50" Height="35" Margin="0,0,125,0">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
@@ -59,5 +59,26 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
+        <Button x:Name="BTenBackward" Grid.Column="1" Grid.Row="1" Width="50" Height="35" Margin="0,0,230,0">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Image Source="images/ten_sec_backward.png"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="BTenForward" Grid.Column="1" Grid.Row="1" Width="50" Height="35" Margin="230,0,0,0">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Image Source="images/ten_sec_forward.jpg"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Slider x:Name="SSpeed" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="98" Height="25" Margin="0,27,5.6,18"/>
+        <Label  x:Name="LSpeed" Grid.Row="1" Grid.Column="2" Content="X1.0" Foreground="White" FontSize="15" VerticalAlignment="Center"/>
+
     </Grid>
 </UserControl>
