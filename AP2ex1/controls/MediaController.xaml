@@ -6,7 +6,58 @@
              xmlns:local="clr-namespace:AP2ex1.controls"
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="600">
-    <Grid>
-            
+    <UserControl.Resources>
+        <Image x:Name="IPlay" x:Key="IPlay" Source="images/play.png" Margin="6,0,0,0"/>
+        <Image x:Name="IPause" x:Key="IPause" Source="images/pause.png"/>
+    </UserControl.Resources>
+
+    <Grid Background="#D61E1E1E">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="LVideoCurrentTime" Content="0:00" Foreground="White" FontSize="15"/>
+        <Label x:Name="LVideoLength" Grid.Column="2" Content="0:00" Foreground="White" FontSize="15" />
+        <Slider x:Name="slider" Grid.Column="1" Margin="10.4,6,5.4,0"/>
+        <Button x:Name="BPlay" Grid.Column="1" Grid.Row="1" Width="50" Height="50" Content="{StaticResource IPlay}">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Ellipse>
+                            <Ellipse.Fill>
+                                <RadialGradientBrush>
+                                    <GradientStop Color="#FF2A3455"/>
+                                    <GradientStop Color="#FF4968D2" Offset="1"/>
+                                </RadialGradientBrush>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="BFastForward" Content="Button" Grid.Column="1" Grid.Row="1" Width="50" Height="35" Margin="125,0,0,0">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Image Source="images/fast_forward.png"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="BFastBackward" Content="Button" Grid.Column="1" Grid.Row="1" Width="50" Height="35" Margin="0,0,125,0">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Image Source="images/fast_backward.png"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
     </Grid>
 </UserControl>
