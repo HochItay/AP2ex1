@@ -7,8 +7,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="600">
     <UserControl.Resources>
-        <Image x:Name="IPlay" x:Key="IPlay" Source="images/play.png" Margin="6,0,0,0"/>
-        <Image x:Name="IPause" x:Key="IPause" Source="images/pause.png"/>
+        <Image x:Name="IPlay" x:Key="IPlay" Source="images/IMediaController/play.png" Margin="6,0,0,0"/>
+        <Image x:Name="IPause" x:Key="IPause" Source="images/IMediaController/pause.png"/>
     </UserControl.Resources>
 
     <Grid Background="#D65D6360">
@@ -45,7 +45,7 @@
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Image Source="images/fast_forward.png"/>
+                        <Image Source="images/IMediaController/fast_forward.png"/>
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
@@ -54,7 +54,7 @@
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Image Source="images/fast_backward.png"/>
+                        <Image Source="images/IMediaController/fast_backward.png"/>
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
@@ -63,7 +63,7 @@
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Image Source="images/ten_sec_backward.png"/>
+                        <Image Source="images/IMediaController/ten_sec_backward.png"/>
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
@@ -72,7 +72,7 @@
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Image Source="images/ten_sec_forward.jpg"/>
+                        <Image Source="images/IMediaController/ten_sec_forward.jpg"/>
                     </Grid>
                 </ControlTemplate>
             </Button.Template>

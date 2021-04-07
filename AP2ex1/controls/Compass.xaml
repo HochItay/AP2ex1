@@ -8,8 +8,8 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Canvas HorizontalAlignment="Center" VerticalAlignment="Center" Height="300" Width="300">
-            <Image Source = "images/compass.png"/>
-            <Image Source="images/compass_needle.png" RenderTransformOrigin="0.486,0.518" Height="311" Width="315" Canvas.Top="-11">
+            <Image Source = "images/ICompass/compass.png"/>
+            <Image Source="images/ICompass/compass_needle.png" RenderTransformOrigin="0.486,0.518" Height="311" Width="315" Canvas.Top="-11">
                 <Image.RenderTransform>
                     <RotateTransform Angle="0"/>
                 </Image.RenderTransform>

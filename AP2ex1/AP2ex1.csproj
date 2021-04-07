@@ -67,6 +67,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="controls\YPRDisplayer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -83,6 +87,9 @@
     </Compile>
     <Compile Include="controls\MediaController.xaml.cs">
       <DependentUpon>MediaController.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\YPRDisplayer.xaml.cs">
+      <DependentUpon>YPRDisplayer.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -116,23 +123,31 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="controls\images\play.png" />
+    <Resource Include="controls\images\IMediaController\play.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="controls\images\pause.png" />
+    <Resource Include="controls\images\IMediaController\pause.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="controls\images\fast_forward.png" />
+    <Resource Include="controls\images\IMediaController\fast_forward.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="controls\images\fast_backward.png" />
+    <Resource Include="controls\images\IMediaController\fast_backward.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="controls\images\ten_sec_backward.png" />
-    <Resource Include="controls\images\ten_sec_forward.jpg" />
+    <Resource Include="controls\images\IMediaController\ten_sec_backward.png" />
+    <Resource Include="controls\images\IMediaController\ten_sec_forward.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="controls\images\compass.png" />
+    <Resource Include="controls\images\ICompass\compass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="controls\images\ICompass\compass_needle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="controls\images\IYPRDisplayer\airplane_pitch.png" />
+    <Resource Include="controls\images\IYPRDisplayer\airplane_roll.png" />
+    <Resource Include="controls\images\IYPRDisplayer\airplane_yaw.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
