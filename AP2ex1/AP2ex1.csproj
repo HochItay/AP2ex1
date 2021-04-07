@@ -55,6 +55,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="controls\MediaController.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -62,6 +66,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="controls\MediaController.xaml.cs">
+      <DependentUpon>MediaController.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -95,7 +102,20 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="NewFolder1\" />
+    <Resource Include="controls\images\play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="controls\images\pause.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="controls\images\fast_forward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="controls\images\fast_backward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="controls\images\ten_sec_backward.png" />
+    <Resource Include="controls\images\ten_sec_forward.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

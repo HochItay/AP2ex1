@@ -11,7 +11,7 @@
         <Image x:Name="IPause" x:Key="IPause" Source="images/pause.png"/>
     </UserControl.Resources>
 
-    <Grid Background="#D61E1E1E">
+    <Grid Background="#D65D6360">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
@@ -41,7 +41,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button x:Name="BFastForward" Grid.Column="1" Grid.Row="1" Width="50" Height="35" Margin="125,0,0,0">
+        <Button x:Name="BFastForward" Grid.Column="1" Grid.Row="1" Width="40" Height="30" Margin="125,0,0,0">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
@@ -50,7 +50,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button x:Name="BFastBackward" Grid.Column="1" Grid.Row="1" Width="50" Height="35" Margin="0,0,125,0">
+        <Button x:Name="BFastBackward" Grid.Column="1" Grid.Row="1" Width="40" Height="30" Margin="0,0,125,0">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
@@ -59,7 +59,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button x:Name="BTenBackward" Grid.Column="1" Grid.Row="1" Width="50" Height="35" Margin="0,0,230,0">
+        <Button x:Name="BTenBackward" Grid.Column="1" Grid.Row="1" Width="40" Height="30" Margin="0,0,230,0">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
@@ -68,7 +68,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button x:Name="BTenForward" Grid.Column="1" Grid.Row="1" Width="50" Height="35" Margin="230,0,0,0">
+        <Button x:Name="BTenForward" Grid.Column="1" Grid.Row="1" Width="40" Height="30" Margin="230,0,0,0">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
