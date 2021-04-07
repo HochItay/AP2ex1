@@ -55,6 +55,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="controls\Compass.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\Joystick.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="controls\MediaController.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -66,6 +74,12 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="controls\Compass.xaml.cs">
+      <DependentUpon>Compass.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\Joystick.xaml.cs">
+      <DependentUpon>Joystick.xaml</DependentUpon>
     </Compile>
     <Compile Include="controls\MediaController.xaml.cs">
       <DependentUpon>MediaController.xaml</DependentUpon>
@@ -116,6 +130,9 @@
   <ItemGroup>
     <Resource Include="controls\images\ten_sec_backward.png" />
     <Resource Include="controls\images\ten_sec_forward.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="controls\images\compass.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
