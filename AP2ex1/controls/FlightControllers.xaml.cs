@@ -18,9 +18,9 @@ namespace AP2ex1.controls
     /// <summary>
     /// Interaction logic for Throttle.xaml
     /// </summary>
-    public partial class Throttle : UserControl
+    public partial class FlightControllers : UserControl
     {
-        public Throttle()
+        public FlightControllers()
         {
             InitializeComponent();
         }

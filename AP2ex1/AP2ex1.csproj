@@ -77,6 +77,13 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+<<<<<<< HEAD
+    <Page Include="controls\FlightControllers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+=======
+>>>>>>> d6f45b2d2ef8f37d6bd6b20af85e03966cb1cfbc
     <Page Include="controls\YPRDisplayer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -104,6 +111,12 @@
     <Compile Include="controls\AirspeedIndicator.xaml.cs">
       <DependentUpon>AirspeedIndicator.xaml</DependentUpon>
     </Compile>
+<<<<<<< HEAD
+    <Compile Include="controls\FlightControllers.xaml.cs">
+      <DependentUpon>FlightControllers.xaml</DependentUpon>
+    </Compile>
+=======
+>>>>>>> d6f45b2d2ef8f37d6bd6b20af85e03966cb1cfbc
     <Compile Include="controls\YPRDisplayer.xaml.cs">
       <DependentUpon>YPRDisplayer.xaml</DependentUpon>
     </Compile>
