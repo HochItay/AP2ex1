@@ -23,7 +23,7 @@
         </Grid.RowDefinitions>
         <Label x:Name="LVideoCurrentTime" Content="0:00" Foreground="White" FontSize="15"/>
         <Label x:Name="LVideoLength" Grid.Column="2" Content="0:00" Foreground="White" FontSize="15" />
-        <Slider x:Name="STime" Grid.Column="1" Margin="10.4,6,5.4,0" ValueChanged="slider_ValueChanged"/>
+        <Slider x:Name="STime" Grid.Column="1" Margin="10.4,6,5.4,0"/>
         <Button x:Name="BPlay" Grid.Column="1" Grid.Row="1" Width="50" Height="50" Content="{StaticResource IPlay}">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">

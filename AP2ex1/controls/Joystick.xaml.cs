@@ -24,5 +24,10 @@ namespace AP2ex1.controls
         {
             InitializeComponent();
         }
+
+        private void centerKnob_Completed(object sender, EventArgs e)
+        {
+
+        }
     }
 }

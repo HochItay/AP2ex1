@@ -166,5 +166,8 @@
       <Version>19.1.0.55</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="controls\nugets\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
