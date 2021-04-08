@@ -57,6 +57,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="controls\Altimeter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="controls\Compass.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -88,6 +92,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="controls\Altimeter.xaml.cs">
+      <DependentUpon>Altimeter.xaml</DependentUpon>
     </Compile>
     <Compile Include="controls\Compass.xaml.cs">
       <DependentUpon>Compass.xaml</DependentUpon>
@@ -175,6 +182,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="controls\nugets\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="controls\images\ICompass\needle.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
