@@ -57,6 +57,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="controls\Altimeter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="controls\Compass.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -73,10 +77,13 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+<<<<<<< HEAD
     <Page Include="controls\FlightControllers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+=======
+>>>>>>> d6f45b2d2ef8f37d6bd6b20af85e03966cb1cfbc
     <Page Include="controls\YPRDisplayer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -88,6 +95,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="controls\Altimeter.xaml.cs">
+      <DependentUpon>Altimeter.xaml</DependentUpon>
     </Compile>
     <Compile Include="controls\Compass.xaml.cs">
       <DependentUpon>Compass.xaml</DependentUpon>
@@ -101,9 +111,12 @@
     <Compile Include="controls\Speedometer.xaml.cs">
       <DependentUpon>Speedometer.xaml</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="controls\FlightControllers.xaml.cs">
       <DependentUpon>FlightControllers.xaml</DependentUpon>
     </Compile>
+=======
+>>>>>>> d6f45b2d2ef8f37d6bd6b20af85e03966cb1cfbc
     <Compile Include="controls\YPRDisplayer.xaml.cs">
       <DependentUpon>YPRDisplayer.xaml</DependentUpon>
     </Compile>
@@ -158,9 +171,6 @@
     <Resource Include="controls\images\ICompass\compass.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="controls\images\ICompass\compass_needle.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="controls\images\IYPRDisplayer\airplane_pitch.png" />
     <Resource Include="controls\images\IYPRDisplayer\airplane_roll.png" />
     <Resource Include="controls\images\IYPRDisplayer\airplane_yaw.png" />
@@ -175,6 +185,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="controls\nugets\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="controls\images\ICompass\needle.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

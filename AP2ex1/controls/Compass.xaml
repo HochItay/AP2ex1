@@ -5,15 +5,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AP2ex1.controls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <Canvas HorizontalAlignment="Center" VerticalAlignment="Center" Height="300" Width="300">
-            <Image Source = "images/ICompass/compass.png"/>
-            <Image Source="images/ICompass/compass_needle.png" RenderTransformOrigin="0.486,0.518" Height="311" Width="315" Canvas.Top="-11">
+        <Image Source = "images/ICompass/compass.png" RenderTransformOrigin="0.51,0.5" Height="300" Width="300">
                 <Image.RenderTransform>
                     <RotateTransform Angle="0"/>
                 </Image.RenderTransform>
             </Image>
-        </Canvas>
+        <Image Source="images/ICompass/needle.png" RenderTransformOrigin="0.486,0.518" Height="200" Width="300" Margin="0,0,0,35"/>
+        <Label FontSize="40" Content="0°" Foreground="#9b9b9b" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.831,0.608"/>
+
     </Grid>
 </UserControl>
