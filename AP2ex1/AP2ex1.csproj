@@ -77,10 +77,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="controls\Throttle.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="controls\YPRDisplayer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -107,9 +103,6 @@
     </Compile>
     <Compile Include="controls\Speedometer.xaml.cs">
       <DependentUpon>Speedometer.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="controls\Throttle.xaml.cs">
-      <DependentUpon>Throttle.xaml</DependentUpon>
     </Compile>
     <Compile Include="controls\YPRDisplayer.xaml.cs">
       <DependentUpon>YPRDisplayer.xaml</DependentUpon>
@@ -163,9 +156,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="controls\images\ICompass\compass.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="controls\images\ICompass\compass_needle.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="controls\images\IYPRDisplayer\airplane_pitch.png" />
