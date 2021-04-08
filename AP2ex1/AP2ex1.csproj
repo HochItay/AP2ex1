@@ -73,7 +73,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="controls\Speedometer.xaml">
+    <Page Include="controls\AirspeedIndicator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -101,8 +101,8 @@
     <Compile Include="controls\MediaController.xaml.cs">
       <DependentUpon>MediaController.xaml</DependentUpon>
     </Compile>
-    <Compile Include="controls\Speedometer.xaml.cs">
-      <DependentUpon>Speedometer.xaml</DependentUpon>
+    <Compile Include="controls\AirspeedIndicator.xaml.cs">
+      <DependentUpon>AirspeedIndicator.xaml</DependentUpon>
     </Compile>
     <Compile Include="controls\YPRDisplayer.xaml.cs">
       <DependentUpon>YPRDisplayer.xaml</DependentUpon>

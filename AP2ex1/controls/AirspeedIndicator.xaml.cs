@@ -18,9 +18,9 @@ namespace AP2ex1.controls
     /// <summary>
     /// Interaction logic for Speedometer.xaml
     /// </summary>
-    public partial class Speedometer : UserControl
+    public partial class AirspeedIndicator : UserControl
     {
-        public Speedometer()
+        public AirspeedIndicator()
         {
             InitializeComponent();
         }
