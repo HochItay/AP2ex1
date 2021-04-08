@@ -14,7 +14,7 @@ namespace AP2ex1.ViewModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private IFlightModel model;
+        private readonly IFlightModel model;
 
         public FlightViewModel(IFlightModel model)
         {
