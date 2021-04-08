@@ -73,7 +73,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="controls\Throttle.xaml">
+    <Page Include="controls\FlightControllers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -101,8 +101,8 @@
     <Compile Include="controls\Speedometer.xaml.cs">
       <DependentUpon>Speedometer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="controls\Throttle.xaml.cs">
-      <DependentUpon>Throttle.xaml</DependentUpon>
+    <Compile Include="controls\FlightControllers.xaml.cs">
+      <DependentUpon>FlightControllers.xaml</DependentUpon>
     </Compile>
     <Compile Include="controls\YPRDisplayer.xaml.cs">
       <DependentUpon>YPRDisplayer.xaml</DependentUpon>
