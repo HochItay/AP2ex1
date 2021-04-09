@@ -184,9 +184,7 @@
       <Version>19.1.0.55</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="controls\nugets\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="controls\images\ICompass\needle.png" />
   </ItemGroup>
