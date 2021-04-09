@@ -10,25 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace AP2ex1
+namespace AP2ex1.frames
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for PGetFiles.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PGetFiles : Page
     {
-        private frames.PSimulator pSimulator;
-        private frames.PGetFiles pGetFiles;
-        public MainWindow()
+        public PGetFiles()
         {
             InitializeComponent();
-
-            pSimulator = new frames.PSimulator();
-            pGetFiles = new frames.PGetFiles();
-
-            Display.Content = pSimulator;
         }
     }
 }
