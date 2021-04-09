@@ -7,57 +7,59 @@
              xmlns:gauge ="clr-namespace:Syncfusion.UI.Xaml.Gauges;assembly=Syncfusion.SfGauge.Wpf"
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="400">
-    <Grid>
-        <gauge:SfCircularGauge>
-            <gauge:SfCircularGauge.Scales>
-                <gauge:CircularScale StartValue="0" EndValue="300" Interval="50" MinorTicksPerInterval="5" LabelStroke="#5b5b5b"
+    <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform">
+        <Grid Height="400" Width="400">
+            <gauge:SfCircularGauge>
+                <gauge:SfCircularGauge.Scales>
+                    <gauge:CircularScale StartValue="0" EndValue="300" Interval="50" MinorTicksPerInterval="5" LabelStroke="#5b5b5b"
                                      RangePosition="Custom" TickPosition="Custom" LabelPosition="Custom" ShowRim="False" LabelOffset="0.6" >
-                    <gauge:CircularScale.MajorTickSettings>
-                        <gauge:MajorTickSetting StartOffset="0.85" EndOffset="0.65" StrokeThickness="1" Stroke="Black" />
-                    </gauge:CircularScale.MajorTickSettings>
-                    <gauge:CircularScale.MinorTickSettings>
-                        <gauge:MinorTickSetting StartOffset="0.85" EndOffset="0.75" StrokeThickness="1" Stroke="Black" />
-                    </gauge:CircularScale.MinorTickSettings>
+                        <gauge:CircularScale.MajorTickSettings>
+                            <gauge:MajorTickSetting StartOffset="0.85" EndOffset="0.65" StrokeThickness="1" Stroke="Black" />
+                        </gauge:CircularScale.MajorTickSettings>
+                        <gauge:CircularScale.MinorTickSettings>
+                            <gauge:MinorTickSetting StartOffset="0.85" EndOffset="0.75" StrokeThickness="1" Stroke="Black" />
+                        </gauge:CircularScale.MinorTickSettings>
 
-                    <gauge:CircularScale.Ranges>
-                        <gauge:CircularRange OuterStartOffset="0.85" OuterEndOffset="0.85"
+                        <gauge:CircularScale.Ranges>
+                            <gauge:CircularRange OuterStartOffset="0.85" OuterEndOffset="0.85"
                             InnerStartOffset="0.65" InnerEndOffset="0.65" StartValue="0" EndValue="50" Stroke="#4f91fa" />
-                        <gauge:CircularRange OuterStartOffset="0.85" OuterEndOffset="0.85"
+                            <gauge:CircularRange OuterStartOffset="0.85" OuterEndOffset="0.85"
                             InnerStartOffset="0.65" InnerEndOffset="0.65" StartValue="50" EndValue="100" Stroke="#28bce4" />
-                        <gauge:CircularRange OuterStartOffset="0.85" OuterEndOffset="0.85"
+                            <gauge:CircularRange OuterStartOffset="0.85" OuterEndOffset="0.85"
                             InnerStartOffset="0.65" InnerEndOffset="0.65" StartValue="100" EndValue="200" Stroke="#0bbe53" />
-                        <gauge:CircularRange OuterStartOffset="0.85" OuterEndOffset="0.85"
+                            <gauge:CircularRange OuterStartOffset="0.85" OuterEndOffset="0.85"
                             InnerStartOffset="0.65" InnerEndOffset="0.65" StartValue="200" EndValue="250" Stroke="#d4d459" />
-                        <gauge:CircularRange OuterStartOffset="0.85" OuterEndOffset="0.85"
+                            <gauge:CircularRange OuterStartOffset="0.85" OuterEndOffset="0.85"
                             InnerStartOffset="0.65" InnerEndOffset="0.65" StartValue="250" EndValue="300" Stroke="#ff3233" />
-                    </gauge:CircularScale.Ranges>
+                        </gauge:CircularScale.Ranges>
 
-                    <gauge:CircularScale.Pointers>
-                        <gauge:CircularPointer EnableAnimation="True" Value="{Binding InsideValue}" NeedleLengthFactor="0.77" NeedlePointerStroke="#f7ab9c"
+                        <gauge:CircularScale.Pointers>
+                            <gauge:CircularPointer EnableAnimation="True" Value="{Binding InsideValue}" NeedleLengthFactor="0.77" NeedlePointerStroke="#f7ab9c"
                             NeedlePointerStrokeThickness="12" TailLengthFactor="0.15" TailFill="#f7ab9c" KnobRadiusFactor="0.08" KnobStroke="#eff2f1" KnobStrokeThickness="5" KnobFill="#e8e8e8" NeedlePointerType="Triangle"/>
-                    </gauge:CircularScale.Pointers>
-                </gauge:CircularScale>
-            </gauge:SfCircularGauge.Scales>
+                        </gauge:CircularScale.Pointers>
+                    </gauge:CircularScale>
+                </gauge:SfCircularGauge.Scales>
 
-            <gauge:SfCircularGauge.Annotations>
-                <gauge:GaugeAnnotation Angle="90" Offset="0.6">
-                    <gauge:GaugeAnnotation.Content>
-                        <Border BorderBrush="#6f6d6d" BorderThickness="2" Background="#babab2" CornerRadius="3">
-                            <TextBlock x:Name="text" Text="0"  Foreground="#403f3d" FontSize="16" FontWeight="Bold"  Margin="10,1,10,1" />
-                        </Border>
-                    </gauge:GaugeAnnotation.Content>
-                </gauge:GaugeAnnotation>
-                <gauge:GaugeAnnotation Angle="90" Offset="0.3">
-                    <gauge:GaugeAnnotation.Content>
-                        <TextBlock FontSize="15" Text="Airspeed" Foreground="#9b9b9b" FontWeight="SemiBold"/>
-                    </gauge:GaugeAnnotation.Content>
-                </gauge:GaugeAnnotation>
-                <gauge:GaugeAnnotation Angle="270" Offset="0.3">
-                    <gauge:GaugeAnnotation.Content>
-                        <TextBlock FontSize="15" Text="KN" Foreground="#9b9b9b" FontWeight="SemiBold"/>
-                    </gauge:GaugeAnnotation.Content>
-                </gauge:GaugeAnnotation>
-            </gauge:SfCircularGauge.Annotations>
-        </gauge:SfCircularGauge>
-    </Grid>
+                <gauge:SfCircularGauge.Annotations>
+                    <gauge:GaugeAnnotation Angle="90" Offset="0.6">
+                        <gauge:GaugeAnnotation.Content>
+                            <Border BorderBrush="#6f6d6d" BorderThickness="2" Background="#babab2" CornerRadius="3">
+                                <TextBlock x:Name="text" Text="0"  Foreground="#403f3d" FontSize="16" FontWeight="Bold"  Margin="10,1,10,1" />
+                            </Border>
+                        </gauge:GaugeAnnotation.Content>
+                    </gauge:GaugeAnnotation>
+                    <gauge:GaugeAnnotation Angle="90" Offset="0.3">
+                        <gauge:GaugeAnnotation.Content>
+                            <TextBlock FontSize="15" Text="Airspeed" Foreground="#9b9b9b" FontWeight="SemiBold"/>
+                        </gauge:GaugeAnnotation.Content>
+                    </gauge:GaugeAnnotation>
+                    <gauge:GaugeAnnotation Angle="270" Offset="0.3">
+                        <gauge:GaugeAnnotation.Content>
+                            <TextBlock FontSize="15" Text="KN" Foreground="#9b9b9b" FontWeight="SemiBold"/>
+                        </gauge:GaugeAnnotation.Content>
+                    </gauge:GaugeAnnotation>
+                </gauge:SfCircularGauge.Annotations>
+            </gauge:SfCircularGauge>
+        </Grid>
+    </Viewbox>
 </UserControl>

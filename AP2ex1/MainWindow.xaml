@@ -3,10 +3,33 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Controls = "clr-namespace:AP2ex1.controls"
         xmlns:local="clr-namespace:AP2ex1"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF1B4855" Offset="0.01"/>
+            <GradientStop Color="#FF9BDDE6" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Controls:BrowseButton Grid.Row="2"  Width="45" HorizontalAlignment="Left" Margin="15,10,0,0"/>
+        <Controls:MediaController Grid.Row="2" Width="380" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="80,0,0,0"/>
+        <Controls:AirspeedIndicator  Grid.Column="1" Height="100" Margin="0,0,220,120" Grid.Row="1"/>
+        <Controls:Altimeter Grid.Column="1" Height="100" Margin="220,0,0,120" Grid.Row="1"/>
+        <Controls:Compass Grid.Column="1" Width="70" HorizontalAlignment="Left" Margin="5,0,0,0"/>
+        <Controls:FlightControllers Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Height="180" VerticalAlignment="Bottom" Margin="10,0,10,10"/>
+        <Controls:Joystick Width="100" Grid.Row="1" Grid.Column="1" Margin="0,0,0,120"/>
+        <Controls:YPRDisplayer Height="100" Grid.Column="1" HorizontalAlignment="Right" Margin="0,10,10,10"/>
     </Grid>
 </Window>

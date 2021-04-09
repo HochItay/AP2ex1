@@ -61,9 +61,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="controls\BrowseButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="controls\Compass.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\FlightControllers.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="controls\Joystick.xaml">
       <SubType>Designer</SubType>
@@ -77,7 +85,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-
     <Page Include="controls\YPRDisplayer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -93,8 +100,14 @@
     <Compile Include="controls\Altimeter.xaml.cs">
       <DependentUpon>Altimeter.xaml</DependentUpon>
     </Compile>
+    <Compile Include="controls\BrowseButton.xaml.cs">
+      <DependentUpon>BrowseButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="controls\Compass.xaml.cs">
       <DependentUpon>Compass.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\FlightControllers.xaml.cs">
+      <DependentUpon>FlightControllers.xaml</DependentUpon>
     </Compile>
     <Compile Include="controls\Joystick.xaml.cs">
       <DependentUpon>Joystick.xaml</DependentUpon>
@@ -105,7 +118,6 @@
     <Compile Include="controls\AirspeedIndicator.xaml.cs">
       <DependentUpon>AirspeedIndicator.xaml</DependentUpon>
     </Compile>
-
     <Compile Include="controls\YPRDisplayer.xaml.cs">
       <DependentUpon>YPRDisplayer.xaml</DependentUpon>
     </Compile>
@@ -177,6 +189,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="controls\images\ICompass\needle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="controls\images\IBrawseButton\folder.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

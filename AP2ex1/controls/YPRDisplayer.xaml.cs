@@ -18,9 +18,9 @@ namespace AP2ex1.controls
     /// <summary>
     /// Interaction logic for UserControl2.xaml
     /// </summary>
-    public partial class UserControl2 : UserControl
+    public partial class YPRDisplayer : UserControl
     {
-        public UserControl2()
+        public YPRDisplayer()
         {
             InitializeComponent();
         }

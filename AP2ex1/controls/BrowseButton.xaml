@@ -5,17 +5,24 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AP2ex1.controls"
              mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="100">
-    <Grid>
-        <Button x:Name="button" HorizontalAlignment="Center" VerticalAlignment="Center" Height="110">
-            <Button.Template>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Grid>
-                        <Image Source="images/IBrawseButton/folder.png" Height="70"/>
-                        <Label Content="Brawse .csv" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-                    </Grid>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-    </Grid>
+             d:DesignHeight="60" d:DesignWidth="40">
+    
+    <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform">
+        <Grid Height="60" Width="40">
+            <Button x:Name="button" HorizontalAlignment="Center" VerticalAlignment="Center" Height="60">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Image Source="images/IBrawseButton/folder.png" Height="40"/>
+                            <Label Grid.Row="1" Content="Brawse..." HorizontalAlignment = "Center" FontSize="7" FontWeight="Bold"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
+    </Viewbox>
 </UserControl>
