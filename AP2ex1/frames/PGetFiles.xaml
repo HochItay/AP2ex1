@@ -4,12 +4,48 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:AP2ex1.frames"
+      xmlns:Controls = "clr-namespace:AP2ex1.controls"
       mc:Ignorable="d" 
-      d:DesignHeight="400" d:DesignWidth="300"
+      d:DesignHeight="300" d:DesignWidth="300"
       Title="PGetFiles">
-    <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform">
+    <Page.Resources>
+        <Style x:Key="placeHolder" TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Grid>
+                            <TextBox Text="{Binding Path=Text,
+                                                RelativeSource={RelativeSource TemplatedParent}, 
+                                                Mode=TwoWay,
+                                                UpdateSourceTrigger=PropertyChanged}"
+                                 x:Name="textSource" 
+                                 Background="Transparent" 
+                                 Panel.ZIndex="2" />
+                            <TextBox Text="{TemplateBinding Tag}" Background="{TemplateBinding Background}" Panel.ZIndex="1">
+                                <TextBox.Style>
+                                    <Style TargetType="{x:Type TextBox}">
+                                        <Setter Property="Foreground" Value="Transparent"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=Text, Source={x:Reference textSource}}" Value="">
+                                                <Setter Property="Foreground" Value="LightGray"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBox.Style>
+                            </TextBox>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+        <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform">
         <Grid Height="400" Width="300">
+            <Label Content="flight geet .exe file path:"  HorizontalAlignment="Center" Margin="0,40,0,0" FontSize="20"/>
             <Button Content="OK" Width="100" Height="40" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,10" Click="SwitchAll"/>
+            <TextBox x:Name="textBox"  Style="{StaticResource placeHolder}" Tag="Put here the path to the flight geer .exe file" Height="23" Width="250" Margin="0,0,0,200" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+            <Controls:BrowseFileButton Width="100" VerticalAlignment="Center" Margin="150,70,0,0" Text="Browse .csv"/>
+            <Controls:BrowseFileButton Width="100" VerticalAlignment="Center" Margin="0,70,150,0" Text="Browse .xml"/>
         </Grid>
     </Viewbox>
 </Page>

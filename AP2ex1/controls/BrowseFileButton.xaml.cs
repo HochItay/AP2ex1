@@ -18,18 +18,28 @@ namespace AP2ex1.controls
     /// <summary>
     /// Interaction logic for BrowseButton.xaml
     /// </summary>
-    public partial class BrowseButton : UserControl
+    public partial class BrowseFileButton : UserControl
     {
-        public delegate void whatToDo();
-        public event whatToDo notifyAll;
-        public BrowseButton()
+        private string text = "Brawse File";
+        public string Text
         {
-            InitializeComponent();
+            get
+            {
+                return text;
+            }
+
+            set
+            {
+                if(text != value)
+                {
+                    text = value;
+                }
+            }
         }
 
-        private void BrawseFiles(object sender, RoutedEventArgs e)
+        public BrowseFileButton()
         {
-            notifyAll();
+            InitializeComponent();
         }
     }
 }
