@@ -19,6 +19,8 @@ namespace AP2ex1
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static readonly int WIN_CONTROLLERS_HEIGHT = 50;
+
         private frames.PSimulator pSimulator;
         private frames.PGetFiles pGetFiles;
 
@@ -27,9 +29,10 @@ namespace AP2ex1
             InitializeComponent();
 
             pSimulator = new frames.PSimulator();
-            pSimulator.notifyAll += SwitchFrames;
+            pSimulator.SwitchFrames += SwitchFrames;
 
             pGetFiles = new frames.PGetFiles();
+            pGetFiles.SwitchFrames += SwitchFrames;
 
             Display.Content = pSimulator;
         }
@@ -39,10 +42,14 @@ namespace AP2ex1
             if(Display.Content == pSimulator)
             {
                 Display.Content = pGetFiles;
+                WMain.Height = frames.PGetFiles.HEIGHT + WIN_CONTROLLERS_HEIGHT;
+                WMain.Width = frames.PGetFiles.WIDTH;
                 return;
             }
 
             Display.Content = pSimulator;
+            WMain.Height = frames.PSimulator.HEIGHT + WIN_CONTROLLERS_HEIGHT;
+            WMain.Width = frames.PSimulator.WIDTH;
         }
     }
 }

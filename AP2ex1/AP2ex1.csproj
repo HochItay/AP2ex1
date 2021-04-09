@@ -73,6 +73,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="controls\HorizontalSlider.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="controls\Joystick.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -84,6 +88,10 @@
     <Page Include="controls\AirspeedIndicator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\VerticalSlider.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="controls\YPRDisplayer.xaml">
       <SubType>Designer</SubType>
@@ -113,6 +121,9 @@
     <Compile Include="controls\FlightControllers.xaml.cs">
       <DependentUpon>FlightControllers.xaml</DependentUpon>
     </Compile>
+    <Compile Include="controls\HorizontalSlider.xaml.cs">
+      <DependentUpon>HorizontalSlider.xaml</DependentUpon>
+    </Compile>
     <Compile Include="controls\Joystick.xaml.cs">
       <DependentUpon>Joystick.xaml</DependentUpon>
     </Compile>
@@ -121,6 +132,9 @@
     </Compile>
     <Compile Include="controls\AirspeedIndicator.xaml.cs">
       <DependentUpon>AirspeedIndicator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\VerticalSlider.xaml.cs">
+      <DependentUpon>VerticalSlider.xaml</DependentUpon>
     </Compile>
     <Compile Include="controls\YPRDisplayer.xaml.cs">
       <DependentUpon>YPRDisplayer.xaml</DependentUpon>
