@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +22,8 @@ namespace AP2ex1.controls
     /// </summary>
     public partial class BrowseFileButton : UserControl
     {
+        private readonly string DIR_PATH = "dataFiles";
+
         private string text = "Brawse File";
         public string Text
         {
@@ -30,16 +34,63 @@ namespace AP2ex1.controls
 
             set
             {
-                if(text != value)
-                {
-                    text = value;
-                }
+                text = value;
+            }
+        }
+
+        private string filter;
+        public string Filter
+        {
+            get
+            {
+                return filter;
+            }
+
+            set
+            {
+                filter = value;
+            }
+        }
+
+        private string fileName;
+        public string FileName
+        {
+            get
+            {
+                return fileName;
+            }
+
+            set
+            {
+                fileName = value;
             }
         }
 
         public BrowseFileButton()
         {
             InitializeComponent();
+        }
+
+        private void SaveFile(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (!Directory.Exists(DIR_PATH))
+                {
+                    Directory.CreateDirectory(DIR_PATH);
+                }
+
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = filter;
+                if (openFileDialog.ShowDialog() == true)
+                {
+                    File.Copy(openFileDialog.FileName, DIR_PATH + "/" + fileName, true);
+                }
+            }
+            catch
+            {
+                //Got Exeption
+            }
         }
     }
 }
