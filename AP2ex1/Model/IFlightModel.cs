@@ -14,7 +14,7 @@ namespace AP2ex1.Model
         int VideoLength { get; }
         int VideoCurrentTime { get; set; }
         bool VideoIsRunning { get; set; }
-
+        
         string ChosenProperty { get; set; }
         string CorrelativeProperty { get; }
 
