@@ -21,12 +21,26 @@ namespace AP2ex1
     {
         private frames.PSimulator pSimulator;
         private frames.PGetFiles pGetFiles;
+
         public MainWindow()
         {
             InitializeComponent();
 
             pSimulator = new frames.PSimulator();
+            pSimulator.notifyAll += SwitchFrames;
+
             pGetFiles = new frames.PGetFiles();
+
+            Display.Content = pSimulator;
+        }
+
+        void SwitchFrames()
+        {
+            if(Display.Content == pSimulator)
+            {
+                Display.Content = pGetFiles;
+                return;
+            }
 
             Display.Content = pSimulator;
         }

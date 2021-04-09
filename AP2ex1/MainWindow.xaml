@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="440" Width="800">
 
-    <Frame x:Name="Display"/>
+    <Frame x:Name="Display" NavigationUIVisibility="Hidden"/>
 
 </Window>

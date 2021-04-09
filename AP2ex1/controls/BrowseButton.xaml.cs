@@ -20,9 +20,16 @@ namespace AP2ex1.controls
     /// </summary>
     public partial class BrowseButton : UserControl
     {
+        public delegate void whatToDo();
+        public event whatToDo notifyAll;
         public BrowseButton()
         {
             InitializeComponent();
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            notifyAll();
         }
     }
 }

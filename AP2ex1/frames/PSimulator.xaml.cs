@@ -20,9 +20,18 @@ namespace AP2ex1.frames
     /// </summary>
     public partial class PSimulator : Page
     {
+        public delegate void whatToDo();
+        public event whatToDo notifyAll;
+
         public PSimulator()
         {
             InitializeComponent();
+            BSwitchFrame.notifyAll += NotifyAll;
+        }
+
+        private void NotifyAll()
+        {
+            notifyAll();
         }
     }
 }
