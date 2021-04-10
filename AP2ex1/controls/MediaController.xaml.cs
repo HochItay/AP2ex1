@@ -20,6 +20,18 @@ namespace AP2ex1.controls
     /// </summary>
     public partial class MediaController : UserControl
     {
+        private double speed = 1;
+        public double Speed
+        {
+            get
+            {
+                return speed;
+            }
+            set
+            {
+                speed = Math.Round(value, 3);
+            }
+        }
         public MediaController()
         {
             InitializeComponent();
