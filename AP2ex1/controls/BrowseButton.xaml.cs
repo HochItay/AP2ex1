@@ -27,7 +27,7 @@ namespace AP2ex1.controls
             InitializeComponent();
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void BrawseFiles(object sender, RoutedEventArgs e)
         {
             notifyAll();
         }

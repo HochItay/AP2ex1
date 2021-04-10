@@ -5,10 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AP2ex1.controls"
              mc:Ignorable="d" 
-             d:DesignHeight="70" d:DesignWidth="470">
+             d:DesignHeight="70" d:DesignWidth="470" x:Name="This">
     <UserControl.Resources>
         <Image x:Name="IPlay" x:Key="IPlay" Source="images/IMediaController/play.png" Margin="6,0,0,0"/>
         <Image x:Name="IPause" x:Key="IPause" Source="images/IMediaController/pause.png"/>
+        <ObjectDataProvider x:Key="Speed"/>
     </UserControl.Resources>
 
     <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform">
@@ -16,7 +17,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="50"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -78,9 +79,9 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            <Slider x:Name="SSpeed" Grid.Row="1" Grid.Column="1" Minimum="0.25" Maximum="3" Value="1"
+            <Slider x:Name="SSpeed" Grid.Row="1" Grid.Column="1" Minimum="0.25" Maximum="3" Value="{Binding ElementName=This, Path=Speed, Mode=TwoWay}"
 					HorizontalAlignment="Right"  VerticalAlignment="Center" Width="90" Height="25" />
-            <Label  x:Name="LSpeed" Grid.Row="1" Grid.Column="2" Content="{Binding ElementName=SSpeed, Path=Value}"
+            <Label  x:Name="LSpeed" Grid.Row="1" Grid.Column="2" Content="{Binding ElementName=SSpeed, Path=Value, Mode=OneWay}"
                    Margin="10,0,0,0" Foreground="White" FontSize="15" VerticalAlignment="Center"/>
             <Label x:Name="x" Content="X" Grid.Row="1" Grid.Column="2" Foreground="White" FontSize="15" VerticalAlignment="Center"/>
 

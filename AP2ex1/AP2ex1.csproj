@@ -61,6 +61,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="controls\BrowseFileButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="controls\BrowseButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -111,6 +115,9 @@
     </Compile>
     <Compile Include="controls\Altimeter.xaml.cs">
       <DependentUpon>Altimeter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\BrowseFileButton.xaml.cs">
+      <DependentUpon>BrowseFileButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="controls\BrowseButton.xaml.cs">
       <DependentUpon>BrowseButton.xaml</DependentUpon>
@@ -217,6 +224,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="controls\images\IBrawseButton\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="controls\images\IBrawseFileButton\directory.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

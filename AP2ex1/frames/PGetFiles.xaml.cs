@@ -20,7 +20,7 @@ namespace AP2ex1.frames
     /// </summary>
     public partial class PGetFiles : Page
     {
-        public static readonly int HEIGHT = 400;
+        public static readonly int HEIGHT = 300;
         public static readonly int WIDTH = 300;
 
         public delegate void switchFrame();
