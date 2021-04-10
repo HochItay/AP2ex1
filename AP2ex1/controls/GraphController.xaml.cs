@@ -13,28 +13,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace AP2ex1.frames
+namespace AP2ex1.controls
 {
     /// <summary>
-    /// Interaction logic for PSimulator.xaml
+    /// Interaction logic for GraphController.xaml
     /// </summary>
-    public partial class PSimulator : Page
+    public partial class GraphController : UserControl
     {
-        public static readonly int HEIGHT = 400;
-        public static readonly int WIDTH = 900;
+        private controlersViewModel.VMGraphController graphVM;
 
-        public delegate void switchFrame();
-        public event switchFrame SwitchFrames;
-
-        public PSimulator()
+        public GraphController()
         {
             InitializeComponent();
-            BSwitchFrame.notifyAll += SwitchAll;
-        }
 
-        private void SwitchAll()
-        {
-            SwitchFrames();
+            graphVM = new controlersViewModel.VMGraphController();
+            DataContext = graphVM;
         }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AP2ex1"
         mc:Ignorable="d"
-        Title="MainWindow" x:Name="WMain" Height="440" Width="800">
+        Title="MainWindow" x:Name="WMain" Height="440" Width="900">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="#FF1B4855" Offset="0.01"/>

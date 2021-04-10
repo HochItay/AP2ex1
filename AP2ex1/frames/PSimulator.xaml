@@ -9,18 +9,19 @@
       Title="PSimulator">
 
     <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform">
-        <Grid>
+        <Grid Width="900" Height="400">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition />
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition/>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
+            <Controls:GraphController Grid.RowSpan="2" Width="550"/>
             <Controls:BrowseButton x:Name="BSwitchFrame" Grid.Row="2"  Width="50" HorizontalAlignment="Left" Margin="15,10,0,0"/>
-            <Controls:MediaController Grid.Row="2" Width="380" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="80,0,0,0"/>
+            <Controls:MediaController Grid.Row="2" Width="480" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="80,0,0,0"/>
             <Controls:AirspeedIndicator  Grid.Column="1" Height="100" Margin="0,0,220,120" Grid.Row="1"/>
             <Controls:Altimeter Grid.Column="1" Height="100" Margin="220,0,0,120" Grid.Row="1"/>
             <Controls:Compass Grid.Column="1" Width="80" HorizontalAlignment="Left" Margin="5,0,0,0"/>
