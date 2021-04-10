@@ -22,7 +22,8 @@ namespace AP2ex1.controls
     /// </summary>
     public partial class BrowseFileButton : UserControl
     {
-        private readonly string DIR_PATH = "dataFiles";
+        public delegate void whatToDo(string fiilePath);
+        public event whatToDo notifyFileChanged;
 
         private string text = "Brawse File";
         public string Text
@@ -52,17 +53,17 @@ namespace AP2ex1.controls
             }
         }
 
-        private string fileName;
-        public string FileName
+        private string filePath;
+        public string FilePath
         {
             get
             {
-                return fileName;
+                return filePath;
             }
 
             set
             {
-                fileName = value;
+                filePath = value;
             }
         }
 
@@ -75,16 +76,17 @@ namespace AP2ex1.controls
         {
             try
             {
-                if (!Directory.Exists(DIR_PATH))
+                if (!Directory.Exists(constatnts.Paths.DATA_DIR_PATH))
                 {
-                    Directory.CreateDirectory(DIR_PATH);
+                    Directory.CreateDirectory(constatnts.Paths.DATA_DIR_PATH);
                 }
 
                 OpenFileDialog openFileDialog = new OpenFileDialog();
                 openFileDialog.Filter = filter;
                 if (openFileDialog.ShowDialog() == true)
                 {
-                    File.Copy(openFileDialog.FileName, DIR_PATH + "/" + fileName, true);
+                    File.Copy(openFileDialog.FileName, filePath, true);
+                    notifyFileChanged(filePath);
                 }
             }
             catch
