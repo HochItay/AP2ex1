@@ -40,6 +40,9 @@ namespace AP2ex1.framesViewModel
             } else if(filePath.Equals(constatnts.Paths.XML_FILE_PATH))
             {
                 getFilesM.LoadSettingsFile(fGPath);
+            } else if (filePath.Equals(constatnts.Paths.DLL_FILE_PATH))
+            {
+                getFilesM.LoadDeviationAlgorithm(fGPath);
             }
         }
     }

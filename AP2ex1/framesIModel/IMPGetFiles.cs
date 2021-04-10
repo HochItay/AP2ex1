@@ -11,5 +11,6 @@ namespace AP2ex1.framesIModel
         void FGPathChanged(string fGPath);
         void LoadFlightDataFile(string path);
         void LoadSettingsFile(string path);
+        void LoadDeviationAlgorithm(string path);
     }
 }

@@ -32,13 +32,18 @@ namespace AP2ex1.frames
         {   
             InitializeComponent();
 
-            //getFilesVM = new framesViewModel.VMPGetFiles(new ...);
+            /*
+            getFilesVM = new framesViewModel.VMPGetFiles(new ...);
 
             BBrowseCsv.FilePath = constatnts.Paths.CSV_FILE_PATH;
             BBrowseCsv.notifyFileChanged += getFilesVM.FileDataChanged;
 
             BBrowseXml.FilePath = constatnts.Paths.XML_FILE_PATH;
             BBrowseXml.notifyFileChanged += getFilesVM.FileDataChanged;
+
+            BBrowseDll.FilePath = constatnts.Paths.DLL_FILE_PATH;
+            BBrowseDll.notifyFileChanged += getFilesVM.FileDataChanged;
+            */
         }
 
         private void SwitchAll(object sender, RoutedEventArgs e)

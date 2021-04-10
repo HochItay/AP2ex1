@@ -16,5 +16,5 @@ C:\Users\nadav\Source\Repos\HochItay\AP2ex1\AP2ex1\App.xaml
 181570203790
 controls\Altimeter.xaml;controls\BrowseFileButton.xaml;controls\BrowseButton.xaml;controls\Compass.xaml;controls\FlightControllers.xaml;controls\HorizontalSlider.xaml;controls\Joystick.xaml;controls\MediaController.xaml;controls\AirspeedIndicator.xaml;controls\VerticalSlider.xaml;controls\YPRDisplayer.xaml;frames\PGetFiles.xaml;frames\PSimulator.xaml;MainWindow.xaml;
 
-False
+True
 

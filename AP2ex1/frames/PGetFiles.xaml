@@ -41,11 +41,12 @@
     </Page.Resources>
         <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform">
         <Grid Height="400" Width="300">
-            <Label Content="flight geer .exe file full path:"  HorizontalAlignment="Center" Margin="0,40,0,0" FontSize="20"/>
+            <Label Content="flight geer .exe file full path:"  HorizontalAlignment="Center" Margin="0,20,0,0" FontSize="20"/>
             <Button Content="OK" Width="100" Height="40" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,10" Click="SwitchAll"/>
-            <TextBox x:Name="TBPath"  Style="{StaticResource placeHolder}" Tag="Put here the full path" Height="23" Width="250" Margin="0,0,0,200" TextWrapping="Wrap" HorizontalAlignment="Center"/>
-            <Controls:BrowseFileButton x:Name="BBrowseCsv" Width="100" VerticalAlignment="Center" Margin="150,70,0,0" Text="Browse .csv" Filter="Microsoft Excel Comma Separated Values File (.csv)|*.csv"/>
-            <Controls:BrowseFileButton x:Name="BBrowseXml" Width="100" VerticalAlignment="Center" Margin="0,70,150,0" Text="Browse .xml" Filter="XML Document (.xml)|*.xml"/>
+            <TextBox x:Name="TBPath"  Style="{StaticResource placeHolder}" Tag="Put here the full path" Height="23" Width="250" Margin="0,0,0,230" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+            <Controls:BrowseFileButton x:Name="BBrowseCsv" Width="100" VerticalAlignment="Center" Margin="150,0,0,30" Text="Browse .csv" Filter="Microsoft Excel Comma Separated Values File (.csv)|*.csv"/>
+            <Controls:BrowseFileButton x:Name="BBrowseXml" Width="100" VerticalAlignment="Center" Margin="0,0,150,30" Text="Browse .xml" Filter="XML Document (.xml)|*.xml"/>
+            <Controls:BrowseFileButton x:Name="BBrowseDll" Width="100" VerticalAlignment="Center" Margin="0,180,0,0" Text="Browse .dll" Filter="Application extension (.dll)|*.dll"/>
         </Grid>
     </Viewbox>
 </Page>
