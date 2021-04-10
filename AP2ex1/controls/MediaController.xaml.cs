@@ -29,7 +29,7 @@ namespace AP2ex1.controls
             }
             set
             {
-                speed = Math.Round(value,1);
+                speed = Math.Round(value, 1);
             }
         }
         public MediaController()

@@ -113,6 +113,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="constatnts\Paths.cs" />
     <Compile Include="controls\Altimeter.xaml.cs">
       <DependentUpon>Altimeter.xaml</DependentUpon>
     </Compile>
@@ -218,7 +219,9 @@
       <Version>19.1.0.55</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="controlersViewModel\" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="controls\images\ICompass\needle.png" />
   </ItemGroup>
