@@ -30,7 +30,10 @@ namespace AP2ex1.frames
         {
             InitializeComponent();
             BBrowseCsv.FilePath = constatnts.Paths.CSV_FILE_PATH;
-            BBrowseCsv.FilePath = constatnts.Paths.XML_FILE_PATH;
+            //BBrowseCsv.notifyFileChanged += FileDataChanged;
+
+            BBrowseXml.FilePath = constatnts.Paths.XML_FILE_PATH;
+            //BBrowseXml.notifyFileChanged += FileDataChanged;
         }
 
         private void SwitchAll(object sender, RoutedEventArgs e)
