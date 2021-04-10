@@ -79,7 +79,7 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            <Slider x:Name="SSpeed" Grid.Row="1" Grid.Column="1" Minimum="0.25" Maximum="3" Value="{Binding ElementName=This, Path=Speed, Mode=TwoWay}"
+            <Slider x:Name="SSpeed" Grid.Row="1" Grid.Column="1" Minimum="0.25" Maximum="3" Value="{Binding VMSpeed, Mode=TwoWay}"
 					HorizontalAlignment="Right"  VerticalAlignment="Center" Width="90" Height="25" />
             <Label  x:Name="LSpeed" Grid.Row="1" Grid.Column="2" Content="{Binding ElementName=SSpeed, Path=Value, Mode=OneWay}"
                    Margin="10,0,0,0" Foreground="White" FontSize="15" VerticalAlignment="Center"/>

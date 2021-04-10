@@ -4,17 +4,26 @@
 winexe
 C#
 .cs
-C:\Users\nadav\Source\Repos\HochItay\AP2ex1\AP2ex1\obj\Debug\
+C:\Users\USER\Source\Repos\HochItay\AP2ex1\AP2ex1\obj\Debug\
 AP2ex1
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 C:\Users\nadav\Source\Repos\HochItay\AP2ex1\AP2ex1\App.xaml
 15517653210
 
 261108834450
 222110755836
 controls\Altimeter.xaml;controls\BrowseFileButton.xaml;controls\BrowseButton.xaml;controls\Compass.xaml;controls\FlightControllers.xaml;controls\GraphController.xaml;controls\HorizontalSlider.xaml;controls\Joystick.xaml;controls\MediaController.xaml;controls\AirspeedIndicator.xaml;controls\VerticalSlider.xaml;controls\YPRDisplayer.xaml;frames\PGetFiles.xaml;frames\PSimulator.xaml;MainWindow.xaml;
+=======
+C:\Users\USER\Source\Repos\HochItay\AP2ex1\AP2ex1\App.xaml
+14802167064
 
-True
+25-826522919
+181009507931
+controls\Altimeter.xaml;controls\BrowseFileButton.xaml;controls\BrowseButton.xaml;controls\Compass.xaml;controls\FlightControllers.xaml;controls\HorizontalSlider.xaml;controls\Joystick.xaml;controls\MediaController.xaml;controls\AirspeedIndicator.xaml;controls\VerticalSlider.xaml;controls\YPRDisplayer.xaml;frames\PGetFiles.xaml;frames\PSimulator.xaml;MainWindow.xaml;
+>>>>>>> 5786743e17c765ee89b8dea92be5e6ff905561a9
+
+False
 

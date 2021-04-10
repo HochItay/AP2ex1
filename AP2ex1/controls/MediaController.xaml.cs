@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AP2ex1.controlersViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,21 +21,12 @@ namespace AP2ex1.controls
     /// </summary>
     public partial class MediaController : UserControl
     {
-        private double speed = 1;
-        public double Speed
-        {
-            get
-            {
-                return speed;
-            }
-            set
-            {
-                speed = Math.Round(value, 1);
-            }
-        }
+        IVMMediaController vm;
         public MediaController()
         {
+            vm = new VMMediaController();
             InitializeComponent();
+            DataContext = vm;
         }
     }
 }

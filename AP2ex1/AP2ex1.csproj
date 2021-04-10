@@ -118,7 +118,11 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="constatnts\Paths.cs" />
+<<<<<<< HEAD
     <Compile Include="controlersViewModel\VMGraphController.cs" />
+=======
+    <Compile Include="controlersViewModel\IVMMediaController.cs" />
+>>>>>>> 5786743e17c765ee89b8dea92be5e6ff905561a9
     <Compile Include="controlersViewModel\VMMediaController.cs" />
     <Compile Include="controls\Altimeter.xaml.cs">
       <DependentUpon>Altimeter.xaml</DependentUpon>
