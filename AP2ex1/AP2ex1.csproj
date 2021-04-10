@@ -114,6 +114,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="constatnts\Paths.cs" />
+    <Compile Include="controlersViewModel\VMMediaController.cs" />
     <Compile Include="controls\Altimeter.xaml.cs">
       <DependentUpon>Altimeter.xaml</DependentUpon>
     </Compile>
@@ -147,6 +148,8 @@
     <Compile Include="controls\YPRDisplayer.xaml.cs">
       <DependentUpon>YPRDisplayer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="framesViewModel\IVMPGetFiles.cs" />
+    <Compile Include="framesViewModel\VMPGetFiles.cs" />
     <Compile Include="frames\PGetFiles.xaml.cs">
       <DependentUpon>PGetFiles.xaml</DependentUpon>
     </Compile>
@@ -219,9 +222,7 @@
       <Version>19.1.0.55</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="controlersViewModel\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="controls\images\ICompass\needle.png" />
   </ItemGroup>

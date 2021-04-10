@@ -26,18 +26,24 @@ namespace AP2ex1.frames
         public delegate void switchFrame();
         public event switchFrame SwitchFrames;
 
+        private framesViewModel.IVMPGetFiles getFilesVM;
+
         public PGetFiles()
-        {
+        {   
             InitializeComponent();
+
+            //getFilesVM = new framesViewModel.VMPGetFiles(new ...);
+
             BBrowseCsv.FilePath = constatnts.Paths.CSV_FILE_PATH;
-            //BBrowseCsv.notifyFileChanged += FileDataChanged;
+            BBrowseCsv.notifyFileChanged += getFilesVM.FileDataChanged;
 
             BBrowseXml.FilePath = constatnts.Paths.XML_FILE_PATH;
-            //BBrowseXml.notifyFileChanged += FileDataChanged;
+            BBrowseXml.notifyFileChanged += getFilesVM.FileDataChanged;
         }
 
         private void SwitchAll(object sender, RoutedEventArgs e)
         {
+            getFilesVM.FGPath = TBPath.Text;
             SwitchFrames();
         }
     }
