@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OxyPlot;
 using OxyPlot.Axes;
+using OxyPlot.Series;
 
 namespace AP2ex1.controlersViewModel
 {
@@ -21,7 +22,8 @@ namespace AP2ex1.controlersViewModel
 
             set
             { 
-                plotModel = value; OnPropertyChanged("PlotModel"); 
+                plotModel = value;
+                OnPropertyChanged("PlotModel"); 
             }
         }
 
@@ -29,19 +31,21 @@ namespace AP2ex1.controlersViewModel
         {
             PlotModel = new PlotModel();
             SetUpModel();
+            Func<double, double> batFn1 = (x) => Math.Sqrt(5-Math.Pow(x,2));
+            PlotModel.Series.Add(new FunctionSeries(batFn1, 0, 5, 0.00001));
         }
 
         private void SetUpModel()
         {
-            PlotModel.LegendTitle = "Legend";
+            PlotModel.LegendTitle = "Dots Graph";
             PlotModel.LegendTitleFontSize = 20;
             PlotModel.LegendOrientation = LegendOrientation.Horizontal;
             PlotModel.LegendPlacement = LegendPlacement.Outside;
             PlotModel.LegendPosition = LegendPosition.TopCenter;
 
-            var dateAxis = new DateTimeAxis() { Position = AxisPosition.Bottom, Title = "Time", StringFormat = "mm:ss", MajorGridlineStyle = LineStyle.Solid, MinorGridlineStyle = LineStyle.Dot, IntervalLength = 80 };
+            var dateAxis = new TimeSpanAxis() {Position = AxisPosition.Bottom, StringFormat = "mm:ss"};
             PlotModel.Axes.Add(dateAxis);
-            var valueAxis = new LinearAxis() {Position = AxisPosition.Left, StartPosition = 0,MajorGridlineStyle = LineStyle.Solid, MinorGridlineStyle = LineStyle.Dot, Title = "Value" };
+            var valueAxis = new LinearAxis() {Position = AxisPosition.Left};
             PlotModel.Axes.Add(valueAxis);
         }
 

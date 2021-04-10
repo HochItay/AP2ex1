@@ -47,11 +47,8 @@
                     <Oxy:LineSeries ItemsSource="{Binding Points}"/>
                 </Oxy:Plot.Series>
             </Oxy:Plot>
-            <Oxy:Plot Title="Dots Graph With Regression Line" Height="450" Width="440" Background="AliceBlue" HorizontalAlignment="Left" VerticalAlignment="Bottom">
-                <Oxy:Plot.Series>
-                    <Oxy:ScatterSeries ItemsSource="{Binding Points}"/>
-                </Oxy:Plot.Series>
-            </Oxy:Plot>
+
+            <Oxy:PlotView x:Name="DGraph" Model="{Binding PlotModel}" Height="450" Width="440" Background="AliceBlue" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
         </Grid>
     </Viewbox>
 </UserControl>
