@@ -148,6 +148,7 @@
     <Compile Include="controls\YPRDisplayer.xaml.cs">
       <DependentUpon>YPRDisplayer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="framesIModel\IMPGetFiles.cs" />
     <Compile Include="framesViewModel\IVMPGetFiles.cs" />
     <Compile Include="framesViewModel\VMPGetFiles.cs" />
     <Compile Include="frames\PGetFiles.xaml.cs">
