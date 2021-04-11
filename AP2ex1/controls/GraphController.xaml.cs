@@ -35,12 +35,15 @@ namespace AP2ex1.controls
 
             vmLGraph = new controlersViewModel.VMLinesGraph();
             LGraph.Model = vmLGraph.PlotModel;
+            vmLGraph.PlotModel.LegendTitle = "Choosen Variable Graph";
 
             vmCLGraph = new controlersViewModel.VMLinesGraph();
             CLGraph.Model = vmCLGraph.PlotModel;
+            vmCLGraph.PlotModel.LegendTitle = "Correlative Variable Graph";
 
             vmDGraph = new controlersViewModel.VMDotsGraph();
             DGraph.Model = vmDGraph.PlotModel;
+            vmDGraph.PlotModel.LegendTitle = "Anomaly Detection Graph";
 
 
             CBDisplay.ItemsSource = new List<string>() {"a","b","c"};

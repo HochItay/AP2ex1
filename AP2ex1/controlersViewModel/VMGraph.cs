@@ -36,7 +36,7 @@ namespace AP2ex1.controlersViewModel
 
         private void SetUpModel()
         {
-            PlotModel.LegendTitleFontSize = 20;
+            PlotModel.LegendTitleFontSize = 15;
             PlotModel.LegendOrientation = LegendOrientation.Horizontal;
             PlotModel.LegendPlacement = LegendPlacement.Outside;
             PlotModel.LegendPosition = LegendPosition.TopCenter;
