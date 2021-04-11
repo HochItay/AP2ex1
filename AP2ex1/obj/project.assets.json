@@ -27,24 +27,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\itayh\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\nitay\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\itayh\\Documents\\GitHub\\AP2ex1\\AP2ex1\\AP2ex1.csproj",
+      "projectUniqueName": "C:\\Users\\nitay\\Documents\\GitHub\\AP2ex1\\AP2ex1\\AP2ex1.csproj",
       "projectName": "AP2ex1",
-      "projectPath": "C:\\Users\\itayh\\Documents\\GitHub\\AP2ex1\\AP2ex1\\AP2ex1.csproj",
-      "packagesPath": "C:\\Users\\itayh\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\itayh\\Documents\\GitHub\\AP2ex1\\AP2ex1\\obj\\",
+      "projectPath": "C:\\Users\\nitay\\Documents\\GitHub\\AP2ex1\\AP2ex1\\AP2ex1.csproj",
+      "packagesPath": "C:\\Users\\nitay\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\nitay\\Documents\\GitHub\\AP2ex1\\AP2ex1\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\itayh\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\nitay\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -58,8 +53,8 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "projectReferences": {
-            "C:\\Users\\itayh\\Documents\\GitHub\\AP2ex1\\PuginInterface\\PuginInterface.csproj": {
-              "projectPath": "C:\\Users\\itayh\\Documents\\GitHub\\AP2ex1\\PuginInterface\\PuginInterface.csproj"
+            "C:\\Users\\nitay\\Documents\\GitHub\\AP2ex1\\PuginInterface\\PuginInterface.csproj": {
+              "projectPath": "C:\\Users\\nitay\\Documents\\GitHub\\AP2ex1\\PuginInterface\\PuginInterface.csproj"
             }
           }
         }
