@@ -19,7 +19,7 @@ namespace AP2ex1
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static readonly int WIN_CONTROLLERS_HEIGHT = 50;
+        public static readonly int WIN_CONTROLLERS_HEIGHT = 40;
 
         private frames.PSimulator pSimulator;
         private frames.PGetFiles pGetFiles;

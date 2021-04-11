@@ -10,7 +10,7 @@ using OxyPlot.Series;
 
 namespace AP2ex1.controlersViewModel
 {
-    class VMGraphController: INotifyPropertyChanged
+    class VMGraph: INotifyPropertyChanged
     {
         private PlotModel plotModel;
         public PlotModel PlotModel
@@ -27,11 +27,11 @@ namespace AP2ex1.controlersViewModel
             }
         }
 
-        public VMGraphController()
+        public VMGraph()
         {
             PlotModel = new PlotModel();
             SetUpModel();
-            Func<double, double> batFn1 = (x) => Math.Sqrt(5-Math.Pow(x,2));
+            Func<double, double> batFn1 = (x) => x;
             PlotModel.Series.Add(new FunctionSeries(batFn1, 0, 5, 0.00001));
         }
 

@@ -21,7 +21,7 @@ namespace AP2ex1.frames
     public partial class PSimulator : Page
     {
         public static readonly int HEIGHT = 400;
-        public static readonly int WIDTH = 900;
+        public static readonly int WIDTH = 800;
 
         public delegate void switchFrame();
         public event switchFrame SwitchFrames;

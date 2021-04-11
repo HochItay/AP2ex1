@@ -48,7 +48,7 @@ namespace AP2ex1.frames
 
         private void SwitchAll(object sender, RoutedEventArgs e)
         {
-            getFilesVM.FGPath = TBPath.Text;
+            //getFilesVM.FGPath = TBPath.Text;
             SwitchFrames();
         }
     }

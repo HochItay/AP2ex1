@@ -21,13 +21,13 @@ namespace AP2ex1.controls
     /// </summary>
     public partial class GraphController : UserControl
     {
-        private controlersViewModel.VMGraphController graphVM;
+        private controlersViewModel.VMGraph graphVM;
 
         public GraphController()
         {
             InitializeComponent();
 
-            graphVM = new controlersViewModel.VMGraphController();
+            graphVM = new controlersViewModel.VMGraph();
             DataContext = graphVM;
         }
     }
