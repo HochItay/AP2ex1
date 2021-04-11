@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AP2ex1.controlersViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,15 @@ namespace AP2ex1.controls
     /// </summary>
     public partial class YPRDisplayer : UserControl
     {
+        private IVMYPRDisplayer vm;
         public YPRDisplayer()
         {
             InitializeComponent();
+            vm = new VMYPRDisplayer();
+            DataContext = vm;
+            vm.Roll = 50;
+            vm.Pitch = 180;
+            vm.Yaw = 120;
         }
     }
 }

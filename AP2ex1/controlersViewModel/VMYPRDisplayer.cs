@@ -1,0 +1,49 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AP2ex1.controlersViewModel
+{
+    class VMYPRDisplayer : IVMYPRDisplayer
+    {
+        private int yaw;
+        private int pitch;
+        private int roll;
+        public int Yaw
+        {
+            get
+            {
+                return yaw;
+            }
+            set
+            {
+                yaw = value;
+            }
+        }
+        public int Pitch
+        {
+            get
+            {
+                return pitch;
+            }
+            set
+            {
+                pitch = value;
+            }
+        }
+        public int Roll
+        {
+            get
+            {
+                return roll;
+            }
+            set
+            {
+                roll = value;
+            }
+        }
+
+    }
+}

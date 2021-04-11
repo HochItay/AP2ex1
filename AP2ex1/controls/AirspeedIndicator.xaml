@@ -34,7 +34,7 @@
                         </gauge:CircularScale.Ranges>
 
                         <gauge:CircularScale.Pointers>
-                            <gauge:CircularPointer EnableAnimation="True" Value="{Binding InsideValue}" NeedleLengthFactor="0.77" NeedlePointerStroke="#f7ab9c"
+                            <gauge:CircularPointer EnableAnimation="True" Value="{Binding Speed}" NeedleLengthFactor="0.77" NeedlePointerStroke="#f7ab9c"
                             NeedlePointerStrokeThickness="12" TailLengthFactor="0.15" TailFill="#f7ab9c" KnobRadiusFactor="0.08" KnobStroke="#eff2f1" KnobStrokeThickness="5" KnobFill="#e8e8e8" NeedlePointerType="Triangle"/>
                         </gauge:CircularScale.Pointers>
                     </gauge:CircularScale>
@@ -44,7 +44,7 @@
                     <gauge:GaugeAnnotation Angle="90" Offset="0.6">
                         <gauge:GaugeAnnotation.Content>
                             <Border BorderBrush="#6f6d6d" BorderThickness="2" Background="#babab2" CornerRadius="3">
-                                <TextBlock x:Name="text" Text="0"  Foreground="#403f3d" FontSize="16" FontWeight="Bold"  Margin="10,1,10,1" />
+                                <TextBlock x:Name="text" Text="{Binding Speed}"  Foreground="#403f3d" FontSize="16" FontWeight="Bold"  Margin="10,1,10,1" />
                             </Border>
                         </gauge:GaugeAnnotation.Content>
                     </gauge:GaugeAnnotation>

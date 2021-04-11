@@ -10,12 +10,15 @@
         <Grid Height="300" Width="300">
             <Image Source = "images/ICompass/compass.png" RenderTransformOrigin="0.51,0.5" Height="300" Width="300">
                 <Image.RenderTransform>
-                    <RotateTransform Angle="0"/>
+                    <RotateTransform Angle="{Binding CompassAngle}"/>
                 </Image.RenderTransform>
             </Image>
-            <Image Source="images/ICompass/needle.png" RenderTransformOrigin="0.486,0.518" Height="200" Width="300" Margin="0,0,0,35"/>
-            <Label FontSize="40" Content="0°" Foreground="#9b9b9b" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.831,0.608"/>
 
+            <Image Source="images/ICompass/needle.png" RenderTransformOrigin="0.486,0.518" Height="200" Width="300" Margin="0,0,0,35"/>
+            <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label FontSize="40" Content="{Binding CompassAngle}" Foreground="#9b9b9b" FontWeight="SemiBold"  RenderTransformOrigin="0.831,0.608"/>
+                <Label FontSize="40" Content="°" Foreground="#9b9b9b" FontWeight="SemiBold"  RenderTransformOrigin="0.831,0.608"/>
+            </DockPanel>
         </Grid>
     </Viewbox>
 </UserControl>
