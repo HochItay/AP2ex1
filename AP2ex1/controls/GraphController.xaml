@@ -8,10 +8,10 @@
              mc:Ignorable="d" >
     
     <UserControl.Resources>
-        <Style x:Key="placeHolder" TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
+        <Style x:Key="placeHolder" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource {x:Type ComboBox}}">
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type TextBox}">
+                    <ControlTemplate TargetType="{x:Type ComboBox}">
                         <Grid>
                             <TextBox Text="{Binding Path=Text,
                                                 RelativeSource={RelativeSource TemplatedParent}, 
@@ -22,7 +22,7 @@
                                  Panel.ZIndex="2" />
                             <TextBox Text="{TemplateBinding Tag}" Background="{TemplateBinding Background}" Panel.ZIndex="1">
                                 <TextBox.Style>
-                                    <Style TargetType="{x:Type TextBox}">
+                                    <Style TargetType="{x:Type ComboBox}">
                                         <Setter Property="Foreground" Value="Transparent"/>
                                         <Style.Triggers>
                                             <DataTrigger Binding="{Binding Path=Text, Source={x:Reference textSource}}" Value="">
@@ -40,12 +40,12 @@
     </UserControl.Resources>
     <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform">
         <Grid Height="500" Width="800">
-            <TextBox x:Name="textBox" Style="{StaticResource placeHolder}" Tag="Name of variable to Display" Height="23" Width="200" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <Button x:Name="button" Content="Display" Height="23" Width="75" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="210,0,0,0"/>
             <Oxy:PlotView Height="230" Width="290" Background="AliceBlue" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,210"/>
             <Oxy:PlotView Height="230" Width="290" Background="AliceBlue" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
             <Oxy:PlotView x:Name="DGraph" Model="{Binding PlotModel}" Height="500" Width="500" Background="AliceBlue" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
-            
+            <ComboBox x:Name="CBDisplay" IsEditable="True" IsReadOnly="True" HorizontalAlignment="Left" VerticalAlignment="Top" Width="210"/>
+            <Button x:Name="BDisplay" Content="Display" Height="23" Width="75" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="215,0,0,0" Click="DisplayGraphs"/>
+
         </Grid>
     </Viewbox>
 </UserControl>

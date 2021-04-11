@@ -21,14 +21,29 @@ namespace AP2ex1.controls
     /// </summary>
     public partial class GraphController : UserControl
     {
+        private readonly string CB_PLACE_HOLDER = "Choose Variable To Display";
         private controlersViewModel.VMGraph graphVM;
 
         public GraphController()
         {
             InitializeComponent();
 
+            CBDisplay.Text = CB_PLACE_HOLDER;
+
             graphVM = new controlersViewModel.VMGraph();
             DataContext = graphVM;
+
+            CBDisplay.ItemsSource = new List<string>() {"a","b","c"};
         }
+
+        private void DisplayGraphs(object sender, RoutedEventArgs e)
+        {
+            if(CBDisplay.Text.Equals(CB_PLACE_HOLDER))
+            {
+                return;
+            }
+            Console.WriteLine(CBDisplay.Text);
+        }
+
     }
 }
