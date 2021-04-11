@@ -1,4 +1,5 @@
-﻿using OxyPlot.Series;
+﻿using OxyPlot;
+using OxyPlot.Series;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,9 @@ namespace AP2ex1.controls
     public partial class GraphController : UserControl
     {
         private readonly string CB_PLACE_HOLDER = "Choose Variable To Display";
-        private controlersViewModel.VMGraph graphVM;
+        private controlersViewModel.VMLinesGraph vmLGraph;
+        private controlersViewModel.VMLinesGraph vmCLGraph;
+        private controlersViewModel.VMDotsGraph vmDGraph;
 
         public GraphController()
         {
@@ -30,8 +33,15 @@ namespace AP2ex1.controls
 
             CBDisplay.Text = CB_PLACE_HOLDER;
 
-            graphVM = new controlersViewModel.VMGraph();
-            DataContext = graphVM;
+            vmLGraph = new controlersViewModel.VMLinesGraph();
+            LGraph.Model = vmLGraph.PlotModel;
+
+            vmCLGraph = new controlersViewModel.VMLinesGraph();
+            CLGraph.Model = vmCLGraph.PlotModel;
+
+            vmDGraph = new controlersViewModel.VMDotsGraph();
+            DGraph.Model = vmDGraph.PlotModel;
+
 
             CBDisplay.ItemsSource = new List<string>() {"a","b","c"};
         }
@@ -42,7 +52,7 @@ namespace AP2ex1.controls
             {
                 return;
             }
-            Console.WriteLine(CBDisplay.Text);
+
         }
 
     }
