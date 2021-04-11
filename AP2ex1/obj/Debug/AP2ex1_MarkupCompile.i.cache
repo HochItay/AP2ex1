@@ -12,9 +12,9 @@ DEBUG;TRACE
 C:\Users\USER\Source\Repos\HochItay\AP2ex1\AP2ex1\App.xaml
 15517653210
 
-29-1309082848
+31-1443682143
 221739882353
 controls\Altimeter.xaml;controls\BrowseFileButton.xaml;controls\BrowseButton.xaml;controls\Compass.xaml;controls\FlightControllers.xaml;controls\GraphController.xaml;controls\HorizontalSlider.xaml;controls\Joystick.xaml;controls\MediaController.xaml;controls\AirspeedIndicator.xaml;controls\VerticalSlider.xaml;controls\YPRDisplayer.xaml;frames\PGetFiles.xaml;frames\PSimulator.xaml;MainWindow.xaml;
 
-True
+False
 

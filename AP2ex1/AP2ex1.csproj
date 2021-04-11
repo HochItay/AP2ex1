@@ -120,9 +120,11 @@
     <Compile Include="constatnts\Paths.cs" />
     <Compile Include="controlersViewModel\IVMFlightData.cs" />
     <Compile Include="controlersViewModel\IVMMediaController.cs" />
+    <Compile Include="controlersViewModel\IVMYPRDisplayer.cs" />
     <Compile Include="controlersViewModel\VMFlightData.cs" />
     <Compile Include="controlersViewModel\VMGraph.cs" />
     <Compile Include="controlersViewModel\VMMediaController.cs" />
+    <Compile Include="controlersViewModel\VMYPRDisplayer.cs" />
     <Compile Include="controls\Altimeter.xaml.cs">
       <DependentUpon>Altimeter.xaml</DependentUpon>
     </Compile>
