@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AP2ex1.controlersViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,12 @@ namespace AP2ex1.controls
     /// </summary>
     public partial class AirspeedIndicator : UserControl
     {
+        private IVMFlightData vm;
         public AirspeedIndicator()
         {
             InitializeComponent();
+            vm = new VMFlightData();
+            DataContext = vm;
         }
     }
 }

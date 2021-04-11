@@ -13,5 +13,15 @@ namespace AP2ex1.controlersViewModel
             set;
             get;
         }
+        int Speed
+        {
+            set;
+            get;
+        }
+        int Height
+        {
+            set;
+            get;
+        }
     }
 }

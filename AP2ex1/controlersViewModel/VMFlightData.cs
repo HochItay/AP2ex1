@@ -9,6 +9,8 @@ namespace AP2ex1.controlersViewModel
     class VMFlightData : IVMFlightData
     {
         private int compassAngle = 180;
+        private int speed = 150;
+        private int height = 100;
         public int CompassAngle
         {
             get
@@ -18,6 +20,28 @@ namespace AP2ex1.controlersViewModel
             set
             {
                 compassAngle = value;
+            }
+        }
+        public int Speed
+        {
+            get
+            {
+                return speed;
+            }
+            set
+            {
+                speed = value;
+            }
+        }
+        public int Height
+        {
+            get
+            {
+                return height;
+            }
+            set
+            {
+                height = value;
             }
         }
     }
