@@ -20,7 +20,7 @@ namespace AP2ex1.controlersViewModel
             PlotModel.Axes.Add(dateAxis);
         }
 
-        public void setGraphData(IList<ScatterPoint> points)
+        public void SetGraphData(IList<ScatterPoint> points)
         {
             PlotModel.Series.Clear();
 
@@ -45,7 +45,7 @@ namespace AP2ex1.controlersViewModel
             });
         }
 
-        public void addPoints(IList<ScatterPoint> points)
+        public void AddPoints(IList<ScatterPoint> points)
         {
             foreach (ScatterPoint point in points)
             {
@@ -55,7 +55,7 @@ namespace AP2ex1.controlersViewModel
             PlotModel.InvalidatePlot(true);
         }
 
-        public void addMarkedPoints(IList<ScatterPoint> points)
+        public void AddMarkedPoints(IList<ScatterPoint> points)
         {
             foreach (ScatterPoint point in points)
             {
@@ -65,7 +65,7 @@ namespace AP2ex1.controlersViewModel
             PlotModel.InvalidatePlot(true);
         }
 
-        public void setRegressionFunc(IList<Tuple<Func<double,double>, double, double>> regFuncs, double maxValue, double minValue)
+        public void SetRegressionFunc(IList<Tuple<Func<double,double>, double, double>> regFuncs, double maxValue, double minValue)
         {
             foreach (var funcSeries in regFuncs)
             {

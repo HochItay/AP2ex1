@@ -34,7 +34,8 @@ namespace AP2ex1.frames
         {   
             InitializeComponent();
 
-            getFilesVM = new framesViewModel.VMPGetFiles(new model());
+            /*
+            getFilesVM = new framesViewModel.VMPGetFiles(new ...);
 
             BBrowseCsv.notifyFileChanged += getFilesVM.FileDataChanged;
 
@@ -43,6 +44,7 @@ namespace AP2ex1.frames
             BBrowseDll.notifyFileChanged += getFilesVM.FileDataChanged;
 
             BBrowseFG.notifyFileChanged += getFilesVM.FileDataChanged;
+            */
         }
 
         private void SwitchAll(object sender, RoutedEventArgs e)
