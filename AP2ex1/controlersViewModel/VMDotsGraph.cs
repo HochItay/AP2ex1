@@ -64,5 +64,27 @@ namespace AP2ex1.controlersViewModel
 
             PlotModel.InvalidatePlot(true);
         }
+
+        public void setRegressionFunc(IList<Tuple<Func<double,double>, double, double>> regFuncs, double maxValue, double minValue)
+        {
+            foreach (var funcSeries in regFuncs)
+            {
+                Func<double, double> func = funcSeries.Item1;
+                double start = funcSeries.Item2;
+                double end = funcSeries.Item3;
+
+                if(Double.IsInfinity(start))
+                {
+                    start = minValue;
+                }
+
+                if (Double.IsInfinity(end))
+                {
+                    end = maxValue;
+                }
+
+                PlotModel.Series.Add(new FunctionSeries(func, start, end, 0.0001));
+            }
+        }
     }
 }

@@ -8,7 +8,7 @@ namespace AP2ex1.framesIModel
 {
     interface IMPGetFiles
     {
-        void FGPathChanged(string fGPath);
+        void FGPathChanged(string path);
         void LoadFlightDataFile(string path);
         void LoadSettingsFile(string path);
         void LoadDeviationAlgorithm(string path);
