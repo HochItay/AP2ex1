@@ -11,7 +11,7 @@ using PluginInterface;
 
 namespace AP2ex1.Model
 {
-    public class FlightModel : IFlightModel
+    public partial class FlightModel : IFlightModel
     {
         private const int FPS = 10; // default value of FPS.
         private const double MILI = 1000.0; // second in milliseconds.
@@ -147,6 +147,7 @@ namespace AP2ex1.Model
                 {
                     VideoIsRunning = false;
                 }
+                NotifyChanges();            // notifies all the fields have changed - because we passed to a new frame.
 
                 sw.Stop();
 
