@@ -10,7 +10,7 @@ namespace AP2ex1.controlersModel
     interface IMGraphController : IMGraph
     {
         IList<string> GetVarsNames();
-        int GedNumPointsPerSec();
+        int GetNumPointsPerSec();
         string GetCorrelativeVar(string var);
         IList<Point> GetVarPoints(string var);
         Tuple<IList<Point>, IList<Point>> GetAnomalyGraphPoints(string var, string corrilativeVar);
