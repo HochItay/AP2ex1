@@ -123,6 +123,11 @@ namespace AP2ex1.Model
         {
             ad = AnomalyDllLoader.LoadDll(filePath);
             ad.LearnNormal(regFlight, fp.GetPropertiesNames());
+
+            if (flightFilePath != null)
+            {
+                this.InitAnomalies();
+            }
         }
 
         /// <summary>
