@@ -8,7 +8,7 @@ namespace AP2ex1.Model
 {
     public partial class FlightModel : IFlightModel
     {
-        private readonly string[] properties =  { "CompassAngle", "Speed", "Height", "JoystickX", "JoystickY", "Yaw", "Pitch", "Roll"};
+        private readonly string[] properties =  { "CurrentLine","CompassAngle", "Speed", "Height", "JoystickX", "JoystickY", "Yaw", "Pitch", "Roll"};
 
         public int CompassAngle
         {
@@ -22,7 +22,7 @@ namespace AP2ex1.Model
         {
             get
             {
-                return (int)fp.GetPropertyAtLine("", currentLine);
+                return (int)fp.GetPropertyAtLine("airspeed-kt", currentLine);
             }
         }
 
@@ -30,7 +30,7 @@ namespace AP2ex1.Model
         {
             get
             {
-                return (int)fp.GetPropertyAtLine("", currentLine);
+                return (int)fp.GetPropertyAtLine("altitude-ft", currentLine);
             }
         }
 
@@ -38,7 +38,7 @@ namespace AP2ex1.Model
         {
             get
             {
-                return (int)fp.GetPropertyAtLine("", currentLine);
+                return (int)fp.GetPropertyAtLine("aileron", currentLine);
             }
         }
 
@@ -46,7 +46,7 @@ namespace AP2ex1.Model
         {
             get
             {
-                return (int)fp.GetPropertyAtLine("", currentLine);
+                return (int)fp.GetPropertyAtLine("elevator", currentLine);
             }
         }
 
@@ -54,7 +54,7 @@ namespace AP2ex1.Model
         {
             get
             {
-                return (int)fp.GetPropertyAtLine("", currentLine);
+                return (int)fp.GetPropertyAtLine("side-slip-deg", currentLine);
             }
         }
 
@@ -62,7 +62,7 @@ namespace AP2ex1.Model
         {
             get
             {
-                return (int)fp.GetPropertyAtLine("", currentLine);
+                return (int)fp.GetPropertyAtLine("pitch-deg", currentLine);
             }
         }
 
@@ -70,7 +70,15 @@ namespace AP2ex1.Model
         {
             get
             {
-                return (int)fp.GetPropertyAtLine("", currentLine);
+                return (int)fp.GetPropertyAtLine("roll-deg", currentLine);
+            }
+        }
+
+        public int CurrentLine
+        {
+            get
+            {
+                return currentLine;
             }
         }
 

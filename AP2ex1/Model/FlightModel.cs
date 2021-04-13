@@ -105,6 +105,27 @@ namespace AP2ex1.Model
         }
 
         /// <summary>
+        /// return the most correlative feature
+        /// </summary>
+        /// <param name="feature"> feature to find the most correlative to</param>
+        /// <returns></returns>
+        public string GetCorrelativeFeature(string feature)
+        {
+            return ad.GetCorrelatedFeature(feature);
+        }
+
+        /// <summary>
+        /// return a graph that represent the anomaly alogithm
+        /// the graph is reresented by a function, starting cordinate and ending cordinate
+        /// </summary>
+        /// <param name="feature"> feature to get graph of</param>
+        /// <returns> we return list of this tuples to be able to draw non-function graphs such as circle</returns>
+        public IList<Tuple<Func<double, double>, double, double>> GetGraph(string feature)
+        {
+            return ad.GetGraph(feature);
+        }
+
+        /// <summary>
         /// loading the data file.
         /// </summary>
         /// <param name="filePath"> the path of the data file (csv file). </param>
