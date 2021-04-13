@@ -17,6 +17,9 @@ namespace AP2ex1.Model
         
         string ChosenProperty { get; set; }
         string CorrelativeProperty { get; }
+        
+        // gets all the names of the variables.
+        IList<string> GetVarsNames();
 
         // file loading methods
         void LoadFlightDataFile(string filePath);
