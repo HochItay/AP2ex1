@@ -12,6 +12,8 @@ namespace AP2ex1.controlersViewModel
 {
     abstract class VMGraph: INotifyPropertyChanged
     {
+        protected Axis xAxe;
+        protected Axis yAxe;
         private PlotModel plotModel;
         public PlotModel PlotModel
         {
@@ -21,9 +23,12 @@ namespace AP2ex1.controlersViewModel
             }
 
             set
-            { 
-                plotModel = value;
-                OnPropertyChanged("PlotModel"); 
+            {
+                if (plotModel != value)
+                {
+                    plotModel = value;
+                    OnPropertyChanged("PlotModel");
+                }
             }
         }
 
@@ -34,6 +39,23 @@ namespace AP2ex1.controlersViewModel
             
         }
 
+        public void SetTitle(string title)
+        {
+            PlotModel.LegendTitle = title;
+        }
+
+        public void SetYTitle(string title)
+        {
+            yAxe.Title = title;
+            PlotModel.InvalidatePlot(true);
+        }
+
+        public void SetXTitle(string title)
+        {
+            xAxe.Title = title;
+            PlotModel.InvalidatePlot(true);
+        }
+
         private void SetUpModel()
         {
             PlotModel.LegendTitleFontSize = 15;
@@ -41,8 +63,8 @@ namespace AP2ex1.controlersViewModel
             PlotModel.LegendPlacement = LegendPlacement.Outside;
             PlotModel.LegendPosition = LegendPosition.TopCenter;
 
-            var valueAxis = new LinearAxis() {Position = AxisPosition.Left};
-            PlotModel.Axes.Add(valueAxis);
+            yAxe = new LinearAxis() {Position = AxisPosition.Left};
+            PlotModel.Axes.Add(yAxe);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

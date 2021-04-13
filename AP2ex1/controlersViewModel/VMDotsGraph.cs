@@ -16,8 +16,8 @@ namespace AP2ex1.controlersViewModel
 
         public VMDotsGraph()
         {
-            var dateAxis = new LinearAxis() { Position = AxisPosition.Bottom};
-            PlotModel.Axes.Add(dateAxis);
+            xAxe = new LinearAxis() { Position = AxisPosition.Bottom};
+            PlotModel.Axes.Add(xAxe);
         }
 
         public void SetGraphData(IList<ScatterPoint> points)

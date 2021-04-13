@@ -15,8 +15,8 @@ namespace AP2ex1.controlersViewModel
 
         public VMLinesGraph()
         {
-            var dateAxis = new TimeSpanAxis() { Position = AxisPosition.Bottom, StringFormat = "mm:ss" };
-            PlotModel.Axes.Add(dateAxis);
+            xAxe = new TimeSpanAxis() { Position = AxisPosition.Bottom, StringFormat = "mm:ss"};
+            PlotModel.Axes.Add(xAxe);
         }
 
         public void SetGraphData(IList<DataPoint> points)

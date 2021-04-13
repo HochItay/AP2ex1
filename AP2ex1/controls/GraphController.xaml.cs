@@ -23,30 +23,18 @@ namespace AP2ex1.controls
     public partial class GraphController : UserControl
     {
         private readonly string CB_PLACE_HOLDER = "Choose Variable To Display";
-        private controlersViewModel.VMLinesGraph vmLGraph;
-        private controlersViewModel.VMLinesGraph vmCLGraph;
-        private controlersViewModel.VMDotsGraph vmDGraph;
 
+        private controlersViewModel.VMGraphController vmGraphController;
         public GraphController()
         {
             InitializeComponent();
 
             CBDisplay.Text = CB_PLACE_HOLDER;
 
-            vmLGraph = new controlersViewModel.VMLinesGraph();
-            LGraph.Model = vmLGraph.PlotModel;
-            vmLGraph.PlotModel.LegendTitle = "Choosen Variable Graph";
+            vmGraphController = new controlersViewModel.VMGraphController();
 
-            vmCLGraph = new controlersViewModel.VMLinesGraph();
-            CLGraph.Model = vmCLGraph.PlotModel;
-            vmCLGraph.PlotModel.LegendTitle = "Correlative Variable Graph";
+            DataContext = vmGraphController;
 
-            vmDGraph = new controlersViewModel.VMDotsGraph();
-            DGraph.Model = vmDGraph.PlotModel;
-            vmDGraph.PlotModel.LegendTitle = "Anomaly Detection Graph";
-
-
-            CBDisplay.ItemsSource = new List<string>() {"a","b","c"};
         }
 
         private void DisplayGraphs(object sender, RoutedEventArgs e)
@@ -55,7 +43,6 @@ namespace AP2ex1.controls
             {
                 return;
             }
-
         }
 
     }
