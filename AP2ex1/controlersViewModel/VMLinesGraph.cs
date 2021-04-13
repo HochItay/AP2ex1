@@ -6,35 +6,55 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace AP2ex1.controlersViewModel
 {
     class VMLinesGraph: VMGraph
     {
-        private IList<DataPoint> points;
+        private List<DataPoint> allPoints;
+        private List<DataPoint> displayedPoints;
+        private bool isDataIntialized = false;
 
-        public VMLinesGraph()
+        public VMLinesGraph(controlersModel.IMGraph model) : base(model)
         {
             xAxe = new TimeSpanAxis() { Position = AxisPosition.Bottom, StringFormat = "mm:ss"};
             PlotModel.Axes.Add(xAxe);
+
         }
 
-        public void SetGraphData(IList<DataPoint> points)
+        public void SetGraphData(IList<Point> allPoints)
         {
             PlotModel.Series.Clear();
 
-            this.points = points;
-          
-            PlotModel.Series.Add(new LineSeries() { ItemsSource = this.points });
-        }
+            this.allPoints = GetDataPointList(allPoints);
+            displayedPoints = this.allPoints.GetRange(START_POINT_INDEX, START_POINT_INDEX);
 
-        public void AddPoints(IList<DataPoint> points)
+            PlotModel.Series.Add(new LineSeries() {ItemsSource = displayedPoints});
+
+            isDataIntialized = true;
+            UpdateGraphPoints();
+        }
+        private List<DataPoint> GetDataPointList(IList<Point> allPoints)
         {
-            foreach (DataPoint point in points)
+            List<DataPoint> dataPoints = new List<DataPoint>();
+
+            foreach(Point point in allPoints)
             {
-                this.points.Add(point);
+                dataPoints.Add(new DataPoint(point.X, point.Y));
             }
 
+            return dataPoints;
+        }
+
+        public override void UpdateGraphPoints()
+        {
+            if (!isDataIntialized)
+            {
+                return;
+            }
+
+            displayedPoints = allPoints.GetRange(START_POINT_INDEX, VM_CurrentLine);
             PlotModel.InvalidatePlot(true);
         }
     }

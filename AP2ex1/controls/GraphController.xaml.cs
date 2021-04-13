@@ -31,7 +31,7 @@ namespace AP2ex1.controls
 
             CBDisplay.Text = CB_PLACE_HOLDER;
 
-            vmGraphController = new controlersViewModel.VMGraphController();
+            //vmGraphController = new controlersViewModel.VMGraphController();
 
             DataContext = vmGraphController;
 
