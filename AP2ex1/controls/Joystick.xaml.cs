@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AP2ex1.controlersViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,14 @@ namespace AP2ex1.controls
     /// </summary>
     public partial class Joystick : UserControl
     {
+        IVMFlightData vm;
         public Joystick()
         {
             InitializeComponent();
+            vm = new VMFlightData();
+            DataContext = vm;
+            vm.VM_JoystickX = 80;
+            vm.VM_JoystickY = 0;
         }
 
         private void centerKnob_Completed(object sender, EventArgs e)

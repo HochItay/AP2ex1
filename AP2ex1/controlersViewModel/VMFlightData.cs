@@ -11,6 +11,8 @@ namespace AP2ex1.controlersViewModel
         private int compassAngle = 180;
         private int speed = 150;
         private int height = 100;
+        private int joystickX;
+        private int joystickY;
         public int VM_CompassAngle
         {
             get
@@ -42,6 +44,30 @@ namespace AP2ex1.controlersViewModel
             set
             {
                 height = value;
+            }
+        }
+        public int VM_JoystickX
+        {
+            get
+            {
+                return joystickX;
+
+            }
+            set
+            {
+                joystickX = 90 + (int)(0.7 * value);
+            }
+        }
+        public int VM_JoystickY
+        {
+            get
+            {
+                return joystickY;
+
+            }
+            set
+            {
+                joystickY = 90 + (int)(0.7 * value);
             }
         }
     }

@@ -23,5 +23,15 @@ namespace AP2ex1.controlersViewModel
             set;
             get;
         }
+        int VM_JoystickX
+        {
+            set;
+            get;
+        }
+        int VM_JoystickY
+        {
+            set;
+            get;
+        }
     }
 }
