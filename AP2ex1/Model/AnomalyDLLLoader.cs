@@ -9,7 +9,7 @@ using PluginInterface;
 namespace AP2ex1.Model
 {
     // a class for loading the dll in charge of the anomaly detection
-    class AnomalyDllLoader
+    public class AnomalyDllLoader
     {
         public static IAnomalyDetector LoadDll(string dllPath)
         {
