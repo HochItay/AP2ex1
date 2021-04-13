@@ -10,7 +10,7 @@ namespace PluginInterface
     public interface IAnomalyDetector
     {
         // learn from normal data
-        void LearnNormal(string csvFile, List<string> features);
+        void LearnNormal(string csvFile, IList<string> features);
 
         // detect anomalies, return list of all anomalies
         // each anomaly is a tuple of <line, feature1, feature2>
