@@ -44,8 +44,14 @@ namespace AP2ex1.Model
             int index = 0;
             foreach (XmlNode chunkName in input.SelectNodes(PROP_NAME_LABEL))
             {
-                propToIndex[chunkName.InnerText] = index;
-                propList.Add(chunkName.InnerText);
+                string prop = chunkName.InnerText;
+                // if there's already Field named prop, we add '2' to the name.
+                if (propToIndex.ContainsKey(prop))
+                {
+                    prop += "2";
+                }
+                propToIndex[prop] = index;
+                propList.Add(prop);
             }
 
         }
