@@ -27,6 +27,7 @@ namespace AP2ex1.Model
         {
             propToIndex = new Dictionary<string, int>();
             propList = new List<string>();
+            propValues = new List<double[]>();
         }
 
         /// <summary>
@@ -52,6 +53,7 @@ namespace AP2ex1.Model
                 }
                 propToIndex[prop] = index;
                 propList.Add(prop);
+                index++;
             }
 
         }
@@ -63,7 +65,7 @@ namespace AP2ex1.Model
         /// <param name="csvPath"> the new data file. </param>
         public void LoadData(string csvPath)
         {
-            propList.Clear();
+            propValues.Clear();
             using (var reader = new StreamReader(csvPath))
             {
                 while (!reader.EndOfStream)
