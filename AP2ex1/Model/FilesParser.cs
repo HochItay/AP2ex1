@@ -130,5 +130,10 @@ namespace AP2ex1.Model
             return propList;
         }
 
+        /// <summary>
+        /// the length of the data file (csv).
+        /// </summary>
+        public int DataLength { get => propValues.Count; }
+
     }
 }
