@@ -10,6 +10,7 @@ namespace AP2ex1.Model
     {
         private readonly string[] properties =  { "hi" };
 
+        
         private void NotifyChanges()
         {
             foreach (string prop in properties)
