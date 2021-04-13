@@ -18,6 +18,8 @@ namespace AP2ex1.frames
     /// <summary>
     /// Interaction logic for PGetFiles.xaml
     /// </summary>
+    /// 
+
     public partial class PGetFiles : Page
     {
         public static readonly int HEIGHT = 300;
@@ -35,20 +37,18 @@ namespace AP2ex1.frames
             /*
             getFilesVM = new framesViewModel.VMPGetFiles(new ...);
 
-            BBrowseCsv.FilePath = constatnts.Paths.CSV_FILE_PATH;
             BBrowseCsv.notifyFileChanged += getFilesVM.FileDataChanged;
 
-            BBrowseXml.FilePath = constatnts.Paths.XML_FILE_PATH;
             BBrowseXml.notifyFileChanged += getFilesVM.FileDataChanged;
 
-            BBrowseDll.FilePath = constatnts.Paths.DLL_FILE_PATH;
             BBrowseDll.notifyFileChanged += getFilesVM.FileDataChanged;
+
+            BBrowseFG.notifyFileChanged += getFilesVM.FileDataChanged;
             */
         }
 
         private void SwitchAll(object sender, RoutedEventArgs e)
         {
-            //getFilesVM.FGPath = TBPath.Text;
             SwitchFrames();
         }
     }

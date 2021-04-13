@@ -15,11 +15,11 @@ namespace AP2ex1.controlersViewModel
 
         public VMLinesGraph()
         {
-            var dateAxis = new TimeSpanAxis() { Position = AxisPosition.Bottom, StringFormat = "mm:ss" };
-            PlotModel.Axes.Add(dateAxis);
+            xAxe = new TimeSpanAxis() { Position = AxisPosition.Bottom, StringFormat = "mm:ss"};
+            PlotModel.Axes.Add(xAxe);
         }
 
-        public void setGraphData(IList<DataPoint> points)
+        public void SetGraphData(IList<DataPoint> points)
         {
             PlotModel.Series.Clear();
 
@@ -28,7 +28,7 @@ namespace AP2ex1.controlersViewModel
             PlotModel.Series.Add(new LineSeries() { ItemsSource = this.points });
         }
 
-        public void addPoints(IList<DataPoint> points)
+        public void AddPoints(IList<DataPoint> points)
         {
             foreach (DataPoint point in points)
             {

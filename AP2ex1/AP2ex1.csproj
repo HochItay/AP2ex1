@@ -120,13 +120,13 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="constatnts\Paths.cs" />
     <Compile Include="controlersViewModel\IVMFlightData.cs" />
     <Compile Include="controlersViewModel\IVMMediaController.cs" />
     <Compile Include="controlersViewModel\IVMYPRDisplayer.cs" />
     <Compile Include="controlersViewModel\VMDotsGraph.cs" />
     <Compile Include="controlersViewModel\VMFlightData.cs" />
     <Compile Include="controlersViewModel\VMGraph.cs" />
+    <Compile Include="controlersViewModel\VMGraphController.cs" />
     <Compile Include="controlersViewModel\VMLinesGraph.cs" />
     <Compile Include="controlersViewModel\VMMediaController.cs" />
     <Compile Include="controlersViewModel\VMSlider.cs" />

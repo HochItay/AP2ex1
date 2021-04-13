@@ -10,24 +10,6 @@ namespace AP2ex1.framesViewModel
     {
         private framesIModel.IMPGetFiles getFilesM;
 
-        private string fGPath;
-        public string FGPath
-        {
-            get
-            {
-                return fGPath;
-            }
-
-            set
-            {
-                if(fGPath != value)
-                {
-                    fGPath = value;
-                    getFilesM.FGPathChanged(fGPath);
-                }
-            }
-        }
-
         public VMPGetFiles(framesIModel.IMPGetFiles getFilesM)
         {
             this.getFilesM = getFilesM;
@@ -35,14 +17,21 @@ namespace AP2ex1.framesViewModel
 
         public void FileDataChanged(string filePath)
         {
-            if (filePath.Equals(constatnts.Paths.CSV_FILE_PATH)) {
-                getFilesM.LoadFlightDataFile(fGPath);
-            } else if(filePath.Equals(constatnts.Paths.XML_FILE_PATH))
+            if (filePath.EndsWith(".exe"))
             {
-                getFilesM.LoadSettingsFile(fGPath);
-            } else if (filePath.Equals(constatnts.Paths.DLL_FILE_PATH))
+                getFilesM.FGPathChanged(filePath);
+            } 
+            else if (filePath.EndsWith(".dll"))
             {
-                getFilesM.LoadDeviationAlgorithm(fGPath);
+                getFilesM.LoadDeviationAlgorithm(filePath);
+            }
+            else if (filePath.EndsWith(".csv"))
+            {
+                getFilesM.LoadFlightDataFile(filePath);
+            }
+            else if (filePath.EndsWith(".xml"))
+            {
+                getFilesM.LoadSettingsFile(filePath);
             }
         }
     }

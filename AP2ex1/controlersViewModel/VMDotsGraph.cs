@@ -16,11 +16,11 @@ namespace AP2ex1.controlersViewModel
 
         public VMDotsGraph()
         {
-            var dateAxis = new LinearAxis() { Position = AxisPosition.Bottom};
-            PlotModel.Axes.Add(dateAxis);
+            xAxe = new LinearAxis() { Position = AxisPosition.Bottom};
+            PlotModel.Axes.Add(xAxe);
         }
 
-        public void setGraphData(IList<ScatterPoint> points)
+        public void SetGraphData(IList<ScatterPoint> points)
         {
             PlotModel.Series.Clear();
 
@@ -45,7 +45,7 @@ namespace AP2ex1.controlersViewModel
             });
         }
 
-        public void addPoints(IList<ScatterPoint> points)
+        public void AddPoints(IList<ScatterPoint> points)
         {
             foreach (ScatterPoint point in points)
             {
@@ -55,7 +55,7 @@ namespace AP2ex1.controlersViewModel
             PlotModel.InvalidatePlot(true);
         }
 
-        public void addMarkedPoints(IList<ScatterPoint> points)
+        public void AddMarkedPoints(IList<ScatterPoint> points)
         {
             foreach (ScatterPoint point in points)
             {
@@ -63,6 +63,28 @@ namespace AP2ex1.controlersViewModel
             }
 
             PlotModel.InvalidatePlot(true);
+        }
+
+        public void SetRegressionFunc(IList<Tuple<Func<double,double>, double, double>> regFuncs, double maxValue, double minValue)
+        {
+            foreach (var funcSeries in regFuncs)
+            {
+                Func<double, double> func = funcSeries.Item1;
+                double start = funcSeries.Item2;
+                double end = funcSeries.Item3;
+
+                if(Double.IsInfinity(start))
+                {
+                    start = minValue;
+                }
+
+                if (Double.IsInfinity(end))
+                {
+                    end = maxValue;
+                }
+
+                PlotModel.Series.Add(new FunctionSeries(func, start, end, 0.0001));
+            }
         }
     }
 }

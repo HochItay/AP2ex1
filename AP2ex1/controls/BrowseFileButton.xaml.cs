@@ -21,7 +21,7 @@ namespace AP2ex1.controls
     /// Interaction logic for BrowseButton.xaml
     /// </summary>
     public partial class BrowseFileButton : UserControl
-    {
+    {   
         public delegate void whatToDo(string fiilePath);
         public event whatToDo notifyFileChanged;
 
@@ -53,20 +53,6 @@ namespace AP2ex1.controls
             }
         }
 
-        private string filePath;
-        public string FilePath
-        {
-            get
-            {
-                return filePath;
-            }
-
-            set
-            {
-                filePath = value;
-            }
-        }
-
         public BrowseFileButton()
         {
             InitializeComponent();
@@ -76,17 +62,11 @@ namespace AP2ex1.controls
         {
             try
             {
-                if (!Directory.Exists(constatnts.Paths.DATA_DIR_PATH))
-                {
-                    Directory.CreateDirectory(constatnts.Paths.DATA_DIR_PATH);
-                }
-
                 OpenFileDialog openFileDialog = new OpenFileDialog();
                 openFileDialog.Filter = filter;
                 if (openFileDialog.ShowDialog() == true)
                 {
-                    File.Copy(openFileDialog.FileName, filePath, true);
-                    notifyFileChanged(filePath);
+                    notifyFileChanged(openFileDialog.FileName);
                 }
             }
             catch

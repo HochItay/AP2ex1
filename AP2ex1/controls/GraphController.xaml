@@ -40,10 +40,10 @@
     </UserControl.Resources>
     <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform">
         <Grid Height="500" Width="800">
-            <Oxy:PlotView x:Name="LGraph" Height="230" Width="290" Background="AliceBlue" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,210"/>
-            <Oxy:PlotView x:Name="CLGraph" Height="230" Width="290" Background="AliceBlue" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
-            <Oxy:PlotView x:Name="DGraph" Height="500" Width="500" Background="AliceBlue" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
-            <ComboBox x:Name="CBDisplay" IsReadOnly="True" HorizontalAlignment="Left" VerticalAlignment="Top" Width="210"/>
+            <Oxy:PlotView x:Name="LGraph" Height="230" Width="290" Model="{Binding LPlotModel}" Background="AliceBlue" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,210"/>
+            <Oxy:PlotView x:Name="CLGraph" Height="230" Width="290" Model="{Binding CLPlotModel}" Background="AliceBlue" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+            <Oxy:PlotView x:Name="DGraph" Height="500" Width="500" Model="{Binding DPlotModel}" Background="AliceBlue" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+            <ComboBox x:Name="CBDisplay" IsEditable="True" IsReadOnly="True" ItemsSource="{Binding VarsList}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="210"/>
             <Button x:Name="BDisplay" Content="Display" Height="23" Width="75" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="215,0,0,0" Click="DisplayGraphs"/>
 
         </Grid>
