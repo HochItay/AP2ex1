@@ -12,8 +12,10 @@ namespace AP2ex1.controlersViewModel
 {
     abstract class VMGraph: INotifyPropertyChanged
     {
+        protected static readonly int START_POINT_INDEX = 0;
         protected Axis xAxe;
         protected Axis yAxe;
+        private controlersModel.IMGraph model;
         private PlotModel plotModel;
         public PlotModel PlotModel
         {
@@ -27,16 +29,31 @@ namespace AP2ex1.controlersViewModel
                 if (plotModel != value)
                 {
                     plotModel = value;
-                    OnPropertyChanged("PlotModel");
+                    NotifyPropertyChanged("PlotModel");
                 }
             }
         }
 
-        public VMGraph()
+        public int VM_CurrentLine
+        {
+            get
+            {
+                return model.CurrentLine;
+            }
+        }
+
+        public VMGraph(controlersModel.IMGraph model)
         {
             PlotModel = new PlotModel();
             SetUpModel();
-            
+
+            this.model = model;
+            model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e) {
+                string var = "VM_" + e.PropertyName;
+                if (var.Equals("VM_CurrentLine")) {
+                    UpdateGraphPoints();
+                }
+            };
         }
 
         public void SetTitle(string title)
@@ -66,9 +83,10 @@ namespace AP2ex1.controlersViewModel
             yAxe = new LinearAxis() {Position = AxisPosition.Left};
             PlotModel.Axes.Add(yAxe);
         }
+        public abstract void UpdateGraphPoints();
 
         public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged(string propertyName)
+        protected virtual void NotifyPropertyChanged(string propertyName)
         {
             PropertyChangedEventHandler handler = PropertyChanged;
             if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
