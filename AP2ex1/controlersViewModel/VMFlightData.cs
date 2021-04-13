@@ -20,10 +20,7 @@ namespace AP2ex1.controlersViewModel
             {
                 return compassAngle;
             }
-            set
-            {
-                compassAngle = value;
-            }
+
         }
         public int VM_Speed
         {
@@ -31,20 +28,12 @@ namespace AP2ex1.controlersViewModel
             {
                 return speed;
             }
-            set
-            {
-                speed = value;
-            }
         }
         public int VM_Height
         {
             get
             {
                 return height;
-            }
-            set
-            {
-                height = value;
             }
         }
         public int VM_JoystickX
@@ -54,10 +43,6 @@ namespace AP2ex1.controlersViewModel
                 return joystickX;
 
             }
-            set
-            {
-                joystickX = 90 + (int)(0.7 * value);
-            }
         }
         public int VM_JoystickY
         {
@@ -65,10 +50,6 @@ namespace AP2ex1.controlersViewModel
             {
                 return joystickY;
 
-            }
-            set
-            {
-                joystickY = 90 + (int)(0.7 * value);
             }
         }
 

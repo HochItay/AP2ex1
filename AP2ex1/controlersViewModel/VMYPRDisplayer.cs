@@ -18,10 +18,6 @@ namespace AP2ex1.controlersViewModel
             {
                 return yaw;
             }
-            set
-            {
-                yaw = value;
-            }
         }
         public int VM_Pitch
         {
@@ -29,20 +25,12 @@ namespace AP2ex1.controlersViewModel
             {
                 return pitch;
             }
-            set
-            {
-                pitch = value;
-            }
         }
         public int VM_Roll
         {
             get
             {
                 return roll;
-            }
-            set
-            {
-                roll = value;
             }
         }
 

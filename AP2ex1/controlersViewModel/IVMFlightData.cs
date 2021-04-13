@@ -11,27 +11,22 @@ namespace AP2ex1.controlersViewModel
     {
         int VM_CompassAngle
         {
-            set;
             get;
         }
         int VM_Speed
         {
-            set;
             get;
         }
         int VM_Height
         {
-            set;
             get;
         }
         int VM_JoystickX
         {
-            set;
             get;
         }
         int VM_JoystickY
         {
-            set;
             get;
         }
     }

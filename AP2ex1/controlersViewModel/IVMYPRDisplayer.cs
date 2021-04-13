@@ -11,17 +11,14 @@ namespace AP2ex1.controlersViewModel
     {
         int VM_Yaw
         {
-            set;
             get;
         }
         int VM_Pitch
         {
-            set;
             get;
         }
         int VM_Roll
         {
-            set;
             get;
         }
     }
