@@ -110,7 +110,7 @@
 		<Label Content="Elevetor" Grid.Column="2"  Margin="5,5,5,5"/>
 		<controls:VerticalSlider x:Name="SElevetor" Grid.Column="2"  HorizontalAlignment="Center"
                   Margin="10,10,0,10" />
-		<Label Content="Elevetor" Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Center"/>
+        <Label Content="Ruddel" Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Center"/>
 		<controls:HorizontalSlider x:Name="SRuddel" Grid.Row="1" Grid.ColumnSpan="3"
                 Margin="10,0,10,0"  VerticalAlignment="Bottom"/>
 

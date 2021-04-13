@@ -83,6 +83,7 @@
 	</UserControl.Resources>
 
 	<Grid>
-		<Slider Style="{StaticResource Horizontal_Slider}" VerticalAlignment="Center"/>
+        <Slider Style="{StaticResource Horizontal_Slider}" VerticalAlignment="Center"  Maximum="{Binding Maximum}"
+                Minimum="{Binding Minimum}" Value="{Binding Value}"/>
 	</Grid>
 </UserControl>

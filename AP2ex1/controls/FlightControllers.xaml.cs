@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AP2ex1.controlersViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,28 @@ namespace AP2ex1.controls
     /// </summary>
     public partial class FlightControllers : UserControl
     {
+        private VMSlider initVM()
+        {
+            VMSlider vm = new VMSlider();
+            vm.Value = 0.5;
+            vm.Maximum = 1;
+            vm.Minimum = -1;
+            return vm;
+        }
+        private VMSlider vmAileron, vmRuddel, vmThrottle, vmElevator;
         public FlightControllers()
         {
             InitializeComponent();
+            vmAileron = initVM();
+            vmThrottle = initVM();
+            vmElevator = initVM();
+            vmRuddel = initVM();
+            vmThrottle.Minimum = 0;
+            SAileron.VM = vmAileron;
+            SElevetor.VM = vmElevator;
+            SThrottle.VM = vmThrottle;
+            SRuddel.VM = vmRuddel;
+            
         }
     }
 }

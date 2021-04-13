@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AP2ex1.controlersViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,19 @@ namespace AP2ex1.controls
     /// </summary>
     public partial class HorizontalSlider : UserControl
     {
+        private VMSlider vm;
+
         public HorizontalSlider()
         {
             InitializeComponent();
+        }
+        public VMSlider VM
+        {
+            set
+            {
+                vm = value;
+                DataContext = vm;
+            }
         }
     }
 }
