@@ -24,7 +24,7 @@ namespace AP2ex1.controls
         IVMMediaController vm;
         public MediaController()
         {
-            vm = new VMMediaController();
+            //vm = new VMMediaController();
             InitializeComponent();
             DataContext = vm;
         }

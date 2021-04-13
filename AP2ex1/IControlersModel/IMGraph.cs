@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AP2ex1.controlersModel
+namespace AP2ex1.IControlersModel
 {
     interface IMGraph : INotifyPropertyChanged
     {

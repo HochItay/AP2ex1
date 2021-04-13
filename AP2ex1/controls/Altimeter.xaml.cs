@@ -25,7 +25,7 @@ namespace AP2ex1.controls
         public Altimeter()
         {
             InitializeComponent();
-            vm = new VMFlightData();
+            //vm = new VMFlightData();
             DataContext = vm;
         }
     }

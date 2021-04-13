@@ -25,10 +25,10 @@ namespace AP2ex1.controls
         public Joystick()
         {
             InitializeComponent();
-            vm = new VMFlightData();
+            //vm = new VMFlightData();
             DataContext = vm;
-            vm.VM_JoystickX = 80;
-            vm.VM_JoystickY = 0;
+            //vm.VM_JoystickX = 80;
+            //vm.VM_JoystickY = 0;
         }
 
         private void centerKnob_Completed(object sender, EventArgs e)

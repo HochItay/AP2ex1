@@ -14,7 +14,7 @@ namespace AP2ex1.controlersViewModel
 
     class VMGraphController : DependencyObject, INotifyPropertyChanged
     {
-        private controlersModel.IMGraphController model;
+        private IControlersModel.IMGraphController model;
 
         private VMLinesGraph vmLGraph;
         private VMLinesGraph vmCLGraph;
@@ -43,7 +43,7 @@ namespace AP2ex1.controlersViewModel
 
         }
 
-        public VMGraphController(controlersModel.IMGraphController model)
+        public VMGraphController(IControlersModel.IMGraphController model)
         {
             this.model = model;
 

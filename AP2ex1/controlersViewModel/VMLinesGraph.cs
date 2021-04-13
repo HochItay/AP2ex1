@@ -16,7 +16,7 @@ namespace AP2ex1.controlersViewModel
         private List<DataPoint> displayedPoints;
         private bool isDataIntialized = false;
 
-        public VMLinesGraph(controlersModel.IMGraph model) : base(model)
+        public VMLinesGraph(IControlersModel.IMGraph model) : base(model)
         {
             xAxe = new TimeSpanAxis() { Position = AxisPosition.Bottom, StringFormat = "mm:ss"};
             PlotModel.Axes.Add(xAxe);

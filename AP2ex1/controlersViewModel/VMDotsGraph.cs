@@ -17,7 +17,7 @@ namespace AP2ex1.controlersViewModel
         private List<ScatterPoint> displayedPoints;
         private int pointsPerSec;
         private bool isDataIntialized = false;
-        public VMDotsGraph(controlersModel.IMGraph model, int pointsPerSec) : base(model)
+        public VMDotsGraph(IControlersModel.IMGraph model, int pointsPerSec) : base(model)
         {
             xAxe = new LinearAxis() { Position = AxisPosition.Bottom};
             PlotModel.Axes.Add(xAxe);

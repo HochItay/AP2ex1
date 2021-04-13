@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace AP2ex1.controlersModel
+namespace AP2ex1.IControlersModel
 {
     interface IMGraphController : IMGraph
     {

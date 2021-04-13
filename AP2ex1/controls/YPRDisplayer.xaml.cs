@@ -25,11 +25,11 @@ namespace AP2ex1.controls
         public YPRDisplayer()
         {
             InitializeComponent();
-            vm = new VMYPRDisplayer();
+            //vm = new VMYPRDisplayer();
             DataContext = vm;
-            vm.VM_Roll = 50;
-            vm.VM_Pitch = 180;
-            vm.VM_Yaw = 120;
+            //vm.VM_Roll = 50;
+            //vm.VM_Pitch = 180;
+            //vm.VM_Yaw = 120;
         }
     }
 }

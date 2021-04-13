@@ -10,12 +10,12 @@ using OxyPlot.Series;
 
 namespace AP2ex1.controlersViewModel
 {
-    abstract class VMGraph: INotifyPropertyChanged
+    abstract class AVMGraph : INotifyPropertyChanged
     {
         protected static readonly int START_POINT_INDEX = 0;
         protected Axis xAxe;
         protected Axis yAxe;
-        private controlersModel.IMGraph model;
+        private IControlersModel.IMGraph model;
         private PlotModel plotModel;
         public PlotModel PlotModel
         {
@@ -42,7 +42,7 @@ namespace AP2ex1.controlersViewModel
             }
         }
 
-        public VMGraph(controlersModel.IMGraph model)
+        public AVMGraph(IControlersModel.IMGraph model)
         {
             PlotModel = new PlotModel();
             SetUpModel();

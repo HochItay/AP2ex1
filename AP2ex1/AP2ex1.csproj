@@ -120,12 +120,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="controlersViewModel\AVMGraph.cs" />
     <Compile Include="controlersViewModel\IVMFlightData.cs" />
     <Compile Include="controlersViewModel\IVMMediaController.cs" />
     <Compile Include="controlersViewModel\IVMYPRDisplayer.cs" />
     <Compile Include="controlersViewModel\VMDotsGraph.cs" />
     <Compile Include="controlersViewModel\VMFlightData.cs" />
-    <Compile Include="controlersViewModel\VMGraph.cs" />
     <Compile Include="controlersViewModel\VMGraphController.cs" />
     <Compile Include="controlersViewModel\VMLinesGraph.cs" />
     <Compile Include="controlersViewModel\VMMediaController.cs" />
@@ -185,6 +185,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IControlersModel\IMFlightData.cs" />
+    <Compile Include="IControlersModel\IMGraph.cs" />
+    <Compile Include="IControlersModel\IMGraphController.cs" />
     <Compile Include="IControlersModel\IMMediaController.cs" />
     <Compile Include="IControlersModel\IMYPRDisplayer.cs" />
     <Compile Include="MainWindow.xaml.cs">
