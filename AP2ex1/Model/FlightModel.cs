@@ -5,31 +5,42 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Sockets;
 using System.ComponentModel;
+using System.Diagnostics;
+using System.Threading;
 
 namespace AP2ex1.Model
 {
     class FlightModel : IFlightModel
     {
-        private int FPS = 10; // default value of FPS.
-
+        private const int FPS = 10; // default value of FPS.
+        private const float MILI = 1000.0; // second in milliseconds.
+        
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private Socket s;
-        private bool isRunning = false;     // when creating a model, it does not run.
-        private int lineNum;
-        private float speed;
+        private Socket server;
+        private int serverPort = 5040;
+        private volatile bool isRunning = false;     // when creating a model, it does not run the flight.
+        private volatile float speed;
+        private volatile int currentTime;
+        private volatile int currentLine;
 
         private FilesParser fp;
         
         public FlightModel()
         {
-            s = new Socket(SocketType.Stream, ProtocolType.Tcp);
+            server = new Socket(SocketType.Stream, ProtocolType.Tcp);
+            server.Connect("127.0.0.1", serverPort);
             fp = new FilesParser();
+            currentTime = 0;
+            
         }
 
+        /// <summary>
+        /// The speed of the flight video.
+        /// </summary>
         public float VideoSpeed { 
-            get => throw new NotImplementedException();
-            set => throw new NotImplementedException(); 
+            get => speed;
+            set => speed = value; 
         }
 
         /// <summary>
@@ -37,7 +48,15 @@ namespace AP2ex1.Model
         /// </summary>
         public int VideoLength { get => fp.DataLength / FPS; }
 
-        public int VideoCurrentTime { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int VideoCurrentTime
+        {
+            get => currentTime;
+            set
+            {
+                currentTime = value;
+                currentLine = FPS * currentTime;
+            }
+        }
         
         /// <summary>
         /// whether or not the video is currently running.
@@ -53,6 +72,12 @@ namespace AP2ex1.Model
                 }
             }
         }
+
+        public IList<string> GetVarsNames()
+        {
+            return fp.GetPropertiesNames();
+        }
+
         public string ChosenProperty { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public string CorrelativeProperty => throw new NotImplementedException();
@@ -80,5 +105,46 @@ namespace AP2ex1.Model
         {
             fp.LoadSettings(filePath);
         }
+
+        /// <summary>
+        /// starts to run
+        /// </summary>
+        private void run()
+        {
+            Stopwatch sw = new Stopwatch();
+            while (isRunning)
+            {
+                float sleepTIme = (MILI / FPS) / speed;
+                sw.Start();
+                
+                var values = fp.GetLine(currentLine);
+                byte[] msg = System.Text.Encoding.ASCII.GetBytes(string.Join(",", values));
+                server.Send(msg);
+                SendNotification("time_passed");
+
+                // going to the next line in the flight data file.
+                currentLine++;
+                currentTime = currentLine / FPS;
+
+                sw.Stop();
+
+                sleepTIme -= sw.ElapsedMilliseconds;
+                if (sleepTIme > 0)
+                {
+                    Thread.Sleep((int)sleepTIme);
+                }
+            }
+        }
+
+        private void SendNotification(string msg)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(msg));
+            }
+        }
+
+
     }
+
 }
