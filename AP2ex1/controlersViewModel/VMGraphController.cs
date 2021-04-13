@@ -57,7 +57,7 @@ namespace AP2ex1.controlersViewModel
             new Binding("PlotModel") { Source = vmCLGraph, UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged });
             
 
-            vmDGraph = new VMDotsGraph(model, model.GedNumPointsPerSec());
+            vmDGraph = new VMDotsGraph(model, model.GetNumPointsPerSec());
             BindingOperations.SetBinding(this, DPlotModel,
             new Binding("PlotModel") { Source = vmDGraph, UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged });
 
@@ -90,7 +90,7 @@ namespace AP2ex1.controlersViewModel
             vmCLGraph.SetGraphData(model.GetVarPoints(corrilativeVar));
 
             Tuple<IList<Point>, IList<Point>> anomalyPoints= model.GetAnomalyGraphPoints(var, corrilativeVar);
-            vmDGraph.SetGraphData(anomalyPoints.Item1, anomalyPoints.Item2, model.GetRegressionFuncs());
+            vmDGraph.SetGraphData(anomalyPoints.Item1, anomalyPoints.Item2, model.GetGraphFuncs());
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

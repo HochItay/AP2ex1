@@ -10,7 +10,7 @@ using System.Windows;
 
 namespace AP2ex1.controlersViewModel
 {
-    class VMDotsGraph: VMGraph
+    class VMDotsGraph: AVMGraph
     {
         private static readonly int LAST_SECS_TO_DISPLAY = 30;
         private List<ScatterPoint> allPoints;

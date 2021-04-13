@@ -10,7 +10,7 @@ using System.Windows;
 
 namespace AP2ex1.controlersViewModel
 {
-    class VMLinesGraph: VMGraph
+    class VMLinesGraph: AVMGraph
     {
         private List<DataPoint> allPoints;
         private List<DataPoint> displayedPoints;
