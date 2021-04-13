@@ -14,6 +14,6 @@ namespace AP2ex1.controlersModel
         string GetCorrelativeVar(string var);
         IList<Point> GetVarPoints(string var);
         Tuple<IList<Point>, IList<Point>> GetAnomalyGraphPoints(string var, string corrilativeVar);
-        IList<Tuple<Func<double, double>, double, double>> GetRegressionFuncs();
+        IList<Tuple<Func<double, double>, double, double>> GetGraphFuncs();
     }
 }
