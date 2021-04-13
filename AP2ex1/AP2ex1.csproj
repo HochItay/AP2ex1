@@ -184,6 +184,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IControlersModel\IMFlightData.cs" />
+    <Compile Include="IControlersModel\IMMediaController.cs" />
+    <Compile Include="IControlersModel\IMYPRDisplayer.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>

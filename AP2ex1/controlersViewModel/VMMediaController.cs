@@ -9,42 +9,43 @@ namespace AP2ex1.controlersViewModel
 {
     class VMMediaController : IVMMediaController
     {
-        private double speed = 1;
-        private int videoLength = 1000;
-        private int videoCurrentTime = 500;
-        private bool isRunning;
+        IControlersModel.IMMediaController model;
+        public VMMediaController(IControlersModel.IMMediaController model)
+        {
+            this.model = model;
+        }
         public void NotifyPropertyChanged(string propName)
         {
             if (this.PropertyChanged != null)
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
         }
-        public double VM_Speed
+        public double VM_VideoSpeed
         {
             get
             {
-                return speed;
+                return model.VideoSpeed;
             }
             set
             {
-                speed = Math.Round(value, 1);
-                NotifyPropertyChanged("VM_Speed");
+                model.VideoSpeed = Math.Round(value, 1);
+                NotifyPropertyChanged("VM_VideoSpeed");
             }
         }
         public int VM_VideoLength {
             get
             {
-                return videoLength;
+                return model.VideoLength;
             } 
         }
         public int VM_VideoCurrentTime
         {
             get
             {
-                return videoCurrentTime;
+                return model.VideoCurrentTime;
             }
             set
             {
-                videoCurrentTime = value;
+                model.VideoCurrentTime = value;
                 NotifyPropertyChanged("VM_VideoCurrentTime");
             }
         }
@@ -52,11 +53,11 @@ namespace AP2ex1.controlersViewModel
         {
             get
             {
-                return isRunning;
+                return model.VideoIsRunning;
             }
             set
             {
-                isRunning = value;
+                model.VideoIsRunning = value;
                 NotifyPropertyChanged("VM_VideoIsRunning");
 
             }
@@ -64,27 +65,24 @@ namespace AP2ex1.controlersViewModel
 
         public void startOver()
         {
-            VM_VideoCurrentTime = 0;
-            isRunning = true;
+            model.startOver();
         }
         
         public void goToEnd()
         {
-            VM_VideoCurrentTime = videoLength;
-            isRunning = false;
+            model.goToEnd();
         }
         public void skipTen()
         {
-            VM_VideoCurrentTime += 10;
+            model.skipTen();
         }
         public void goBackTen()
         {
-            VM_VideoCurrentTime -= 10;
+            model.goBackTen();
         }
         public void playClicked()
         {
-            if (isRunning) { VM_VideoIsRunning = false;  }
-            else { VM_VideoIsRunning = true; }
+            model.playClicked();
 
         }
 
