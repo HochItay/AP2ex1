@@ -9,31 +9,32 @@ namespace AP2ex1.controlersViewModel
 {
     class VMYPRDisplayer : IVMYPRDisplayer
     {
-        private int yaw;
-        private int pitch;
-        private int roll;
+        IControlersModel.IMYPRDisplayer model;
+        public VMYPRDisplayer(IControlersModel.IMYPRDisplayer model)
+        {
+            this.model = model;
+        }
         public int VM_Yaw
         {
             get
             {
-                return yaw;
+                return model.Yaw;
             }
         }
         public int VM_Pitch
         {
             get
             {
-                return pitch;
+                return model.Pitch;
             }
         }
         public int VM_Roll
         {
             get
             {
-                return roll;
+                return model.Roll;
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

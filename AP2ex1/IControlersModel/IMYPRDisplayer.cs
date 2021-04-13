@@ -1,23 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AP2ex1.controlersViewModel
+namespace AP2ex1.IControlersModel
 {
-    interface IVMYPRDisplayer
+    interface IMYPRDisplayer
     {
-        int VM_Yaw
+        int Yaw
         {
             get;
         }
-        int VM_Pitch
+        int Pitch
         {
             get;
         }
-        int VM_Roll
+        int Roll
         {
             get;
         }
