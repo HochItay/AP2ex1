@@ -27,9 +27,9 @@ namespace AP2ex1.controls
             InitializeComponent();
             vm = new VMYPRDisplayer();
             DataContext = vm;
-            vm.Roll = 50;
-            vm.Pitch = 180;
-            vm.Yaw = 120;
+            vm.VM_Roll = 50;
+            vm.VM_Pitch = 180;
+            vm.VM_Yaw = 120;
         }
     }
 }

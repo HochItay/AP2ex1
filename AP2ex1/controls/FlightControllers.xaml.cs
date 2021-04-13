@@ -24,9 +24,9 @@ namespace AP2ex1.controls
         private VMSlider initVM()
         {
             VMSlider vm = new VMSlider();
-            vm.Value = 0.5;
-            vm.Maximum = 1;
-            vm.Minimum = -1;
+            vm.VM_Value = 0.5;
+            vm.VM_Maximum = 1;
+            vm.VM_Minimum = -1;
             return vm;
         }
         private VMSlider vmAileron, vmRuddel, vmThrottle, vmElevator;
@@ -37,7 +37,7 @@ namespace AP2ex1.controls
             vmThrottle = initVM();
             vmElevator = initVM();
             vmRuddel = initVM();
-            vmThrottle.Minimum = 0;
+            vmThrottle.VM_Minimum = 0;
             SAileron.VM = vmAileron;
             SElevetor.VM = vmElevator;
             SThrottle.VM = vmThrottle;

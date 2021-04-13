@@ -34,32 +34,32 @@
             <Canvas Height="100" Width="100">
                 <Image Source="images/IYPRDisplayer/airplane_yaw.png" Canvas.Left="25" Canvas.Top="25" Height="50" Width="50" RenderTransformOrigin="0.5,0.5">
                     <Image.RenderTransform>
-                        <RotateTransform Angle="{Binding Yaw}"/>
+                        <RotateTransform Angle="{Binding VM_Yaw}"/>
                     </Image.RenderTransform>
                 </Image>
             </Canvas>
             <Label Grid.Row="1" Content="Yaw = " Margin="25,0,0,0"/>
-            <Label Grid.Row="1" Content="{Binding Yaw}" Margin="60,0,0,0"/>
+            <Label Grid.Row="1" Content="{Binding VM_Yaw}" Margin="60,0,0,0"/>
 
             <Canvas Grid.Column="1" Height="100" Width="100">
                 <Image Source="images/IYPRDisplayer/airplane_pitch.png" Canvas.Left="25" Canvas.Top="25" Height="50" Width="50" RenderTransformOrigin="0.501,0.525">
                     <Image.RenderTransform>
-                        <RotateTransform Angle="{Binding Pitch}"/>
+                        <RotateTransform Angle="{Binding BM_Pitch}"/>
                     </Image.RenderTransform>
                 </Image>
             </Canvas>
             <Label Grid.Row="1" Grid.Column="1" Content="Pitch = " Margin="20,0,0,0"/>
-            <Label Grid.Row="1" Grid.Column="1" Content="{Binding Pitch}" Margin="60,0,0,0"/>
+            <Label Grid.Row="1" Grid.Column="1" Content="{Binding VM_Pitch}" Margin="60,0,0,0"/>
 
             <Canvas Grid.Column="2" Height="100" Width="100">
                 <Image Source="images/IYPRDisplayer/airplane_roll.png" Canvas.Left="25" Canvas.Top="25" Height="50" Width="50" RenderTransformOrigin="0.496,0.553">
                     <Image.RenderTransform>
-                        <RotateTransform Angle="{Binding Roll}"/>
+                        <RotateTransform Angle="{Binding VM_Roll}"/>
                     </Image.RenderTransform>
                 </Image>
             </Canvas>
             <Label Grid.Row="1"  Grid.Column="2" Content="Roll = " Margin="25,0,0,0"/>
-            <Label Grid.Row="1"  Grid.Column="2" Content="{Binding Roll}" Margin="60,0,0,0"/>
+            <Label Grid.Row="1"  Grid.Column="2" Content="{Binding VM_Roll}" Margin="60,0,0,0"/>
         </Grid>
     </Viewbox>
 </UserControl>

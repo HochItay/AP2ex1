@@ -8,17 +8,17 @@ namespace AP2ex1.controlersViewModel
 {
     interface IVMYPRDisplayer
     {
-        int Yaw
+        int VM_Yaw
         {
             set;
             get;
         }
-        int Pitch
+        int VM_Pitch
         {
             set;
             get;
         }
-        int Roll
+        int VM_Roll
         {
             set;
             get;

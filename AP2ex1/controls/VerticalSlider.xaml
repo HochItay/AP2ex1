@@ -84,7 +84,7 @@
 	</UserControl.Resources>
 	<Grid>
 
-		<Slider Style="{StaticResource Vertical_Slider}" Maximum="{Binding Maximum}"
-                Minimum="{Binding Minimum}" Value="{Binding Value}"/>
+		<Slider Style="{StaticResource Vertical_Slider}" Maximum="{Binding VM_Maximum}"
+                Minimum="{Binding VM_Minimum}" Value="{Binding VM_Value}"/>
 	</Grid>
 </UserControl>

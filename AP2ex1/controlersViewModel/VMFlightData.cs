@@ -11,7 +11,7 @@ namespace AP2ex1.controlersViewModel
         private int compassAngle = 180;
         private int speed = 150;
         private int height = 100;
-        public int CompassAngle
+        public int VM_CompassAngle
         {
             get
             {
@@ -22,7 +22,7 @@ namespace AP2ex1.controlersViewModel
                 compassAngle = value;
             }
         }
-        public int Speed
+        public int VM_Speed
         {
             get
             {
@@ -33,7 +33,7 @@ namespace AP2ex1.controlersViewModel
                 speed = value;
             }
         }
-        public int Height
+        public int VM_Height
         {
             get
             {

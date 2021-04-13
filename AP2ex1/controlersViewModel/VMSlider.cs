@@ -9,7 +9,7 @@ namespace AP2ex1.controlersViewModel
     public class VMSlider
     {
         double max=100, min=0, val=50;
-        public double Maximum
+        public double VM_Maximum
         {
             get
             {
@@ -20,7 +20,7 @@ namespace AP2ex1.controlersViewModel
                 max = value;
             }
         }
-        public double Minimum
+        public double VM_Minimum
         {
             get
             {
@@ -31,7 +31,7 @@ namespace AP2ex1.controlersViewModel
                 min = value;
             }
         }
-        public double Value
+        public double VM_Value
         {
             get
             {

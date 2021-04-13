@@ -8,17 +8,17 @@ namespace AP2ex1.controlersViewModel
 {
     interface IVMFlightData
     {
-        int CompassAngle
+        int VM_CompassAngle
         {
             set;
             get;
         }
-        int Speed
+        int VM_Speed
         {
             set;
             get;
         }
-        int Height
+        int VM_Height
         {
             set;
             get;

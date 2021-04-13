@@ -11,7 +11,7 @@ namespace AP2ex1.controlersViewModel
         private int yaw;
         private int pitch;
         private int roll;
-        public int Yaw
+        public int VM_Yaw
         {
             get
             {
@@ -22,7 +22,7 @@ namespace AP2ex1.controlersViewModel
                 yaw = value;
             }
         }
-        public int Pitch
+        public int VM_Pitch
         {
             get
             {
@@ -33,7 +33,7 @@ namespace AP2ex1.controlersViewModel
                 pitch = value;
             }
         }
-        public int Roll
+        public int VM_Roll
         {
             get
             {
