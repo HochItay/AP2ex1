@@ -10,17 +10,17 @@ using System.Threading;
 
 namespace AP2ex1.Model
 {
-    class FlightModel : IFlightModel
+    public class FlightModel : IFlightModel
     {
         private const int FPS = 10; // default value of FPS.
-        private const float MILI = 1000.0; // second in milliseconds.
+        private const double MILI = 1000.0; // second in milliseconds.
         
         public event PropertyChangedEventHandler PropertyChanged;
 
         private Socket server;
         private int serverPort = 5040;
         private volatile bool isRunning = false;     // when creating a model, it does not run the flight.
-        private volatile float speed;
+        private double speed = 1.0;
         private volatile int currentTime;
         private volatile int currentLine;
 
@@ -38,7 +38,7 @@ namespace AP2ex1.Model
         /// <summary>
         /// The speed of the flight video.
         /// </summary>
-        public float VideoSpeed { 
+        public double VideoSpeed { 
             get => speed;
             set => speed = value; 
         }
@@ -55,6 +55,7 @@ namespace AP2ex1.Model
             {
                 currentTime = value;
                 currentLine = FPS * currentTime;
+                NotifyPropertyChanged(nameof(VideoCurrentTime));
             }
         }
         
@@ -70,6 +71,7 @@ namespace AP2ex1.Model
                 {
                     /// some logic here - run the flight.
                 }
+                NotifyPropertyChanged(nameof(VideoCurrentTime));
             }
         }
 
@@ -136,7 +138,7 @@ namespace AP2ex1.Model
             }
         }
 
-        private void SendNotification(string msg)
+        private void NotifyPropertyChanged(string msg)
         {
             if (PropertyChanged != null)
             {
