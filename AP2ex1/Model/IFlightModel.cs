@@ -24,6 +24,6 @@ namespace AP2ex1.Model
         // file loading methods
         void LoadFlightDataFile(string filePath);
         void LoadSettingsFile(string filePath);
-        void LoadAnomalyAlgorithm(string filePath);
+        void LoadDeviationAlgorithm(string filePath);
     }
 }

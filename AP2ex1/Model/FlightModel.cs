@@ -98,10 +98,10 @@ namespace AP2ex1.Model
         public string CorrelativeProperty => throw new NotImplementedException();
 
 
-        public void LoadAnomalyAlgorithm(string filePath)
+        public void LoadDeviationAlgorithm(string filePath)
         {
             ad = AnomalyDllLoader.LoadDll(filePath);
-            ad.LearnNormal(regFlight, GetVarsNames);
+            ad.LearnNormal(regFlight, fp.GetPropertiesNames());
         }
 
         /// <summary>
