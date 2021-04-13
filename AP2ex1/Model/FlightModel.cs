@@ -7,6 +7,7 @@ using System.Net.Sockets;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading;
+using PluginInterface;
 
 namespace AP2ex1.Model
 {
@@ -14,15 +15,19 @@ namespace AP2ex1.Model
     {
         private const int FPS = 10; // default value of FPS.
         private const double MILI = 1000.0; // second in milliseconds.
+        private const string regFlight = "reg_flight.csv";
         
         public event PropertyChangedEventHandler PropertyChanged;
 
         private Socket server;
-        private int serverPort = 5040;
+        private int serverPort = 5400;
         private volatile bool isRunning = false;     // when creating a model, it does not run the flight.
         private double speed = 1.0;
         private volatile int currentTime;
         private volatile int currentLine;
+        private int dataLength;
+
+        private IAnomalyDetector ad;
 
         private FilesParser fp;
         
@@ -40,13 +45,19 @@ namespace AP2ex1.Model
         /// </summary>
         public double VideoSpeed { 
             get => speed;
-            set => speed = value; 
+            set
+            {
+                speed = value;
+                NotifyPropertyChanged(nameof(VideoSpeed));
+            }
         }
 
         /// <summary>
         /// the length of the video (in seconds), as stored in the data file.
         /// </summary>
-        public int VideoLength { get => fp.DataLength / FPS; }
+        public int VideoLength { 
+            get => dataLength / FPS;
+        }
 
         public int VideoCurrentTime
         {
@@ -66,11 +77,13 @@ namespace AP2ex1.Model
             get => isRunning;
             set
             {
-                isRunning = value;
-                if (value)
+                if (!isRunning & value)
                 {
-                    /// some logic here - run the flight.
+                    Thread thread = new Thread(new ThreadStart(run));
+                    isRunning = true;
+                    thread.Start();
                 }
+                isRunning = value;
                 NotifyPropertyChanged(nameof(VideoCurrentTime));
             }
         }
@@ -87,7 +100,8 @@ namespace AP2ex1.Model
 
         public void LoadAnomalyAlgorithm(string filePath)
         {
-            throw new NotImplementedException();
+            ad = AnomalyDllLoader.LoadDll(filePath);
+            ad.LearnNormal(regFlight, GetVarsNames);
         }
 
         /// <summary>
@@ -97,6 +111,7 @@ namespace AP2ex1.Model
         public void LoadFlightDataFile(string filePath)
         {
             fp.LoadData(filePath);
+            dataLength = fp.DataLength;
         }
 
         /// <summary>
@@ -116,17 +131,22 @@ namespace AP2ex1.Model
             Stopwatch sw = new Stopwatch();
             while (isRunning)
             {
-                float sleepTIme = (MILI / FPS) / speed;
-                sw.Start();
+                double sleepTIme = (MILI / FPS) / speed;
+                
+                sw.Restart();
                 
                 var values = fp.GetLine(currentLine);
                 byte[] msg = System.Text.Encoding.ASCII.GetBytes(string.Join(",", values));
                 server.Send(msg);
-                SendNotification("time_passed");
 
                 // going to the next line in the flight data file.
                 currentLine++;
                 currentTime = currentLine / FPS;
+
+                if (currentLine >= dataLength)  // if we finished iterating through the data.
+                {
+                    VideoIsRunning = false;
+                }
 
                 sw.Stop();
 

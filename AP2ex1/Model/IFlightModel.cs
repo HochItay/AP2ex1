@@ -10,7 +10,7 @@ namespace AP2ex1.Model
     public interface IFlightModel : INotifyPropertyChanged
     {
         // video related properties
-        float VideoSpeed { get; set; }
+        double VideoSpeed { get; set; }
         int VideoLength { get; }
         int VideoCurrentTime { get; set; }
         bool VideoIsRunning { get; set; }
