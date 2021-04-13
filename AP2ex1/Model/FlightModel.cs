@@ -7,11 +7,14 @@ using System.Net.Sockets;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading;
+
+using AP2ex1.controlersModel;
 using PluginInterface;
+using System.Windows;
 
 namespace AP2ex1.Model
 {
-    public partial class FlightModel : IFlightModel
+    public partial class FlightModel : IFlightModel, IMGraphController
     {
         private const int FPS = 10; // default value of FPS.
         private const double MILI = 1000.0; // second in milliseconds.
@@ -26,11 +29,29 @@ namespace AP2ex1.Model
         private volatile int currentTime;
         private volatile int currentLine;
         private int dataLength;
+        private string flightFilePath;
 
+        // anomlay related fields
         private IAnomalyDetector ad;
+        // maps each pair of properties to its anomalies
+        private SortedDictionary<Tuple<string,string>, IList<Point>> anomaliesByFeatures;
 
         private FilesParser fp;
-        
+
+        public int CurrentLine
+        {
+            get
+            {
+                return currentLine;
+            }
+
+            set
+            {
+                currentLine = value;
+                NotifyPropertyChanged(nameof(CurrentLine));
+            }
+        }
+
         public FlightModel()
         {
             server = new Socket(SocketType.Stream, ProtocolType.Tcp);
@@ -105,16 +126,6 @@ namespace AP2ex1.Model
         }
 
         /// <summary>
-        /// return the most correlative feature
-        /// </summary>
-        /// <param name="feature"> feature to find the most correlative to</param>
-        /// <returns></returns>
-        public string GetCorrelativeFeature(string feature)
-        {
-            return ad.GetCorrelatedFeature(feature);
-        }
-
-        /// <summary>
         /// return a graph that represent the anomaly alogithm
         /// the graph is reresented by a function, starting cordinate and ending cordinate
         /// </summary>
@@ -131,8 +142,14 @@ namespace AP2ex1.Model
         /// <param name="filePath"> the path of the data file (csv file). </param>
         public void LoadFlightDataFile(string filePath)
         {
+            this.flightFilePath = filePath;
             fp.LoadData(filePath);
             dataLength = fp.DataLength;
+
+            if (ad != null)
+            {
+                this.InitAnomalies();
+            }
         }
 
         /// <summary>
@@ -143,6 +160,30 @@ namespace AP2ex1.Model
         {
             fp.LoadSettings(filePath);
         }
+
+        private void InitAnomalies()
+        {
+            IList<Tuple<int, string, string>> allAnomalies = ad.DetectAnomalies(this.flightFilePath);
+
+            anomaliesByFeatures = new();
+
+            // initialize all lists
+            foreach (string feature1 in this.GetVarsNames())
+            {
+                foreach (string feature2 in this.GetVarsNames())
+                {
+                    anomaliesByFeatures.Add(Tuple.Create(feature1, feature2), new List<Point>());
+                }
+            }
+
+            foreach (Tuple<int, string, string> anomaly in allAnomalies)
+            {
+                Point p1 = new(fp.GetPropertyAtLine(anomaly.Item2, anomaly.Item1), fp.GetPropertyAtLine(anomaly.Item3, anomaly.Item1));
+                Point p2 = new(fp.GetPropertyAtLine(anomaly.Item3, anomaly.Item1), fp.GetPropertyAtLine(anomaly.Item2, anomaly.Item1));
+                anomaliesByFeatures[Tuple.Create(anomaly.Item2, anomaly.Item3)].Add(p1);
+                anomaliesByFeatures[Tuple.Create(anomaly.Item3, anomaly.Item2)].Add(p2);
+            }
+        } 
 
         /// <summary>
         /// starts to run
@@ -188,7 +229,44 @@ namespace AP2ex1.Model
             }
         }
 
+        public int GetNumPointsPerSec()
+        {
+            return FPS;
+        }
 
+        public string GetCorrelativeVar(string var)
+        {
+            return ad.GetCorrelatedFeature(var);
+        }
+
+        public IList<Point> GetVarPoints(string var)
+        {
+            IList<Point> points = new List<Point>();
+            for (int i=0; i < fp.DataLength; i++)
+            {
+                points.Add(new Point((int)(i / FPS), fp.GetPropertyAtLine(var, i)));
+            }
+
+            return points;
+        }
+
+        public Tuple<IList<Point>, IList<Point>> GetAnomalyGraphPoints(string var, string corrilativeVar)
+        {
+            IList<Point> anomaliesPoints = anomaliesByFeatures[Tuple.Create(var, corrilativeVar)];
+
+            IList<Point> allPoints = new List<Point>();
+            for (int i = 0; i < fp.DataLength; i++)
+            {
+                allPoints.Add(new Point(fp.GetPropertyAtLine(var, i), fp.GetPropertyAtLine(corrilativeVar, i)));
+            }
+
+            return Tuple.Create(allPoints, anomaliesPoints);
+        }
+
+        public IList<Tuple<Func<double, double>, double, double>> GetGraphFuncs(string var)
+        {
+            return ad.GetGraph(var);
+        }
     }
 
 }

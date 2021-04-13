@@ -4,11 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using AP2ex1.controlersModel;
+using PluginInterface;
+using System.Windows;
+
 namespace AP2ex1.Model
 {
-    public partial class FlightModel : IFlightModel
+    public partial class FlightModel : IFlightModel, IMGraphController
     {
-        private readonly string[] properties =  { "CurrentLine","CompassAngle", "Speed", "Height", "JoystickX", "JoystickY", "Yaw", "Pitch", "Roll"};
+        private readonly string[] properties =  { "CompassAngle", "Speed", "Height", "JoystickX", "JoystickY", "Yaw", "Pitch", "Roll"};
 
         public int CompassAngle
         {
@@ -74,13 +78,6 @@ namespace AP2ex1.Model
             }
         }
 
-        public int CurrentLine
-        {
-            get
-            {
-                return currentLine;
-            }
-        }
 
 
         private void NotifyChanges()
