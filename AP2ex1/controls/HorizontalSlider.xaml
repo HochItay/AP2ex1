@@ -84,6 +84,6 @@
 
 	<Grid>
         <Slider Style="{StaticResource Horizontal_Slider}" VerticalAlignment="Center"  Maximum="{Binding VM_Maximum}"
-                Minimum="{Binding VM_Minimum}" Value="{Binding VM_Value}"/>
+                Minimum="{Binding VM_Minimum}" Value="{Binding VM_Value}" IsEnabled="False"/>
 	</Grid>
 </UserControl>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -70,5 +71,7 @@ namespace AP2ex1.controlersViewModel
                 joystickY = 90 + (int)(0.7 * value);
             }
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

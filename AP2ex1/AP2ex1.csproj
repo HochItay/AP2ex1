@@ -152,6 +152,7 @@
     <Compile Include="controls\HorizontalSlider.xaml.cs">
       <DependentUpon>HorizontalSlider.xaml</DependentUpon>
     </Compile>
+    <Compile Include="controls\IsRunningToImageConverter.cs" />
     <Compile Include="controls\Joystick.xaml.cs">
       <DependentUpon>Joystick.xaml</DependentUpon>
     </Compile>
@@ -161,6 +162,7 @@
     <Compile Include="controls\AirspeedIndicator.xaml.cs">
       <DependentUpon>AirspeedIndicator.xaml</DependentUpon>
     </Compile>
+    <Compile Include="controls\TimeToStrConverter.cs" />
     <Compile Include="controls\VerticalSlider.xaml.cs">
       <DependentUpon>VerticalSlider.xaml</DependentUpon>
     </Compile>

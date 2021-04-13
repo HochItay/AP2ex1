@@ -28,5 +28,30 @@ namespace AP2ex1.controls
             InitializeComponent();
             DataContext = vm;
         }
+
+        private void BFastBackward_Click(object sender, RoutedEventArgs e)
+        {
+            vm.startOver();
+        }
+
+        private void BFastForward_Click(object sender, RoutedEventArgs e)
+        {
+            vm.goToEnd();
+        }
+
+        private void BTenForward_Click(object sender, RoutedEventArgs e)
+        {
+            vm.skipTen();
+        }
+
+        private void BTenBackward_Click(object sender, RoutedEventArgs e)
+        {
+            vm.goBackTen();
+        }
+
+        private void BPlay_Click(object sender, RoutedEventArgs e)
+        {
+            vm.playClicked();
+        }
     }
 }
