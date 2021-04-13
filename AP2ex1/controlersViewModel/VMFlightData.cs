@@ -9,16 +9,16 @@ namespace AP2ex1.controlersViewModel
 {
     class VMFlightData : IVMFlightData
     {
-        private int compassAngle = 180;
-        private int speed = 150;
-        private int height = 100;
-        private int joystickX;
-        private int joystickY;
+        private IControlersModel.IMFlightData model;
+        public VMFlightData(IControlersModel.IMFlightData model)
+        {
+            this.model = model;
+        }
         public int VM_CompassAngle
         {
             get
             {
-                return compassAngle;
+                return model.CompassAngle;
             }
 
         }
@@ -26,21 +26,21 @@ namespace AP2ex1.controlersViewModel
         {
             get
             {
-                return speed;
+                return model.CompassAngle;
             }
         }
         public int VM_Height
         {
             get
             {
-                return height;
+                return model.Height;
             }
         }
         public int VM_JoystickX
         {
             get
             {
-                return joystickX;
+                return model.JoystickX;
 
             }
         }
@@ -48,11 +48,10 @@ namespace AP2ex1.controlersViewModel
         {
             get
             {
-                return joystickY;
+                return model.VM_JoystickY;
 
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

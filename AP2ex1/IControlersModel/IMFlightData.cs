@@ -1,27 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AP2ex1.controlersViewModel
+namespace AP2ex1.IControlersModel
 {
-    interface IVMFlightData
+    interface IMFlightData
     {
-        int VM_CompassAngle
+        int CompassAngle
         {
             get;
         }
-        int VM_Speed
+        int Speed
         {
             get;
         }
-        int VM_Height
+        int Height
         {
             get;
         }
-        int VM_JoystickX
+        int JoystickX
         {
             get;
         }
