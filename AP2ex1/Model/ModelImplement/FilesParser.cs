@@ -106,7 +106,6 @@ namespace AP2ex1.Model
                 return 0;           // if property is not in XML file - returns default value - 0.
             }
             int index = propToIndex[propName];
-            Console.WriteLine("{0}: {1}", propName, index);
 
             return (propValues[lineNum])[index];
         }

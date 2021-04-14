@@ -25,8 +25,8 @@ namespace AP2ex1.Model
         private int serverPort = 5400;
         private volatile bool isRunning = false;     // when creating a model, it does not run the flight.
         private double speed = 1.0;
-        private volatile int currentTime;
-        private volatile int currentLine;
+        private volatile int currentTime = 0;
+        private volatile int currentLine = 0;
         private int dataLength;
         private string flightFilePath;
 
@@ -162,6 +162,7 @@ namespace AP2ex1.Model
             this.flightFilePath = filePath;
             fp.LoadData(filePath);
             dataLength = fp.DataLength;
+            NotifyPropertyChanged(nameof(VideoLength));     // when we load a data file - the video length changes.
 
             if (ad != null)
             {
