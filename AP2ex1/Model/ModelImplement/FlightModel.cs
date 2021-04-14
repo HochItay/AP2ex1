@@ -30,7 +30,7 @@ namespace AP2ex1.Model
         private int dataLength;
         private string flightFilePath;
 
-        // anomlay related fields
+        // anomaly related fields
         private IAnomalyDetector ad;
         // maps each pair of properties to its anomalies
         private SortedDictionary<Tuple<string,string>, IList<Point>> anomaliesByFeatures;
@@ -46,7 +46,22 @@ namespace AP2ex1.Model
 
             set
             {
-                currentLine = value;
+                // check boundaries
+                if (value >= fp.DataLength)
+                {
+                    currentLine = fp.DataLength - 1;
+                } else if (value < 0)
+                {
+                    currentLine = 0;
+                } else
+                {
+                    currentLine = value;
+                }
+
+                // also change current time
+                currentTime = (int)currentLine / FPS;
+                NotifyChanges();           // notifies all the fields have changed - because we passed to a new frame.
+                NotifyPropertyChanged(nameof(VideoCurrentTime));
                 NotifyPropertyChanged(nameof(CurrentLine));
             }
         }
@@ -84,9 +99,22 @@ namespace AP2ex1.Model
             get => currentTime;
             set
             {
-                currentTime = value;
-                currentLine = FPS * currentTime;
-                NotifyPropertyChanged(nameof(VideoCurrentTime));
+                // check boundaries
+                if (value >= VideoLength)
+                {
+                    currentTime = VideoLength - 1;
+                }
+                else if (value < 0)
+                {
+                    currentTime = 0;
+                }
+                else
+                {
+                    currentTime = value;
+                }
+
+                // also change current line
+                CurrentLine = (int)currentTime * FPS;
             }
         }
         
@@ -99,8 +127,8 @@ namespace AP2ex1.Model
             {
                 if (!isRunning & value)
                 {
-                    Thread thread = new Thread(new ThreadStart(run));
                     isRunning = true;
+                    Thread thread = new Thread(new ThreadStart(run));
                     thread.Start();
                 }
                 isRunning = value;
@@ -130,8 +158,8 @@ namespace AP2ex1.Model
         }
 
         /// <summary>
-        /// return a graph that represent the anomaly alogithm
-        /// the graph is reresented by a function, starting cordinate and ending cordinate
+        /// return a graph that represent the anomaly algorithm
+        /// the graph is represented by a function, starting coordinate and ending coordinate
         /// </summary>
         /// <param name="feature"> feature to get graph of</param>
         /// <returns> we return list of this tuples to be able to draw non-function graphs such as circle</returns>
@@ -165,6 +193,9 @@ namespace AP2ex1.Model
             fp.LoadSettings(filePath);
         }
 
+        /// <summary>
+        /// detect anomalies and initialize anomaliesByFeatures field
+        /// </summary>
         private void InitAnomalies()
         {
             IList<Tuple<int, string, string>> allAnomalies = ad.DetectAnomalies(this.flightFilePath);
@@ -206,14 +237,12 @@ namespace AP2ex1.Model
                 server.Send(msg);
 
                 // going to the next line in the flight data file.
-                currentLine++;
-                currentTime = currentLine / FPS;
+                CurrentLine++;
 
-                if (currentLine >= dataLength)  // if we finished iterating through the data.
+                if (currentLine == dataLength - 1)  // if we finished iterating through the data.
                 {
                     VideoIsRunning = false;
                 }
-                NotifyChanges();            // notifies all the fields have changed - because we passed to a new frame.
 
                 sw.Stop();
 

@@ -17,7 +17,7 @@ namespace AP2ex1.Model
         {
             get 
             {        
-                return (int) fp.GetPropertyAtLine("", currentLine); 
+                return (int) fp.GetPropertyAtLine("indicated-heading-deg", currentLine); 
             }
         }
 
@@ -91,12 +91,12 @@ namespace AP2ex1.Model
 
         public void goToEnd()
         {
-            throw new NotImplementedException();
+            CurrentLine = dataLength;
         }
 
         public void playClicked()
         {
-            throw new NotImplementedException();
+            VideoIsRunning = !isRunning;
         }
 
         public void skipTen()
