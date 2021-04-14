@@ -21,28 +21,21 @@ namespace AP2ex1.View
     /// </summary>
     public partial class FlightControllers : UserControl
     {
-        private VMSlider initVM()
+        private IVMFlightControllers vm;
+        public IVMFlightControllers VM
         {
-            VMSlider vm = new VMSlider();
-            vm.VM_Value = 0.5;
-            vm.VM_Maximum = 1;
-            vm.VM_Minimum = -1;
-            return vm;
+            set
+            {
+                vm = value;
+                DataContext = vm;
+            }
         }
-        private VMSlider vmAileron, vmRuddel, vmThrottle, vmElevator;
+
         public FlightControllers()
         {
             InitializeComponent();
-            vmAileron = initVM();
-            vmThrottle = initVM();
-            vmElevator = initVM();
-            vmRuddel = initVM();
-            vmThrottle.VM_Minimum = 0;
-            SAileron.VM = vmAileron;
-            SElevetor.VM = vmElevator;
-            SThrottle.VM = vmThrottle;
-            SRuddel.VM = vmRuddel;
-            
+            vm = new VMFlightControllers();
+            DataContext = vm;
         }
     }
 }

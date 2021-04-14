@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:AP2ex1.View"
-             mc:Ignorable="d"
+             mc:Ignorable="d" x:Name="This"
              d:DesignHeight="450" d:DesignWidth="100">
 
 	<UserControl.Resources>
@@ -84,7 +84,7 @@
 	</UserControl.Resources>
 	<Grid>
 
-		<Slider Style="{StaticResource Vertical_Slider}" Maximum="{Binding VM_Maximum}"
-                Minimum="{Binding VM_Minimum}" Value="{Binding VM_Value}" IsEnabled="False"/>
+		<Slider Style="{StaticResource Vertical_Slider}" Maximum="{Binding Maximum}"
+                Minimum="{Binding Minimum}" Value="{Binding Value}" IsEnabled="False"/>
 	</Grid>
 </UserControl>

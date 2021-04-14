@@ -21,19 +21,56 @@ namespace AP2ex1.View
     /// </summary>
     public partial class HorizontalSlider : UserControl
     {
-        private VMSlider vm;
+        private double max, min, val;
 
         public HorizontalSlider()
         {
             InitializeComponent();
+            DataContext = this;
         }
-        public VMSlider VM
+        public double Maximum
         {
             set
             {
-                vm = value;
-                DataContext = vm;
+                if (max != value)
+                {
+                    max = value;
+                }
+            }
+            get
+            {
+                return max;
+            }
+        }
+        public double Minimum
+        {
+            set
+            {
+
+                if (min != value)
+                {
+                    min = value;
+                }
+            }
+            get
+            {
+                return min;
+            }
+        }
+        public double Value
+        {
+            set
+            {
+                if (val != value)
+                {
+                    val = value;
+                }
+            }
+            get
+            {
+                return val;
             }
         }
     }
 }
+
