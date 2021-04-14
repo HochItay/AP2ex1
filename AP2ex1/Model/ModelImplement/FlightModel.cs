@@ -69,7 +69,6 @@ namespace AP2ex1.Model
         public FlightModel()
         {
             server = new Socket(SocketType.Stream, ProtocolType.Tcp);
-            server.Connect("127.0.0.1", serverPort);
             fp = new FilesParser();
             currentTime = 0;
             
@@ -225,6 +224,8 @@ namespace AP2ex1.Model
         /// </summary>
         private void run()
         {
+            server.Connect("127.0.0.1", serverPort);
+
             Stopwatch sw = new Stopwatch();
             while (isRunning)
             {
@@ -252,6 +253,7 @@ namespace AP2ex1.Model
                     Thread.Sleep((int)sleepTIme);
                 }
             }
+            server.Disconnect(true);
         }
 
         private void NotifyPropertyChanged(string msg)
