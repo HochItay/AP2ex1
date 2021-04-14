@@ -10,6 +10,7 @@ namespace AP2ex1.ViewModel
     class VMFlightData : IVMFlightData
     {
         private readonly int normalizeJoystick = 100;
+        private readonly int centerlizeJoystick = 125;
         private Model.IMFlightData model;
         public void NotifyPropertyChanged(string propName)
         {
@@ -53,19 +54,19 @@ namespace AP2ex1.ViewModel
                 return model.Height;
             }
         }
-        public int VM_JoystickX
+        public double VM_JoystickX
         {
             get
             {
-                return model.JoystickX * normalizeJoystick;
+                return model.JoystickX * normalizeJoystick + centerlizeJoystick;
 
             }
         }
-        public int VM_JoystickY
+        public double VM_JoystickY
         {
             get
             {
-                return model.JoystickY * normalizeJoystick;
+                return model.JoystickY * normalizeJoystick + centerlizeJoystick;
 
             }
         }

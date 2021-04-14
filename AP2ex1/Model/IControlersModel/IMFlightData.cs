@@ -21,11 +21,11 @@ namespace AP2ex1.Model
         {
             get;
         }
-        int JoystickX
+        double JoystickX
         {
             get;
         }
-        int JoystickY
+        double JoystickY
         {
             get;
         }

@@ -52,22 +52,22 @@ namespace AP2ex1.Model
         /// <summary>
         /// the position of the Yoke in the x-axis.
         /// </summary>
-        public int JoystickX
+        public double JoystickX
         {
             get
             {
-                return (int)fp.GetPropertyAtLine("aileron", currentLine);
+                return (double)fp.GetPropertyAtLine("aileron", currentLine);
             }
         }
 
         /// <summary>
         /// the position of the Yoke in the y-axis.
         /// </summary>
-        public int JoystickY
+        public double JoystickY
         {
             get
             {
-                return (int)fp.GetPropertyAtLine("elevator", currentLine);
+                return (double)fp.GetPropertyAtLine("elevator", currentLine);
             }
         }
 

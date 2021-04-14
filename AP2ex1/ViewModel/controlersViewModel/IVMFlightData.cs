@@ -21,11 +21,11 @@ namespace AP2ex1.ViewModel
         {
             get;
         }
-        int VM_JoystickX
+        double VM_JoystickX
         {
             get;
         }
-        int VM_JoystickY
+        double VM_JoystickY
         {
             get;
         }
