@@ -213,18 +213,27 @@ namespace AP2ex1.Model
         {
 
             var server = new Socket(SocketType.Stream, ProtocolType.Tcp);
-            server.Connect("127.0.0.1", serverPort);
+            try
+            {
+                server.Connect("127.0.0.1", serverPort);
+            }
+            catch
+            {
+                ;
+            }
             Stopwatch sw = new Stopwatch();
             while (isRunning)
             {
                 double sleepTIme = (MILI / FPS) / speed;
                 
                 sw.Restart();
-                
-                var values = fp.GetLine(currentLine);
-                byte[] msg = System.Text.Encoding.UTF8.GetBytes(string.Join(",", values) + "\n");
-                server.Send(msg);
-                
+
+                if (server.Connected)       // if we are connected to the server - we send it the data.
+                {
+                    var values = fp.GetLine(currentLine);
+                    byte[] msg = System.Text.Encoding.UTF8.GetBytes(string.Join(",", values) + "\n");
+                    server.Send(msg);
+                }
 
                 // going to the next line in the flight data file.
                 CurrentLine = currentLine + 1;
@@ -242,7 +251,10 @@ namespace AP2ex1.Model
                     Thread.Sleep((int)sleepTIme);
                 }
             }
-            server.Disconnect(false);
+            if (server.Connected)
+            {
+                server.Disconnect(false);
+            }
             server.Dispose();
             
         }
