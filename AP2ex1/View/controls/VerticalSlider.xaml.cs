@@ -20,7 +20,7 @@ namespace AP2ex1.View
     /// <summary>
     /// Interaction logic for VerticalSlider.xaml
     /// </summary>
-    public partial class VerticalSlider : UserControl, INotifyPropertyChanged
+    public partial class VerticalSlider : UserControl, INotifyPropertyChanged, DependencyObject
     {
         private double max, min, val = 0.3;
         public VerticalSlider()

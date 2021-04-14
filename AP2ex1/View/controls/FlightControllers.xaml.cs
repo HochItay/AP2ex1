@@ -36,6 +36,7 @@ namespace AP2ex1.View
             InitializeComponent();
             vm = new VMFlightControllers();
             DataContext = vm;
+            SAileron.Value = vm.VM_Aileron;
         }
     }
 }
