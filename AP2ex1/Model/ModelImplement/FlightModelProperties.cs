@@ -12,8 +12,12 @@ namespace AP2ex1.Model
 {
     public partial class FlightModel : IMMain
     {
+        // all the properties of the plane (meaning, those we got from the data file, not those we set such as CurrentLine).
         private readonly string[] properties =  { "CompassAngle", "Speed", "Height", "JoystickX", "JoystickY", "Yaw", "Pitch", "Roll"};
 
+        /// <summary>
+        /// the angle the plane is headed toward.
+        /// </summary>
         public int CompassAngle
         {
             get 
@@ -22,6 +26,9 @@ namespace AP2ex1.Model
             }
         }
 
+        /// <summary>
+        /// the speed of the plane, in kt.
+        /// </summary>
         public int Speed
         {
             get
@@ -30,6 +37,10 @@ namespace AP2ex1.Model
             }
         }
 
+
+        /// <summary>
+        /// the height of the plane, in ft.
+        /// </summary>
         public int Height
         {
             get
@@ -38,6 +49,9 @@ namespace AP2ex1.Model
             }
         }
 
+        /// <summary>
+        /// the position of the Yoke in the x-axis.
+        /// </summary>
         public int JoystickX
         {
             get
@@ -46,6 +60,9 @@ namespace AP2ex1.Model
             }
         }
 
+        /// <summary>
+        /// the position of the Yoke in the y-axis.
+        /// </summary>
         public int JoystickY
         {
             get
@@ -54,6 +71,9 @@ namespace AP2ex1.Model
             }
         }
 
+        /// <summary>
+        /// the Yaw angle of the plane.
+        /// </summary>
         public int Yaw
         {
             get
@@ -62,6 +82,9 @@ namespace AP2ex1.Model
             }
         }
 
+        /// <summary>
+        /// the Pitch angle of the plane.
+        /// </summary>
         public int Pitch
         {
             get
@@ -70,6 +93,10 @@ namespace AP2ex1.Model
             }
         }
 
+
+        /// <summary>
+        /// the Roll angle of the plane.
+        /// </summary>
         public int Roll
         {
             get
@@ -78,52 +105,83 @@ namespace AP2ex1.Model
             }
         }
 
+
         /// <summary>
         /// this method starts the FlightGear application, and should only be run once.
         /// </summary>
         /// <param name="path"> the path to the exe file in the FlightGear bin folder. </param>
         public void FGPathChanged(string path)
         {
-            string directoryPath = Path.GetDirectoryName(path);
-            string xml = "playback_small";
-            Process cmd = new Process();
-            cmd.StartInfo.FileName = "cmd.exe";
-            cmd.StartInfo.RedirectStandardInput = true;
-            cmd.StartInfo.CreateNoWindow = true;
-            cmd.StartInfo.UseShellExecute = false;
-            cmd.StartInfo.WorkingDirectory = directoryPath;
-            cmd.Start();
-            cmd.StandardInput.WriteLine("fgfs --generic=socket,in,10,127.0.0.1,5400,tcp,{0} --fdm=null", xml);
-            cmd.StandardInput.Flush();
-            cmd.StandardInput.Close();
-            cmd.WaitForExit();
+            try   // because this command may fail.
+            {
+                string directoryPath = Path.GetDirectoryName(path);
+                string xml = "playback_small";      // note - this file must be in the Protocol directory.
+                Process cmd = new Process();
+                cmd.StartInfo.FileName = "cmd.exe";
+                cmd.StartInfo.RedirectStandardInput = true;
+                cmd.StartInfo.CreateNoWindow = true;
+                cmd.StartInfo.UseShellExecute = false;
+                cmd.StartInfo.WorkingDirectory = directoryPath;
+                cmd.Start();
+                cmd.StandardInput.WriteLine("fgfs --generic=socket,in,10,127.0.0.1,5400,tcp,{0} --fdm=null", xml);
+                cmd.StandardInput.Flush();
+                cmd.StandardInput.Close();
+            }
+            catch
+            {
+                ;
+            }
         }
 
+
+        /// <summary>
+        /// returns 10 seconds back in the video.
+        /// </summary>
         public void GoBackTen()
         {
             CurrentLine = CurrentLine - 10 * FPS;
         }
-
-        public void GoToEnd()
-        {
-            CurrentLine = dataLength;
-        }
-
-        public void PlayClicked()
-        {
-            VideoIsRunning = !isRunning;
-        }
-
+        
+        /// <summary>
+        /// goes 10 seconds forward.
+        /// </summary>
         public void SkipTen()
         {
             CurrentLine = CurrentLine + 10 * FPS;
         }
 
+
+        /// <summary>
+        /// goes to the end of the video.
+        /// </summary>
+        public void GoToEnd()
+        {
+            CurrentLine = dataLength;
+        }
+
+        /// <summary>
+        /// goes to the start of the video.
+        /// </summary>
         public void StartOver()
         {
             CurrentLine = 0;
         }
 
+        /// <summary>
+        /// stops the video if playing, or staring it if not.
+        /// </summary>
+        public void PlayClicked()
+        {
+            VideoIsRunning = !isRunning;
+        }
+
+
+        
+        
+        /// <summary>
+        /// notifies all the properties in the `properties` list have changed.
+        /// used to update all changes due to change at time.
+        /// </summary>
         private void NotifyChanges()
         {
             foreach (string prop in properties)

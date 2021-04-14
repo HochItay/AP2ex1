@@ -150,16 +150,28 @@ namespace AP2ex1.Model
         }
 
 
+        /// <summary>
+        /// Loads the anomaly detection algorithm from a dll file.
+        /// </summary>
+        /// <param name="filePath"> the path to the dll file. </param>
         public void LoadDeviationAlgorithm(string filePath)
         {
-            ad = AnomalyDllLoader.LoadDll(filePath);
-            ad.LearnNormal(regFlight, fp.GetPropertiesNames());
-
-            if (flightFilePath != null)
+            try
             {
-                this.InitAnomalies();
+                ad = AnomalyDllLoader.LoadDll(filePath);
+                ad.LearnNormal(regFlight, fp.GetPropertiesNames());
+
+                if (flightFilePath != null)
+                {
+                    this.InitAnomalies();
+                }
+            }
+            catch
+            {
+                ad = null;
             }
         }
+
 
         /// <summary>
         /// return a graph that represent the anomaly algorithm
@@ -171,6 +183,7 @@ namespace AP2ex1.Model
         {
             return ad.GetGraph(feature);
         }
+
 
         /// <summary>
         /// loading the data file.
@@ -226,7 +239,7 @@ namespace AP2ex1.Model
         } 
 
         /// <summary>
-        /// starts to run
+        /// starts to run the flight simulator.
         /// </summary>
         private void run()
         {
@@ -278,6 +291,10 @@ namespace AP2ex1.Model
             
         }
 
+        /// <summary>
+        /// sends notification about Property the have changed.
+        /// </summary>
+        /// <param name="msg"> the name of the changed Property </param>
         private void NotifyPropertyChanged(string msg)
         {
             if (PropertyChanged != null)
@@ -286,16 +303,31 @@ namespace AP2ex1.Model
             }
         }
 
+        /// <summary>
+        /// returns the FPS - number of lines in data, in each second.
+        /// </summary>
+        /// <returns> FPS </returns>
         public int GetNumPointsPerSec()
         {
             return FPS;
         }
 
+        /// <summary>
+        /// returns the most correlative variable, to a given variable name.
+        /// </summary>
+        /// <param name="var"> the name of the variable. </param>
+        /// <returns> the most correlative variable to the given one. </returns>
         public string GetCorrelativeVar(string var)
         {
             return ad.GetCorrelatedFeature(var);
         }
 
+        /// <summary>
+        /// returns List of all the points at the form (t, f(t))
+        /// where f(t) is the value at time t.
+        /// </summary>
+        /// <param name="var"> the variable to get its points list. </param>
+        /// <returns> list of all points, representing the values of 'var' </returns>
         public IList<Point> GetVarPoints(string var)
         {
             IList<Point> points = new List<Point>();
@@ -307,6 +339,12 @@ namespace AP2ex1.Model
             return points;
         }
 
+        /// <summary>
+        /// returns all the points of the 2 variables, and all said points in which anomaly happens.. 
+        /// </summary>
+        /// <param name="var"> the first variable name. </param>
+        /// <param name="corrilativeVar"> the second variable name. </param>
+        /// <returns> Tuple containing all said points. </returns>
         public Tuple<IList<Point>, IList<Point>> GetAnomalyGraphPoints(string var, string corrilativeVar)
         {
             IList<Point> anomaliesPoints = anomaliesByFeatures[Tuple.Create(var, corrilativeVar)];
@@ -320,6 +358,11 @@ namespace AP2ex1.Model
             return Tuple.Create(allPoints, anomaliesPoints);
         }
 
+        /// <summary>
+        /// returns the anomaly graph. 
+        /// </summary>
+        /// <param name="var"> the variable to get the anomaly of which. </param>
+        /// <returns> the graph, and functions. </returns>
         public IList<Tuple<Func<double, double>, double, double>> GetGraphFuncs(string var)
         {
             return ad.GetGraph(var);
