@@ -30,21 +30,19 @@ namespace AP2ex1.View
 
         private ViewModel.IVMPGetFiles getFilesVM;
 
-        public PGetFiles()
+        public PGetFiles(ViewModel.IVMPGetFiles getFilesVM)
         {   
             InitializeComponent();
 
-            /*
-            getFilesVM = new framesViewModel.VMPGetFiles(new ...);
+            this.getFilesVM = getFilesVM;
 
-            BBrowseCsv.notifyFileChanged += getFilesVM.FileDataChanged;
+            BBrowseCsv.notifyFileChanged += this.getFilesVM.FileDataChanged;
 
-            BBrowseXml.notifyFileChanged += getFilesVM.FileDataChanged;
+            BBrowseXml.notifyFileChanged += this.getFilesVM.FileDataChanged;
 
-            BBrowseDll.notifyFileChanged += getFilesVM.FileDataChanged;
+            BBrowseDll.notifyFileChanged += this.getFilesVM.FileDataChanged;
 
-            BBrowseFG.notifyFileChanged += getFilesVM.FileDataChanged;
-            */
+            BBrowseFG.notifyFileChanged += this.getFilesVM.FileDataChanged;
         }
 
         private void SwitchAll(object sender, RoutedEventArgs e)

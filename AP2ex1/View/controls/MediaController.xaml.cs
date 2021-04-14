@@ -22,11 +22,19 @@ namespace AP2ex1.View
     public partial class MediaController : UserControl
     {
         IVMMediaController vm;
+        public IVMMediaController VM
+        {
+            set
+            {
+                vm = value;
+                DataContext = vm;
+            }
+        }
+
         public MediaController()
         {
             //vm = new VMMediaController();
             InitializeComponent();
-            DataContext = vm;
         }
 
         private void BFastBackward_Click(object sender, RoutedEventArgs e)

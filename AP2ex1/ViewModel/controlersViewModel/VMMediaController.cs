@@ -36,8 +36,10 @@ namespace AP2ex1.ViewModel
             }
             set
             {
-                model.VideoSpeed = Math.Round(value, 1);
-                NotifyPropertyChanged("VM_VideoSpeed");
+                if (model.VideoSpeed != value) {
+                    model.VideoSpeed = Math.Round(value, 1);
+                    NotifyPropertyChanged("VM_VideoSpeed");
+                }
             }
         }
         public int VM_VideoLength {
@@ -54,8 +56,11 @@ namespace AP2ex1.ViewModel
             }
             set
             {
-                model.VideoCurrentTime = value;
-                NotifyPropertyChanged("VM_VideoCurrentTime");
+                if (model.VideoCurrentTime != value)
+                {
+                    model.VideoCurrentTime = value;
+                    NotifyPropertyChanged("VM_VideoCurrentTime");
+                }
             }
         }
         public bool VM_VideoIsRunning
@@ -66,9 +71,10 @@ namespace AP2ex1.ViewModel
             }
             set
             {
-                model.VideoIsRunning = value;
-                NotifyPropertyChanged("VM_VideoIsRunning");
-
+                if (model.VideoIsRunning != value) {
+                    model.VideoIsRunning = value;
+                    NotifyPropertyChanged("VM_VideoIsRunning");
+                }
             }
         }
 

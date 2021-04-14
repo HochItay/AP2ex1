@@ -22,11 +22,19 @@ namespace AP2ex1.View
     public partial class Compass : UserControl
     {
         private IVMFlightData vm;
+        public IVMFlightData VM
+        {
+            set
+            {
+                vm = value;
+                DataContext = vm;
+            }
+        }
+
         public Compass()
         {
             InitializeComponent();
-            //vm = new VMFlightData();
-            DataContext = vm;
+
         }
     }
 }

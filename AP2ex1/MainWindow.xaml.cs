@@ -21,17 +21,20 @@ namespace AP2ex1
     {
         public static readonly int WIN_CONTROLLERS_HEIGHT = 40;
 
+        private ViewModel.IVMMain vmMain;
+
         private View.PSimulator pSimulator;
         private View.PGetFiles pGetFiles;
-
         public MainWindow()
         {
             InitializeComponent();
 
-            pSimulator = new View.PSimulator();
+            vmMain = new ViewModel.VMMain(new Model.FlightModel());
+
+            pSimulator = new View.PSimulator(vmMain.GetVMPSimulator());
             pSimulator.SwitchFrames += SwitchFrames;
 
-            pGetFiles = new View.PGetFiles();
+            pGetFiles = new View.PGetFiles(vmMain.GetVMPGetFiles());
             pGetFiles.SwitchFrames += SwitchFrames;
 
             Display.Content = pSimulator;

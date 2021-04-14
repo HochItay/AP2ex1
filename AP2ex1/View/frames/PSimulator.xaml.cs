@@ -26,10 +26,24 @@ namespace AP2ex1.View
         public delegate void switchFrame();
         public event switchFrame SwitchFrames;
 
-        public PSimulator()
+        private ViewModel.IVMPSimulator vmPSimulator;
+
+        public PSimulator(ViewModel.IVMPSimulator vmPSimulator)
         {
             InitializeComponent();
             BSwitchFrame.notifyAll += SwitchAll;
+
+            this.vmPSimulator = vmPSimulator;
+            DataContext = this.vmPSimulator;
+
+            graphController.VM = this.vmPSimulator.GetVMGraphController();
+            mediaController.VM = this.vmPSimulator.GetVMMediaController();
+            airspeedIndicator.VM = this.vmPSimulator.GetVMFlightData();
+            altimeter.VM = this.vmPSimulator.GetVMFlightData();
+            compass.VM = this.vmPSimulator.GetVMFlightData();
+            //flightControllers.VM = ;
+            joystick.VM = this.vmPSimulator.GetVMFlightData();
+            yprDisplayer.VM = this.vmPSimulator.GetVMYPRDisplayer();
         }
 
         private void SwitchAll()

@@ -22,14 +22,19 @@ namespace AP2ex1.View
     public partial class YPRDisplayer : UserControl
     {
         private IVMYPRDisplayer vm;
+        public IVMYPRDisplayer VM
+        {
+            set
+            {
+                vm = value;
+                DataContext = vm;
+            }
+        }
+
         public YPRDisplayer()
         {
             InitializeComponent();
-            //vm = new VMYPRDisplayer();
-            DataContext = vm;
-            //vm.VM_Roll = 50;
-            //vm.VM_Pitch = 180;
-            //vm.VM_Yaw = 120;
+            
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using OxyPlot;
+﻿using AP2ex1.ViewModel;
+using OxyPlot;
 using OxyPlot.Series;
 using System;
 using System.Collections.Generic;
@@ -25,15 +26,20 @@ namespace AP2ex1.View
         private readonly string CB_PLACE_HOLDER = "Choose Variable To Display";
         private string lastVarToDisplay = "";
 
-        private ViewModel.VMGraphController vmGraphController;
+        private ViewModel.VMGraphController vm;
+        public VMGraphController VM
+        {
+            set
+            {
+                vm = value;
+                DataContext = vm;
+            }
+        }
         public GraphController()
         {
             InitializeComponent();
 
             CBDisplay.Text = CB_PLACE_HOLDER;
-
-            DataContext = vmGraphController;
-
         }
 
         private void DisplayGraphs(object sender, RoutedEventArgs e)
@@ -44,7 +50,7 @@ namespace AP2ex1.View
             }
 
             lastVarToDisplay = CBDisplay.Text;
-            vmGraphController.RestartGraphs(CBDisplay.Text);
+            vm.RestartGraphs(CBDisplay.Text);
         }
 
     }
