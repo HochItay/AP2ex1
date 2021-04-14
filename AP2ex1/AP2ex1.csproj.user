@@ -33,16 +33,10 @@
     <Page Update="View\controls\GraphController.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\controls\HorizontalSlider.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="View\controls\Joystick.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\controls\MediaController.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="View\controls\VerticalSlider.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\controls\YPRDisplayer.xaml">
