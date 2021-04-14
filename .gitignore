@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .vs/
 <<<<<<< HEAD
 # Ignore Visual Studio temporary files, build results, and
@@ -137,3 +138,8 @@ _NCrunch*
 obj/
 bin/
 >>>>>>> 4fd2b2d (Update .gitignore)
+=======
+.vs
+obj
+bin
+>>>>>>> e99d743 (update gitignore)
