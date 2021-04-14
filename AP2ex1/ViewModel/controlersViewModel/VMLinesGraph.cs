@@ -13,7 +13,7 @@ namespace AP2ex1.ViewModel
     class VMLinesGraph: AVMGraph
     {
         private List<DataPoint> allPoints;
-        private List<DataPoint> displayedPoints;
+        private LineSeries displayedPoints;
         private bool isDataIntialized = false;
 
         public VMLinesGraph(Model.IMGraph model) : base(model)
@@ -28,9 +28,9 @@ namespace AP2ex1.ViewModel
             PlotModel.Series.Clear();
 
             this.allPoints = GetDataPointList(allPoints);
-            displayedPoints = this.allPoints.GetRange(START_POINT_INDEX, START_POINT_INDEX);
+            displayedPoints = new LineSeries() {ItemsSource = this.allPoints.GetRange(START_POINT_INDEX, START_POINT_INDEX)};
 
-            PlotModel.Series.Add(new LineSeries() {ItemsSource = displayedPoints});
+            PlotModel.Series.Add(displayedPoints);
 
             isDataIntialized = true;
             UpdateGraphPoints();
@@ -54,7 +54,7 @@ namespace AP2ex1.ViewModel
                 return;
             }
 
-            displayedPoints = allPoints.GetRange(START_POINT_INDEX, VM_CurrentLine);
+            displayedPoints.ItemsSource = allPoints.GetRange(START_POINT_INDEX, VM_CurrentLine);
             PlotModel.InvalidatePlot(true);
         }
     }

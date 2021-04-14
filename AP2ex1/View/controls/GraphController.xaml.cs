@@ -24,7 +24,6 @@ namespace AP2ex1.View
     public partial class GraphController : UserControl
     {
         private readonly string CB_PLACE_HOLDER = "Choose Variable To Display";
-        private string lastVarToDisplay = "";
 
         private ViewModel.VMGraphController vm;
         public VMGraphController VM
@@ -44,12 +43,11 @@ namespace AP2ex1.View
 
         private void DisplayGraphs(object sender, RoutedEventArgs e)
         {
-            if (CBDisplay.Text.Equals(CB_PLACE_HOLDER) || CBDisplay.Text.Equals(lastVarToDisplay))
+            if (CBDisplay.Text.Equals(CB_PLACE_HOLDER))
             {
                 return;
             }
 
-            lastVarToDisplay = CBDisplay.Text;
             vm.RestartGraphs(CBDisplay.Text);
         }
 

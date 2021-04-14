@@ -14,7 +14,9 @@ namespace AP2ex1.ViewModel
     {
         private static readonly int LAST_SECS_TO_DISPLAY = 30;
         private List<ScatterPoint> allPoints;
-        private List<ScatterPoint> displayedPoints;
+        private ScatterSeries displayedPoints;
+        private List<ScatterPoint> allMarkedPoints;
+        private ScatterSeries displayedMarkedPoints;
         private int pointsPerSec;
         private bool isDataIntialized = false;
         public VMDotsGraph(Model.IMGraph model, int pointsPerSec) : base(model)
@@ -31,17 +33,26 @@ namespace AP2ex1.ViewModel
 
             this.allPoints = GetDataPointList(allPoints, allMarkedPoints);
 
-            displayedPoints = this.allPoints.GetRange(START_POINT_INDEX, START_POINT_INDEX);
-
-            ScatterSeries scatter = new ScatterSeries()
+            displayedPoints = new ScatterSeries()
             {
-                ItemsSource = displayedPoints,
-                MarkerType = MarkerType.Circle
+                ItemsSource = this.allPoints.GetRange(START_POINT_INDEX, START_POINT_INDEX),
+                MarkerType = MarkerType.Circle,
+                MarkerFill = OxyColors.Black
             };
 
-            PlotModel.Series.Add(scatter);
+            this.allMarkedPoints = GetMarkedPointList(allPoints, allMarkedPoints);
 
-            SetRegressionFunc(regFuncs, scatter.MinX, scatter.MaxX);
+            displayedMarkedPoints = new ScatterSeries()
+            {
+                ItemsSource = this.allPoints.GetRange(START_POINT_INDEX, START_POINT_INDEX),
+                MarkerType = MarkerType.Circle,
+                MarkerFill = OxyColors.Red
+            };
+
+            PlotModel.Series.Add(displayedPoints);
+            PlotModel.Series.Add(displayedMarkedPoints);
+
+            SetRegressionFunc(regFuncs, displayedPoints.MinX, displayedPoints.MaxX);
 
             isDataIntialized = true;
             UpdateGraphPoints();
@@ -57,10 +68,26 @@ namespace AP2ex1.ViewModel
 
                 if (allMarkedPoints.Contains(point))
                 {
-                    scatterPoint.Value = 0;//RED
-                } else
+                    scatterPoint.Size = 0;
+                }
+
+                scatterPoints.Add(scatterPoint);
+            }
+
+            return scatterPoints;
+        }
+
+        private List<ScatterPoint> GetMarkedPointList(IList<Point> allPoints, IList<Point> allMarkedPoints)
+        {
+            List<ScatterPoint> scatterPoints = new List<ScatterPoint>();
+
+            foreach (Point point in allPoints)
+            {
+                ScatterPoint scatterPoint = new ScatterPoint(point.X, point.Y);
+
+                if(!allMarkedPoints.Contains(point))
                 {
-                    scatterPoint.Value = 1;//BLUE
+                    scatterPoint.Size = 0;
                 }
 
                 scatterPoints.Add(scatterPoint);
@@ -84,7 +111,9 @@ namespace AP2ex1.ViewModel
                 numPointsToDisplay = VM_CurrentLine;
             }
 
-            displayedPoints = allPoints.GetRange(startIndex, numPointsToDisplay);
+            displayedPoints.ItemsSource = allPoints.GetRange(startIndex, numPointsToDisplay);
+            displayedMarkedPoints.ItemsSource = allMarkedPoints.GetRange(startIndex, numPointsToDisplay);
+
             PlotModel.InvalidatePlot(true);
         }
 
@@ -95,6 +124,8 @@ namespace AP2ex1.ViewModel
                 Func<double, double> func = funcSeries.Item1;
                 double start = funcSeries.Item2;
                 double end = funcSeries.Item3;
+
+                double x = func.Invoke(10);
 
                 if(Double.IsInfinity(start))
                 {

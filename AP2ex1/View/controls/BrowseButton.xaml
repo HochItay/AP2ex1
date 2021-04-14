@@ -18,7 +18,7 @@
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
                             <Image Source="images/IBrawseButton/folder.png" Height="40"/>
-                            <Label Grid.Row="1" Content="Brawse Files" HorizontalAlignment = "Center" FontSize="7" FontWeight="Bold"/>
+                            <Label Grid.Row="1" Content="Browse Files" HorizontalAlignment = "Center" FontSize="7" FontWeight="Bold"/>
                         </Grid>
                     </ControlTemplate>
                 </Button.Template>
