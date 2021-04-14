@@ -22,8 +22,8 @@ namespace AP2ex1.Model
         // some constants for the class.
         private const int FPS = 10; // default value of FPS - frames per second.
         private const double MILI = 1000.0; // second in milliseconds.
-        private readonly string regFlight = Directory.GetCurrentDirectory() + @"\..\..\..\resources\reg_flight.csv";
-        
+        private readonly string regFlight = System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\resources\reg_flight.csv";
+
         private int serverPort = 5400;      // the port on which the FlightGear should be run.
 
         // the flight-simulator specifications.
