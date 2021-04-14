@@ -64,7 +64,7 @@ namespace AP2ex1.ViewModel
         {
             get
             {
-                return model.VM_JoystickY;
+                return model.JoystickY;
 
             }
         }

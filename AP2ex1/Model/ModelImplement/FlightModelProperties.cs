@@ -78,8 +78,6 @@ namespace AP2ex1.Model
             }
         }
 
-        public int VM_JoystickY => throw new NotImplementedException();
-
         /// <summary>
         /// this method starts the FlightGear application, and should only be run once.
         /// </summary>

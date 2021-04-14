@@ -25,7 +25,7 @@ namespace AP2ex1.Model
         {
             get;
         }
-        int VM_JoystickY
+        int JoystickY
         {
             get;
         }
