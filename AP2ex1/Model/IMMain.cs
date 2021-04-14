@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AP2ex1.ViewModel
+namespace AP2ex1.Model
 {
-    public interface IVMPGetFiles
+    public interface IMMain : IMPGetFiles, IMPSimulator
     {
-        void FileDataChanged(string filePath);
     }
 }

@@ -8,7 +8,7 @@ using System.Windows.Data;
 namespace AP2ex1.ViewModel
 {
 
-    class VMGraphController : DependencyObject, INotifyPropertyChanged
+    public class VMGraphController : DependencyObject, INotifyPropertyChanged
     {
         private Model.IMGraphController model;
 

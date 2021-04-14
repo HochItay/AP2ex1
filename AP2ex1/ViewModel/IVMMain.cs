@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace AP2ex1.ViewModel
 {
-    public interface IVMPGetFiles
+    public interface IVMMain
     {
-        void FileDataChanged(string filePath);
+        IVMPSimulator GetVMPSimulator();
+        IVMPGetFiles GetVMPGetFiles();
     }
 }

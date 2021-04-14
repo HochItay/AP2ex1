@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AP2ex1.View
+namespace AP2ex1.Model
 {
-    class VMMain
+    public interface IMPSimulator : IMYPRDisplayer, IMGraphController, IMMediaController, IMFlightData
     {
-
     }
 }
