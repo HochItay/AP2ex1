@@ -13,6 +13,7 @@ the general view of our app is:
 - it can load in runtime the settings file (the XML file) - the ```Browse .xml``` in the ```Browse Files``` option.
 - it can load, and reload the data file (the csv file) - it's the ```Broswe .csv``` in the ```Browse Files``` option.
 - it can run the FlightGear from the app with the correct settings - you can choose the ```.exe``` in the ```Browse .exe``` option in the ```Browse Files```.
+
 #### simulator options:
 - you can run the flight using the conrol panel in the buttom of the screen (as shown in the picture).
 - while the flight runs, it transmit the flight data to the FlightGear so it will show it in the simulator.
@@ -44,7 +45,7 @@ for further explanation of the project structure go [here](project_structure.md)
 - you can use the app without FlightGear, or open it in the middle - but do not close it while the video is running (when it's paused it's okay)
 
 ##### open the FlightGear:
-- one option is to use the app for it.
+- one option is to use the app for it. choose the `Browse .exe` option after choosing `Browse Files`;  then you should select the `fgfs.exe` file in the bin folder. is default path would be: `C:\Program Files\FlightGear 2020.3.6\bin\fgfs.exe`
 - second option is to open it - using the following settings:
 ```sh
 --generic=socket,in,10,127.0.0.1,5400,tcp,playback_small
