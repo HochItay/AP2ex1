@@ -8,7 +8,6 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading;
 using System.IO;
-
 using PluginInterface;
 using System.Windows;
 
