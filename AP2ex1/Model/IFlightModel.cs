@@ -16,11 +16,11 @@ namespace AP2ex1.Model
         bool VideoIsRunning { get; set; }
 
         string ChosenProperty { get; set; }
-        bool VideoIsRunning { get; set; }
-        bool VideoIsRunning { get; set; }
+        string CorrelativeProperty { get; }
 
         // file loading methods
         void LoadFlightDataFile(string filePath);
         void LoadSettingsFile(string filePath);
+        void LoadAnomalyAlgorithm(string filePath);
     }
 }

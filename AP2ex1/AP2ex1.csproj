@@ -55,6 +55,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\IFlightModel.cs" />
+    <Compile Include="ViewModel\FlightViewModel.cs" />
     <Compile Include="ViewModel\IFlightViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -96,7 +98,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Folder Include="NewFolder1\" />
+=======
+    <Folder Include="View\" />
+>>>>>>> 330fc0c (reorgenize the files)
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
