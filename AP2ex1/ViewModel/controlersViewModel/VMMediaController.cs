@@ -13,6 +13,15 @@ namespace AP2ex1.ViewModel
         public VMMediaController(Model.IMMediaController model)
         {
             this.model = model;
+            model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e)
+            {
+                string var = "VM_" + e.PropertyName;
+                if(var.Equals("VM_VideoSpeed") || var.Equals("VM_VideoLength") ||
+                var.Equals("VM_VideoCurrentTime") || var.Equals("VM_VideoIsRunning"))
+                {
+                    NotifyPropertyChanged("VM_" + e.PropertyName);
+                }
+            };
         }
         public void NotifyPropertyChanged(string propName)
         {

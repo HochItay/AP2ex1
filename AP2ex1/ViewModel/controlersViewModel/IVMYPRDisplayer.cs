@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AP2ex1.ViewModel
 {
-    interface IVMYPRDisplayer
+    interface IVMYPRDisplayer : INotifyPropertyChanged
     {
         int VM_Yaw
         {
