@@ -54,6 +54,8 @@ for further explanation of the project structure go [here](project_structure.md)
 
 
 ### Building and running Option
+start by downloading the project, and switch to the develop branch.
+then:
 #### One Option - via visual studio:
 open the visual studio project using the `AP2ex1.sln` from the `AP2ex1` directory.
 now you can just run the project via visual studio.
