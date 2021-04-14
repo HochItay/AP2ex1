@@ -10,7 +10,7 @@ using System.Windows;
 
 namespace AP2ex1.Model
 {
-    public partial class FlightModel : IFlightModel
+    public partial class FlightModel : IMMain
     {
         private readonly string[] properties =  { "CompassAngle", "Speed", "Height", "JoystickX", "JoystickY", "Yaw", "Pitch", "Roll"};
 

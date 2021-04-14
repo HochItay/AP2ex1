@@ -13,7 +13,7 @@ using System.Windows;
 
 namespace AP2ex1.Model
 {
-    public partial class FlightModel : IFlightModel
+    public partial class FlightModel : IMMain
     {
         private const int FPS = 10; // default value of FPS.
         private const double MILI = 1000.0; // second in milliseconds.
