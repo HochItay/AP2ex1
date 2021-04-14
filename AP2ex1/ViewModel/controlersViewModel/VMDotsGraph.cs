@@ -31,7 +31,7 @@ namespace AP2ex1.ViewModel
 
             this.allPoints = GetDataPointList(allPoints, allMarkedPoints);
 
-            displayedPoints = displayedPoints.GetRange(START_POINT_INDEX, START_POINT_INDEX);
+            displayedPoints = this.allPoints.GetRange(START_POINT_INDEX, START_POINT_INDEX);
 
             ScatterSeries scatter = new ScatterSeries()
             {
