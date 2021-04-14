@@ -1,84 +1,107 @@
-﻿<UserControl x:Class="AP2ex1.controls.UserControl1"
+﻿<UserControl x:Class="AP2ex1.controls.MediaController"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AP2ex1.controls"
              mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="600">
+             d:DesignHeight="70" d:DesignWidth="470" x:Name="This">
     <UserControl.Resources>
-        <Image x:Name="IPlay" x:Key="IPlay" Source="images/play.png" Margin="6,0,0,0"/>
-        <Image x:Name="IPause" x:Key="IPause" Source="images/pause.png"/>
+        <Image x:Name="IPlay" x:Key="IPlay" Source="images/IMediaController/play.png" Margin="6,0,0,0"/>
+        <Image x:Name="IPause" x:Key="IPause" Source="images/IMediaController/pause.png"/>
+        <ObjectDataProvider x:Key="Speed"/>
+        <local:TimeToStrConverter x:Key="timeToStr"/>
+        <local:IsRunningToImageConverter x:Key="isRunningToImage"/>
+        
     </UserControl.Resources>
 
-    <Grid Background="#D61E1E1E">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Label x:Name="LVideoCurrentTime" Content="0:00" Foreground="White" FontSize="15"/>
-        <Label x:Name="LVideoLength" Grid.Column="2" Content="0:00" Foreground="White" FontSize="15" />
-        <Slider x:Name="STime" Grid.Column="1" Margin="10.4,6,5.4,0" ValueChanged="slider_ValueChanged"/>
-        <Button x:Name="BPlay" Grid.Column="1" Grid.Row="1" Width="50" Height="50" Content="{StaticResource IPlay}">
-            <Button.Template>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Grid>
-                        <Ellipse>
-                            <Ellipse.Fill>
-                                <RadialGradientBrush>
-                                    <GradientStop Color="#FF2A3455"/>
-                                    <GradientStop Color="#FF4968D2" Offset="1"/>
-                                </RadialGradientBrush>
-                            </Ellipse.Fill>
-                        </Ellipse>
-                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    </Grid>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="BFastForward" Grid.Column="1" Grid.Row="1" Width="50" Height="35" Margin="125,0,0,0">
-            <Button.Template>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Grid>
-                        <Image Source="images/fast_forward.png"/>
-                    </Grid>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="BFastBackward" Grid.Column="1" Grid.Row="1" Width="50" Height="35" Margin="0,0,125,0">
-            <Button.Template>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Grid>
-                        <Image Source="images/fast_backward.png"/>
-                    </Grid>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="BTenBackward" Grid.Column="1" Grid.Row="1" Width="50" Height="35" Margin="0,0,230,0">
-            <Button.Template>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Grid>
-                        <Image Source="images/ten_sec_backward.png"/>
-                    </Grid>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="BTenForward" Grid.Column="1" Grid.Row="1" Width="50" Height="35" Margin="230,0,0,0">
-            <Button.Template>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Grid>
-                        <Image Source="images/ten_sec_forward.jpg"/>
-                    </Grid>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Slider x:Name="SSpeed" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="98" Height="25" Margin="0,27,5.6,18"/>
-        <Label  x:Name="LSpeed" Grid.Row="1" Grid.Column="2" Content="X1.0" Foreground="White" FontSize="15" VerticalAlignment="Center"/>
+    <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform">
+        <Grid Background="#D65D6360" Height="70" Width="470">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="50"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label x:Name="LVideoCurrentTime" Content="{Binding VM_VideoCurrentTime, Converter={StaticResource timeToStr}}" 
+                   Foreground="White" FontSize="15" HorizontalAlignment="Center"/>
+            <Label x:Name="LVideoLength" Grid.Column="2"
+                   Content="{Binding VM_VideoLength,Converter={StaticResource timeToStr}}" Foreground="White" FontSize="15" />
+            <Slider x:Name="STime" Grid.Column="1" Margin="10,6,0,0" Minimum="0" Maximum="{Binding VM_VideoLength}"
+                    Value="{Binding VM_VideoCurrentTime}"/>
+            <Button x:Name="BPlay" Grid.Column="1" Grid.Row="1" Width="30" Height="30"
+                     Margin="0,0,0,10" Click="BPlay_Click">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Content" Value="{StaticResource IPause}" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding VM_VideoIsRunning}" Value="True">
+                                <Setter Property="Content" Value="{StaticResource IPlay}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Ellipse>
+                                <Ellipse.Fill>
+                                    <RadialGradientBrush>
+                                        <GradientStop Color="#FF2A3455"/>
+                                        <GradientStop Color="#FF4968D2" Offset="1"/>
+                                    </RadialGradientBrush>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button x:Name="BFastForward" Grid.Column="1" Grid.Row="1" Width="30" Height="20" Margin="70,0,0,10" Click="BFastForward_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Image Source="images/IMediaController/fast_forward.png"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button x:Name="BFastBackward" Grid.Column="1" Grid.Row="1" Width="30" Height="20" Margin="0,0,70,10" Click="BFastBackward_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Image Source="images/IMediaController/fast_backward.png"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button x:Name="BTenBackward" Grid.Column="1" Grid.Row="1" Width="30" Height="20" Margin="0,0,150,10" RenderTransformOrigin="-1.403,0.62" Click="BTenBackward_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Image Source="images/IMediaController/ten_sec_backward.png"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button x:Name="BTenForward" Grid.Column="1" Grid.Row="1" Width="30" Height="20" Margin="150,0,0,10" Click="BTenForward_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Image Source="images/IMediaController/ten_sec_forward.jpg"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Slider x:Name="SSpeed" Grid.Row="1" Grid.Column="1" Minimum="0.25" Maximum="3" Value="{Binding VM_VideoSpeed, Mode=TwoWay}"
+					HorizontalAlignment="Right"  VerticalAlignment="Center" Width="90" Height="25" />
+            <Label  x:Name="LSpeed" Grid.Row="1" Grid.Column="2" Content="{Binding ElementName=SSpeed, Path=Value, Mode=OneWay}"
+                   Margin="10,0,0,0" Foreground="White" FontSize="15" VerticalAlignment="Center"/>
+            <Label x:Name="x" Content="X" Grid.Row="1" Grid.Column="2" Foreground="White" FontSize="15" VerticalAlignment="Center"/>
 
-    </Grid>
+        </Grid>
+    </Viewbox>
 </UserControl>

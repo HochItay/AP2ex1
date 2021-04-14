@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="AP2ex1.View.Compass"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AP2ex1.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform">
+        <Grid Height="300" Width="300">
+            <Image Source = "images/ICompass/compass.png" RenderTransformOrigin="0.51,0.5" Height="300" Width="300">
+                <Image.RenderTransform>
+                    <RotateTransform Angle="{Binding VM_CompassAngle}"/>
+                </Image.RenderTransform>
+            </Image>
+
+            <Image Source="images/ICompass/needle.png" RenderTransformOrigin="0.486,0.518" Height="200" Width="300" Margin="0,0,0,35"/>
+            <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label FontSize="40" Content="{Binding VM_CompassAngle}" Foreground="#9b9b9b" FontWeight="SemiBold"  RenderTransformOrigin="0.831,0.608"/>
+                <Label FontSize="40" Content="°" Foreground="#9b9b9b" FontWeight="SemiBold"  RenderTransformOrigin="0.831,0.608"/>
+            </DockPanel>
+        </Grid>
+    </Viewbox>
+</UserControl>

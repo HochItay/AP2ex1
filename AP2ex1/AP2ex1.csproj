@@ -5,88 +5,73 @@
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
-<<<<<<< HEAD
 
-=======
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xaml">
-      <RequiredTargetFramework>4.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="WindowsBase" />
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
-  </ItemGroup>
-  <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Compile Include="Model\IFlightModel.cs" />
-    <Compile Include="ViewModel\FlightViewModel.cs" />
-    <Compile Include="ViewModel\IFlightViewModel.cs" />
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
->>>>>>> bea47d6 (first implementaion of IFlightModel, IFlightViewModel and FlightViewModel)
-  <ItemGroup>
-    <Folder Include="View\" />
+    <None Remove="View\controls\images\IBrawseButton\folder.png" />
+    <None Remove="View\controls\images\IBrawseFileButton\directory.png" />
+    <None Remove="View\controls\images\ICompass\compass.png" />
+    <None Remove="View\controls\images\ICompass\needle.png" />
+    <None Remove="View\controls\images\IMediaController\fast_backward.png" />
+    <None Remove="View\controls\images\IMediaController\fast_forward.png" />
+    <None Remove="View\controls\images\IMediaController\pause.png" />
+    <None Remove="View\controls\images\IMediaController\play.png" />
+    <None Remove="View\controls\images\IMediaController\ten_sec_backward.png" />
+    <None Remove="View\controls\images\IMediaController\ten_sec_forward.jpg" />
+    <None Remove="View\controls\images\IYPRDisplayer\airplane_pitch.png" />
+    <None Remove="View\controls\images\IYPRDisplayer\airplane_roll.png" />
+    <None Remove="View\controls\images\IYPRDisplayer\airplane_yaw.png" />
   </ItemGroup>
 
   <ItemGroup>
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <Folder Include="NewFolder1\" />
-=======
-    <Folder Include="View\" />
->>>>>>> 330fc0c (reorgenize the files)
-=======
-    <ProjectReference Include="..\PuginInterface\PuginInterface.csproj" />
->>>>>>> 7eaaaba (implement DLL loading + change to .NET 5.0)
+    <PackageReference Include="OxyPlot.Core" Version="2.0.0" />
+    <PackageReference Include="OxyPlot.Wpf" Version="2.0.0" />
+    <PackageReference Include="Syncfusion.SfGauge.WPF" Version="19.1.0.56" />
   </ItemGroup>
-<<<<<<< HEAD
+
+  <ItemGroup>
+    <ProjectReference Include="..\PluginInterface\PuginInterface.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="View\controls\images\IBrawseButton\folder.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\controls\images\IBrawseFileButton\directory.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\controls\images\ICompass\compass.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\controls\images\ICompass\needle.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\controls\images\IMediaController\fast_backward.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\controls\images\IMediaController\fast_forward.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\controls\images\IMediaController\pause.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\controls\images\IMediaController\play.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\controls\images\IMediaController\ten_sec_backward.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\controls\images\IMediaController\ten_sec_forward.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\controls\images\IYPRDisplayer\airplane_pitch.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\controls\images\IYPRDisplayer\airplane_roll.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\controls\images\IYPRDisplayer\airplane_yaw.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
 
 </Project>
-=======
-  <ItemGroup>
-    <Folder Include="View\" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-</Project>
->>>>>>> 330fc0c (reorgenize the files)

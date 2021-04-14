@@ -10,7 +10,6 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace AP2ex1
@@ -20,9 +19,37 @@ namespace AP2ex1
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static readonly int WIN_CONTROLLERS_HEIGHT = 40;
+
+        private View.PSimulator pSimulator;
+        private View.PGetFiles pGetFiles;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            pSimulator = new View.PSimulator();
+            pSimulator.SwitchFrames += SwitchFrames;
+
+            pGetFiles = new View.PGetFiles();
+            pGetFiles.SwitchFrames += SwitchFrames;
+
+            Display.Content = pSimulator;
+        }
+
+        void SwitchFrames()
+        {
+            if(Display.Content == pSimulator)
+            {
+                Display.Content = pGetFiles;
+                WMain.Height = View.PGetFiles.HEIGHT + WIN_CONTROLLERS_HEIGHT;
+                WMain.Width = View.PGetFiles.WIDTH;
+                return;
+            }
+
+            Display.Content = pSimulator;
+            WMain.Height = View.PSimulator.HEIGHT + WIN_CONTROLLERS_HEIGHT;
+            WMain.Width = View.PSimulator.WIDTH;
         }
     }
 }

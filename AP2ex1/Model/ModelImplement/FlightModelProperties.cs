@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using AP2ex1.controlersModel;
 using PluginInterface;
 using System.Windows;
 
 namespace AP2ex1.Model
 {
-    public partial class FlightModel : IFlightModel, IMGraphController
+    public partial class FlightModel : IFlightModel
     {
         private readonly string[] properties =  { "CompassAngle", "Speed", "Height", "JoystickX", "JoystickY", "Yaw", "Pitch", "Roll"};
 
@@ -78,7 +77,37 @@ namespace AP2ex1.Model
             }
         }
 
+        public int VM_JoystickY => throw new NotImplementedException();
 
+        public void FGPathChanged(string path)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void goBackTen()
+        {
+            CurrentLine = CurrentLine - 10 * FPS;
+        }
+
+        public void goToEnd()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void playClicked()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void skipTen()
+        {
+            CurrentLine = CurrentLine + 10 * FPS;
+        }
+
+        public void startOver()
+        {
+            CurrentLine = 0;
+        }
 
         private void NotifyChanges()
         {

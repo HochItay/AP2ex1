@@ -1,0 +1,21 @@
+﻿<Page x:Class="AP2ex1.View.PGetFiles"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AP2ex1.View"
+      xmlns:Controls = "clr-namespace:AP2ex1.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="PGetFiles">
+    <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform">
+        <Grid Height="400" Width="300">
+
+            <Button Content="OK" Width="100" Height="40" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,30" Click="SwitchAll"/>
+            <Controls:BrowseFileButton x:Name="BBrowseCsv" Width="100" VerticalAlignment="Center" Margin="150,0,0,200" Text="Browse .csv" Filter="Microsoft Excel Comma Separated Values File (.csv)|*.csv"/>
+            <Controls:BrowseFileButton x:Name="BBrowseXml" Width="100" VerticalAlignment="Center" Margin="0,0,150,200" Text="Browse .xml" Filter="XML Document (.xml)|*.xml"/>
+            <Controls:BrowseFileButton x:Name="BBrowseDll" Width="100" VerticalAlignment="Center" Margin="150,100,0,0" Text="Browse .dll" Filter="Application extension (.dll)|*.dll"/>
+            <Controls:BrowseFileButton x:Name="BBrowseFG" Width="100" VerticalAlignment="Center" Margin="0,100,150,0" Text="Browse .exe (flightgear)" Filter="Application (.exe)|*.exe"/>
+        </Grid>
+    </Viewbox>
+</Page>

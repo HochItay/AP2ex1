@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AP2ex1.controlersViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,11 +19,39 @@ namespace AP2ex1.controls
     /// <summary>
     /// Interaction logic for UserControl1.xaml
     /// </summary>
-    public partial class UserControl1 : UserControl
+    public partial class MediaController : UserControl
     {
-        public UserControl1()
+        IVMMediaController vm;
+        public MediaController()
         {
+            //vm = new VMMediaController();
             InitializeComponent();
+            DataContext = vm;
+        }
+
+        private void BFastBackward_Click(object sender, RoutedEventArgs e)
+        {
+            vm.startOver();
+        }
+
+        private void BFastForward_Click(object sender, RoutedEventArgs e)
+        {
+            vm.goToEnd();
+        }
+
+        private void BTenForward_Click(object sender, RoutedEventArgs e)
+        {
+            vm.skipTen();
+        }
+
+        private void BTenBackward_Click(object sender, RoutedEventArgs e)
+        {
+            vm.goBackTen();
+        }
+
+        private void BPlay_Click(object sender, RoutedEventArgs e)
+        {
+            vm.playClicked();
         }
     }
 }

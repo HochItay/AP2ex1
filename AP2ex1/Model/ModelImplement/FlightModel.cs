@@ -8,13 +8,12 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading;
 
-using AP2ex1.controlersModel;
 using PluginInterface;
 using System.Windows;
 
 namespace AP2ex1.Model
 {
-    public partial class FlightModel : IFlightModel, IMGraphController
+    public partial class FlightModel : IFlightModel
     {
         private const int FPS = 10; // default value of FPS.
         private const double MILI = 1000.0; // second in milliseconds.
@@ -170,7 +169,7 @@ namespace AP2ex1.Model
         {
             IList<Tuple<int, string, string>> allAnomalies = ad.DetectAnomalies(this.flightFilePath);
 
-            anomaliesByFeatures = new();
+            anomaliesByFeatures = new SortedDictionary<Tuple<string, string>, IList<Point>>();
 
             // initialize all lists
             foreach (string feature1 in this.GetVarsNames())
@@ -183,8 +182,8 @@ namespace AP2ex1.Model
 
             foreach (Tuple<int, string, string> anomaly in allAnomalies)
             {
-                Point p1 = new(fp.GetPropertyAtLine(anomaly.Item2, anomaly.Item1), fp.GetPropertyAtLine(anomaly.Item3, anomaly.Item1));
-                Point p2 = new(fp.GetPropertyAtLine(anomaly.Item3, anomaly.Item1), fp.GetPropertyAtLine(anomaly.Item2, anomaly.Item1));
+                Point p1 = new Point(fp.GetPropertyAtLine(anomaly.Item2, anomaly.Item1), fp.GetPropertyAtLine(anomaly.Item3, anomaly.Item1));
+                Point p2 = new Point(fp.GetPropertyAtLine(anomaly.Item3, anomaly.Item1), fp.GetPropertyAtLine(anomaly.Item2, anomaly.Item1));
                 anomaliesByFeatures[Tuple.Create(anomaly.Item2, anomaly.Item3)].Add(p1);
                 anomaliesByFeatures[Tuple.Create(anomaly.Item3, anomaly.Item2)].Add(p2);
             }
