@@ -109,7 +109,7 @@
                   Margin="10,10,0,10" Minimum="0" Maximum="1" Value="9"/>
 		<Label Content="Elevetor" Grid.Column="2"  Margin="5,5,5,5"/>
 		<controls:VerticalSlider x:Name="SElevetor" Grid.Column="2"  HorizontalAlignment="Center"
-                  Margin="10,10,0,10" Maximum="1" Minimum="0" Value="{Binding VM_Elevetor}" />
+                  Margin="10,10,0,10" Maximum="1" Minimum="0" Value="5" />
         <Label Content="{Binding VM_Elevetor}" Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Center"/>
 		<controls:HorizontalSlider x:Name="SRuddel" Grid.Row="1" Grid.ColumnSpan="3"
                 Margin="10,0,10,0"  VerticalAlignment="Bottom" Maximum="1" Minimum="-1" Value="8"/>
