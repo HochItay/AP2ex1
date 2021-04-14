@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AP2ex1.Model
 {
-    interface IMFlightControllers : INotifyPropertyChanged
+    public interface IMFlightControllers : INotifyPropertyChanged
     {
         public double Throttle
         {
@@ -21,7 +21,7 @@ namespace AP2ex1.Model
         {
             get;
         }
-        public double Ruddel
+        public double Rudder
         {
             get;
         }

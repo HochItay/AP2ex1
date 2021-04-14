@@ -10,10 +10,7 @@ namespace AP2ex1.ViewModel
     class VMFlightControllers : IVMFlightControllers
     {
         private Model.IMFlightControllers model;
-        public VMFlightControllers()
-        {
 
-        }
         public VMFlightControllers(Model.IMFlightControllers model)
         {
             this.model = model;
@@ -21,7 +18,7 @@ namespace AP2ex1.ViewModel
             {
                 string var = "VM_" + e.PropertyName;
                 if (var.Equals("VM_Throttle") || var.Equals("VM_Aileron") || var.Equals("VM_Elevetor") ||
-                var.Equals("VM_Ruddel"))
+                var.Equals("VM_Rudder"))
                 {
                     NotifyPropertyChanged("VM_" + e.PropertyName);
                 }
@@ -31,8 +28,7 @@ namespace AP2ex1.ViewModel
         {
             get
             {
-                //return model.Throttle;
-                return 0.5;
+                return Math.Round(model.Throttle, 2);
             }
         }
 
@@ -40,8 +36,7 @@ namespace AP2ex1.ViewModel
         {
             get
             {
-                //return model.Aileron;
-                return 0.1;
+                return Math.Round(model.Aileron, 2);
             }
         }
 
@@ -49,17 +44,15 @@ namespace AP2ex1.ViewModel
         {
             get
             {
-                //return model.Elevetor;
-                return 0.3;
+                return Math.Round(model.Elevetor, 2);
             }
         }
 
-        public double VM_Ruddel
+        public double VM_Rudder
         {
             get
             {
-                //return model.Ruddel;
-                return 0;
+                return Math.Round(model.Rudder, 2);
             }
         }
         public void NotifyPropertyChanged(string propName)

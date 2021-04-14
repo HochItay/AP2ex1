@@ -21,7 +21,7 @@ namespace AP2ex1.ViewModel
         {
             get;
         }
-        public double VM_Ruddel
+        public double VM_Rudder
         {
             get;
         }

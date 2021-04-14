@@ -34,9 +34,6 @@ namespace AP2ex1.View
         public FlightControllers()
         {
             InitializeComponent();
-            vm = new VMFlightControllers();
-            DataContext = vm;
-            SAileron.Value = vm.VM_Aileron;
         }
     }
 }

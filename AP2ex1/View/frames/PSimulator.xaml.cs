@@ -41,7 +41,7 @@ namespace AP2ex1.View
             airspeedIndicator.VM = this.vmPSimulator.GetVMFlightData();
             altimeter.VM = this.vmPSimulator.GetVMFlightData();
             compass.VM = this.vmPSimulator.GetVMFlightData();
-            //flightControllers.VM = ;
+            flightControllers.VM = this.vmPSimulator.GetVMFlightControllers();
             joystick.VM = this.vmPSimulator.GetVMFlightData();
             yprDisplayer.VM = this.vmPSimulator.GetVMYPRDisplayer();
         }

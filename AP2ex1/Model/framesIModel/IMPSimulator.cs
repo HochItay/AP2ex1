@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AP2ex1.Model
 {
-    public interface IMPSimulator : IMYPRDisplayer, IMGraphController, IMMediaController, IMFlightData
+    public interface IMPSimulator : IMYPRDisplayer, IMGraphController, IMMediaController, IMFlightData, IMFlightControllers
     {
     }
 }
