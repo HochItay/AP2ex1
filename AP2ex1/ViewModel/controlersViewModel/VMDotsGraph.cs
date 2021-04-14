@@ -52,10 +52,39 @@ namespace AP2ex1.ViewModel
             PlotModel.Series.Add(displayedPoints);
             PlotModel.Series.Add(displayedMarkedPoints);
 
-            SetRegressionFunc(regFuncs, displayedPoints.MinX, displayedPoints.MaxX);
+            SetRegressionFunc(regFuncs, getMaxVal(allPoints), getMinVal(allPoints));
 
             isDataIntialized = true;
             UpdateGraphPoints();
+        }
+        private double getMinVal(IList<Point> allPoints)
+        {
+            double min = 0;
+
+            foreach(Point point in allPoints)
+            {
+                if (point.X < min)
+                {
+                    min = point.X;
+                }
+            }
+
+            return min;
+        }
+
+        private double getMaxVal(IList<Point> allPoints)
+        {
+            double max = 0;
+
+            foreach (Point point in allPoints)
+            {
+                if (point.X > max)
+                {
+                    max = point.X;
+                }
+            }
+
+            return max;
         }
 
         private List<ScatterPoint> GetDataPointList(IList<Point> allPoints, IList<Point> allMarkedPoints)
