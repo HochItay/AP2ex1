@@ -36,10 +36,10 @@
                      Margin="0,0,0,10" Click="BPlay_Click">
                 <Button.Style>
                     <Style TargetType="Button">
-                        <Setter Property="Content" Value="{StaticResource IPause}" />
+                        <Setter Property="Content" Value="{StaticResource IPlay}" />
                         <Style.Triggers>
                             <DataTrigger Binding="{Binding VM_VideoIsRunning}" Value="True">
-                                <Setter Property="Content" Value="{StaticResource IPlay}" />
+                                <Setter Property="Content" Value="{StaticResource IPause}" />
                             </DataTrigger>
                         </Style.Triggers>
                     </Style>

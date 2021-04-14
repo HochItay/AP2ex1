@@ -43,7 +43,7 @@ namespace AP2ex1.ViewModel
         {
             get
             {
-                return model.CompassAngle;
+                return model.Speed;
             }
         }
         public int VM_Height

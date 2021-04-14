@@ -10,24 +10,7 @@ namespace AP2ex1.ViewModel
     class VMMediaController : IVMMediaController
     {
         Model.IMMediaController model;
-        public VMMediaController(Model.IMMediaController model)
-        {
-            this.model = model;
-            model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e)
-            {
-                string var = "VM_" + e.PropertyName;
-                if(var.Equals("VM_VideoSpeed") || var.Equals("VM_VideoLength") ||
-                var.Equals("VM_VideoCurrentTime") || var.Equals("VM_VideoIsRunning"))
-                {
-                    NotifyPropertyChanged("VM_" + e.PropertyName);
-                }
-            };
-        }
-        public void NotifyPropertyChanged(string propName)
-        {
-            if (this.PropertyChanged != null)
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
-        }
+        
         public double VM_VideoSpeed
         {
             get
@@ -42,12 +25,14 @@ namespace AP2ex1.ViewModel
                 }
             }
         }
+
         public int VM_VideoLength {
             get
             {
                 return model.VideoLength;
             } 
         }
+
         public int VM_VideoCurrentTime
         {
             get
@@ -58,8 +43,11 @@ namespace AP2ex1.ViewModel
             {
                 if (model.VideoCurrentTime != value)
                 {
-                    model.VideoCurrentTime = value;
-                    NotifyPropertyChanged("VM_VideoCurrentTime");
+                    if (model.VideoCurrentTime != value)
+                    {
+                        model.VideoCurrentTime = value;
+                        NotifyPropertyChanged("VM_VideoCurrentTime");
+                    }
                 }
             }
         }
@@ -76,6 +64,20 @@ namespace AP2ex1.ViewModel
                     NotifyPropertyChanged("VM_VideoIsRunning");
                 }
             }
+        }
+
+        public VMMediaController(Model.IMMediaController model)
+        {
+            this.model = model;
+            this.model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e)
+            {
+                string var = "VM_" + e.PropertyName;
+                if(var.Equals("VM_VideoSpeed") || var.Equals("VM_VideoLength") ||
+                var.Equals("VM_VideoCurrentTime") || var.Equals("VM_VideoIsRunning"))
+                {
+                    NotifyPropertyChanged("VM_" + e.PropertyName);
+                }
+            };
         }
 
         public void StartOver()
@@ -98,10 +100,13 @@ namespace AP2ex1.ViewModel
         public void PlayClicked()
         {
             model.PlayClicked();
-
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-
+        public void NotifyPropertyChanged(string propName)
+        {
+            if (this.PropertyChanged != null)
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
+        }
     }
 }
