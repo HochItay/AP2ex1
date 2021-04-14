@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using OxyPlot;
 using OxyPlot.Axes;
@@ -51,7 +52,8 @@ namespace AP2ex1.ViewModel
             model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e) {
                 string var = "VM_" + e.PropertyName;
                 if (var.Equals("VM_CurrentLine")) {
-                    UpdateGraphPoints();
+                    Thread thread = new Thread(new ThreadStart(UpdateGraphPoints));
+                    thread.Start();
                 }
             };
         }
