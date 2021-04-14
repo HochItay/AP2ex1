@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Diagnostics;
+using System.IO;
 using PluginInterface;
 using System.Windows;
 
@@ -79,9 +80,25 @@ namespace AP2ex1.Model
 
         public int VM_JoystickY => throw new NotImplementedException();
 
+        /// <summary>
+        /// this method starts the FlightGear application, and should only be run once.
+        /// </summary>
+        /// <param name="path"> the path to the exe file in the FlightGear bin folder. </param>
         public void FGPathChanged(string path)
         {
-            throw new NotImplementedException();
+            string directoryPath = Path.GetDirectoryName(path);
+            string xml = "playback_small";
+            Process cmd = new Process();
+            cmd.StartInfo.FileName = "cmd.exe";
+            cmd.StartInfo.RedirectStandardInput = true;
+            cmd.StartInfo.CreateNoWindow = true;
+            cmd.StartInfo.UseShellExecute = false;
+            cmd.StartInfo.WorkingDirectory = directoryPath;
+            cmd.Start();
+            cmd.StandardInput.WriteLine("fgfs --generic=socket,in,10,127.0.0.1,5400,tcp,{0} --fdm=null", xml);
+            cmd.StandardInput.Flush();
+            cmd.StandardInput.Close();
+            cmd.WaitForExit();
         }
 
         public void goBackTen()
