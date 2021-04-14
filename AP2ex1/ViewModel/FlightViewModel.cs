@@ -14,7 +14,11 @@ namespace AP2ex1.ViewModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+<<<<<<< HEAD
         private readonly IFlightModel model;
+=======
+        private IFlightModel model;
+>>>>>>> bea47d6 (first implementaion of IFlightModel, IFlightViewModel and FlightViewModel)
 
         public FlightViewModel(IFlightModel model)
         {
