@@ -28,16 +28,24 @@ namespace AP2ex1.Model
         bool VideoIsRunning { get; set; }
 
         string ChosenProperty { get; set; }
+<<<<<<< HEAD
         bool VideoIsRunning { get; set; }
         bool VideoIsRunning { get; set; }
 >>>>>>> bea47d6 (first implementaion of IFlightModel, IFlightViewModel and FlightViewModel)
+=======
+        string CorrelativeProperty { get; }
+>>>>>>> 330fc0c (reorgenize the files)
 
         // file loading methods
         void LoadFlightDataFile(string filePath);
         void LoadSettingsFile(string filePath);
 <<<<<<< HEAD
+<<<<<<< HEAD
         void LoadDeviationAlgorithm(string filePath);
 =======
 >>>>>>> bea47d6 (first implementaion of IFlightModel, IFlightViewModel and FlightViewModel)
+=======
+        void LoadAnomalyAlgorithm(string filePath);
+>>>>>>> 330fc0c (reorgenize the files)
     }
 }

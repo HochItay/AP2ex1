@@ -48,6 +48,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\IFlightModel.cs" />
+    <Compile Include="ViewModel\FlightViewModel.cs" />
     <Compile Include="ViewModel\IFlightViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -78,5 +80,13 @@
     <ProjectReference Include="..\PuginInterface\PuginInterface.csproj" />
 >>>>>>> 7eaaaba (implement DLL loading + change to .NET 5.0)
   </ItemGroup>
+<<<<<<< HEAD
 
 </Project>
+=======
+  <ItemGroup>
+    <Folder Include="View\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
+>>>>>>> 330fc0c (reorgenize the files)
