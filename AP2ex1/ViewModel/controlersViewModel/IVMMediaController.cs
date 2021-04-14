@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AP2ex1.ViewModel
 {
-    interface IVMMediaController : INotifyPropertyChanged
+    public interface IVMMediaController : INotifyPropertyChanged
     {
         double VM_VideoSpeed { set; get; }
         int VM_VideoLength { get; }
