@@ -117,7 +117,7 @@ namespace AP2ex1.Model
                     thread.Start();
                 }
                 isRunning = value;
-                NotifyPropertyChanged(nameof(VideoCurrentTime));
+                NotifyPropertyChanged(nameof(VideoIsRunning));
             }
         }
 
