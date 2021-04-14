@@ -22,7 +22,6 @@ namespace AP2ex1.Model
         
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private Socket server;
         private int serverPort = 5400;
         private volatile bool isRunning = false;     // when creating a model, it does not run the flight.
         private double speed = 1.0;
@@ -40,7 +39,6 @@ namespace AP2ex1.Model
 
         public FlightModel()
         {
-            server = new Socket(SocketType.Stream, ProtocolType.Tcp);
             fp = new FilesParser();
             currentTime = 0;
 
@@ -213,10 +211,9 @@ namespace AP2ex1.Model
         /// </summary>
         private void run()
         {
-            if (!server.Connected)
-            {
-                server.Connect("127.0.0.1", serverPort);
-            }
+
+            var server = new Socket(SocketType.Stream, ProtocolType.Tcp);
+            server.Connect("127.0.0.1", serverPort);
             Stopwatch sw = new Stopwatch();
             while (isRunning)
             {
@@ -245,6 +242,8 @@ namespace AP2ex1.Model
                     Thread.Sleep((int)sleepTIme);
                 }
             }
+            server.Disconnect(false);
+            server.Dispose();
             
         }
 
