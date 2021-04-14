@@ -13,10 +13,10 @@ namespace AP2ex1.Model
         int VideoLength { get; }
         int VideoCurrentTime { get; set; }
         bool VideoIsRunning { get; set; }
-        void startOver();
-        void goToEnd();
-        void skipTen();
-        void goBackTen();
-        void playClicked();
+        void StartOver();
+        void GoToEnd();
+        void SkipTen();
+        void GoBackTen();
+        void PlayClicked();
     }
 }

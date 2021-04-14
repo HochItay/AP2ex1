@@ -84,27 +84,27 @@ namespace AP2ex1.Model
             throw new NotImplementedException();
         }
 
-        public void goBackTen()
+        public void GoBackTen()
         {
             CurrentLine = CurrentLine - 10 * FPS;
         }
 
-        public void goToEnd()
+        public void GoToEnd()
         {
             CurrentLine = dataLength;
         }
 
-        public void playClicked()
+        public void PlayClicked()
         {
             VideoIsRunning = !isRunning;
         }
 
-        public void skipTen()
+        public void SkipTen()
         {
             CurrentLine = CurrentLine + 10 * FPS;
         }
 
-        public void startOver()
+        public void StartOver()
         {
             CurrentLine = 0;
         }

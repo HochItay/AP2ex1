@@ -74,24 +74,24 @@ namespace AP2ex1.ViewModel
 
         public void StartOver()
         {
-            model.startOver();
+            model.StartOver();
         }
         
         public void GoToEnd()
         {
-            model.goToEnd();
+            model.GoToEnd();
         }
         public void SkipTen()
         {
-            model.skipTen();
+            model.SkipTen();
         }
         public void GoBackTen()
         {
-            model.goBackTen();
+            model.GoBackTen();
         }
         public void PlayClicked()
         {
-            model.playClicked();
+            model.PlayClicked();
 
         }
 
