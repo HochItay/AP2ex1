@@ -13,10 +13,10 @@ namespace AP2ex1.ViewModel
         int VM_VideoLength { get; }
         int VM_VideoCurrentTime { get; set; }
         bool VM_VideoIsRunning { get; set; }
-        void startOver();
-        void goToEnd();
-        void skipTen();
-        void goBackTen();
-        void playClicked();
+        void StartOver();
+        void GoToEnd();
+        void SkipTen();
+        void GoBackTen();
+        void PlayClicked();
     }
 }

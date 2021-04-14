@@ -31,27 +31,27 @@ namespace AP2ex1.View
 
         private void BFastBackward_Click(object sender, RoutedEventArgs e)
         {
-            vm.startOver();
+            vm.StartOver();
         }
 
         private void BFastForward_Click(object sender, RoutedEventArgs e)
         {
-            vm.goToEnd();
+            vm.GoToEnd();
         }
 
         private void BTenForward_Click(object sender, RoutedEventArgs e)
         {
-            vm.skipTen();
+            vm.SkipTen();
         }
 
         private void BTenBackward_Click(object sender, RoutedEventArgs e)
         {
-            vm.goBackTen();
+            vm.GoBackTen();
         }
 
         private void BPlay_Click(object sender, RoutedEventArgs e)
         {
-            vm.playClicked();
+            vm.PlayClicked();
         }
     }
 }
