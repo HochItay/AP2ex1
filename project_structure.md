@@ -8,7 +8,9 @@ There is the `IMMain` - which is the general interface for the `Model` - it exte
 it uses the `FilesParser` class, in order to parse the settings and the data files.
 and it also uses the `AnomalyDllLoader` class, in order to load an `IAnomalyDetector` from a dll.
 This is the class diagram for the model part:
+
 ![diagra](/pics_for_demo/model_UML.png?raw=true "Model Diagram")
+
 
 
 ## ViewModel:
@@ -20,7 +22,12 @@ there is also hierarchy in the view model - there is a main view model who repre
 smaller vm's of the pages.
 The pages `vm's` contain smaller vm's which represents the controllers.
 Also the `VM` is responsible for on the graph's calculations and to get the best results we run part of it in another thread.
+
+
 ![diagra](/pics_for_demo/view_model_UML.png?raw=true "ViewModel Diagram")
+
+
+
 
 ## View
 The view is responsible for the `Gui` and the `UI`.
@@ -28,4 +35,6 @@ It displays data it gets from the `vm` by unique controllers.
 For the implementation we used `Data Binding` and `INotifyPropertyChange` interface.
 The view also support a `UI` for loading necessary files. It also allows you to control the media through a spacific panel.
 After you choose the necessary files you can choose to display and investigate the chosen property with a graph.
+
+
 ![diagra](/pics_for_demo/view_UML.png?raw=true "View Diagram")
