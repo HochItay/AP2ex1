@@ -14,3 +14,7 @@ choose the `Browse Files` option, and in it choose the `Browse .dll` option.
 now choose a dll file, in which there is a class the implements the anomaly detector interface as mentioned above.
 
 now, when you choose a property from the list in the top left corner its anomaly graph will be shown.
+
+
+##### An example for anomaly detectign:
+![example](pics_for_demo/graphsExample.PNG?raw=true "Graphs Example")
