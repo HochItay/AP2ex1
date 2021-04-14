@@ -24,9 +24,10 @@ the general view of our app is:
 
 ## Project Structure:
 we used the MVVM architecture, and used WPF technology in order to create the app.
-
-you can see the relations between the different interfaces and classes, which is at form of MVVM in the following UML diagram:
-![UML diagram](pics_for_demo/UML.png?raw=true "UML diagram")
+this means we divided the project into three main parts: `View`, `ViewModel` and `Model`.
+the `Model` is responsible for reading the files, connecting the FlightGear etc.
+the `View` is responsible for the visual part, and for invoking commands as response to the user actions.
+the `ViewModel` is mainly responsible for linking these two parts, and in some cases for converting the data from one representation to another.
 for further explanation of the project structure go [here](project_structure.md)
 
 
