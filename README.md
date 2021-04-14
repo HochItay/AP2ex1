@@ -32,8 +32,35 @@ for further explanation of the project structure go [here](project_structure.md)
 ## Project Requirements:
 - .net 5.0
 - FlightGear
-##### libraries:
-- oxyplot
+##### NuGet packages/libraries:
+- oxyplot.core2.0.0
+- oxyplot.Wpf
+- Syncfusion.SfGauge.WPF
 
 
 ## Building and running instructions:
+**note:**
+- you must put a file named `playback_small.xml` this is the FlightGear settings file. a valid settings file for example file is [playback_small.xml](AP2ex1/resources/playback_small.xml).
+- you can use the app without FlightGear, or open it in the middle - but do not close it while the video is running (when it's paused it's okay)
+
+##### open the FlightGear:
+- one option is to use the app for it.
+- second option is to open it - using the following settings:
+```sh
+--generic=socket,in,10,127.0.0.1,5400,tcp,playback_small
+--fdm=null
+```
+
+
+### Building and running Option
+#### One Option - via visual studio:
+open the visual studio project using the `AP2ex1.sln` from the `AP2ex1` directory.
+now you can just run the project via visual studio.
+#### Second Option - using command prompt.
+open the cmd in the AP2e1 directory, an run;
+```sh
+dotnet run
+```
+
+**note for both options:** make sure to download the the packages (the libraries mentioned in the `Project Requirements` section), otherwise the build might fail the first time.
+
