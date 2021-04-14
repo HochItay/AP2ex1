@@ -8,6 +8,37 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="controlersModel\**" />
+    <Compile Remove="controlersViewModel\**" />
+    <Compile Remove="controls\**" />
+    <Compile Remove="framesIModel\**" />
+    <Compile Remove="framesViewModel\**" />
+    <Compile Remove="frames\**" />
+    <Compile Remove="IControlersModel\**" />
+    <EmbeddedResource Remove="controlersModel\**" />
+    <EmbeddedResource Remove="controlersViewModel\**" />
+    <EmbeddedResource Remove="controls\**" />
+    <EmbeddedResource Remove="framesIModel\**" />
+    <EmbeddedResource Remove="framesViewModel\**" />
+    <EmbeddedResource Remove="frames\**" />
+    <EmbeddedResource Remove="IControlersModel\**" />
+    <None Remove="controlersModel\**" />
+    <None Remove="controlersViewModel\**" />
+    <None Remove="controls\**" />
+    <None Remove="framesIModel\**" />
+    <None Remove="framesViewModel\**" />
+    <None Remove="frames\**" />
+    <None Remove="IControlersModel\**" />
+    <Page Remove="controlersModel\**" />
+    <Page Remove="controlersViewModel\**" />
+    <Page Remove="controls\**" />
+    <Page Remove="framesIModel\**" />
+    <Page Remove="framesViewModel\**" />
+    <Page Remove="frames\**" />
+    <Page Remove="IControlersModel\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="View\controls\images\IBrawseButton\folder.png" />
     <None Remove="View\controls\images\IBrawseFileButton\directory.png" />
     <None Remove="View\controls\images\ICompass\compass.png" />

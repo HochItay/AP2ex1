@@ -46,7 +46,22 @@ namespace AP2ex1.Model
 
             set
             {
-                currentLine = value;
+                // check bounderies
+                if (value >= fp.DataLength)
+                {
+                    currentLine = fp.DataLength - 1;
+                } else if (value < 0)
+                {
+                    currentLine = 0;
+                } else
+                {
+                    currentLine = value;
+                }
+
+                // also change current time
+                currentTime = (int)currentLine / FPS;
+                NotifyChanges();           // notifies all the fields have changed - because we passed to a new frame.
+                NotifyPropertyChanged(nameof(VideoCurrentTime));
                 NotifyPropertyChanged(nameof(CurrentLine));
             }
         }
@@ -84,9 +99,22 @@ namespace AP2ex1.Model
             get => currentTime;
             set
             {
-                currentTime = value;
-                currentLine = FPS * currentTime;
-                NotifyPropertyChanged(nameof(VideoCurrentTime));
+                // check bounderies
+                if (value >= VideoLength)
+                {
+                    currentTime = VideoLength - 1;
+                }
+                else if (value < 0)
+                {
+                    currentTime = 0;
+                }
+                else
+                {
+                    currentTime = value;
+                }
+
+                // also change current line
+                CurrentLine = (int)currentTime * FPS;
             }
         }
         
@@ -99,8 +127,8 @@ namespace AP2ex1.Model
             {
                 if (!isRunning & value)
                 {
-                    Thread thread = new Thread(new ThreadStart(run));
                     isRunning = true;
+                    Thread thread = new Thread(new ThreadStart(run));
                     thread.Start();
                 }
                 isRunning = value;
@@ -165,6 +193,9 @@ namespace AP2ex1.Model
             fp.LoadSettings(filePath);
         }
 
+        /// <summary>
+        /// detect anomalies and initialize anomaliesByFeatures field
+        /// </summary>
         private void InitAnomalies()
         {
             IList<Tuple<int, string, string>> allAnomalies = ad.DetectAnomalies(this.flightFilePath);
@@ -206,14 +237,12 @@ namespace AP2ex1.Model
                 server.Send(msg);
 
                 // going to the next line in the flight data file.
-                currentLine++;
-                currentTime = currentLine / FPS;
+                CurrentLine++;
 
-                if (currentLine >= dataLength)  // if we finished iterating through the data.
+                if (currentLine == dataLength - 1)  // if we finished iterating through the data.
                 {
                     VideoIsRunning = false;
                 }
-                NotifyChanges();            // notifies all the fields have changed - because we passed to a new frame.
 
                 sw.Stop();
 
