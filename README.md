@@ -46,7 +46,7 @@ for further explanation of the project structure go [here](project_structure.md)
 
 ##### open the FlightGear:
 - one option is to use the app for it. choose the `Browse .exe` option after choosing `Browse Files`;  then you should select the `fgfs.exe` file in the bin folder. is default path would be: `C:\Program Files\FlightGear 2020.3.6\bin\fgfs.exe`
-- second option is to open it - using the following settings:
+- second option is to open it without the app, and use the following settings:
 ```sh
 --generic=socket,in,10,127.0.0.1,5400,tcp,playback_small
 --fdm=null
