@@ -14,36 +14,52 @@ using System.Windows;
 
 namespace AP2ex1.Model
 {
+
+    /// <summary>
+    /// this class is an implementation of the general Model in the Flight-Simulator
+    /// </summary>
     public partial class FlightModel : IMMain
     {
-        private const int FPS = 10; // default value of FPS.
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        // some constants for the class.
+        private const int FPS = 10; // default value of FPS - frames per second.
         private const double MILI = 1000.0; // second in milliseconds.
         private readonly string regFlight = Directory.GetCurrentDirectory() + @"\..\..\..\resources\reg_flight.csv";
         
-        public event PropertyChangedEventHandler PropertyChanged;
+        private int serverPort = 5400;      // the port on which the FlightGear should be run.
 
-        private int serverPort = 5400;
+        // the flight-simulator specifications.
         private volatile bool isRunning = false;     // when creating a model, it does not run the flight.
         private double speed = 1.0;
-        private volatile int currentTime = 0;
-        private volatile int currentLine = 0;
-        private int dataLength;
-        private string flightFilePath;
+        // we start a flight from time 0s.
+        private volatile int currentTime = 0;       // current time in flight, in seconds.
+        private volatile int currentLine = 0;       // each line represent a single frame.
+        private int dataLength;             // number of frames in flight.
+        private string flightFilePath;      // path to the flight data.
 
         // anomaly related fields
         private IAnomalyDetector ad;
         // maps each pair of properties to its anomalies
         private SortedDictionary<Tuple<string,string>, IList<Point>> anomaliesByFeatures;
 
-        private FilesParser fp;
+        // we use FilesParser in order to parse the flight setting and data.
+        private FilesParser fp;     
 
+        /// <summary>
+        /// the constructor.
+        /// initializes the FilesParser.
+        /// </summary>
         public FlightModel()
         {
             fp = new FilesParser();
-            currentTime = 0;
 
         }
 
+        /// <summary>
+        /// Property for current line in the data file.
+        /// </summary>
         public int CurrentLine
         {
             get
@@ -93,6 +109,9 @@ namespace AP2ex1.Model
             get => dataLength / FPS;
         }
 
+        /// <summary>
+        /// Property for current time in the flight video.
+        /// </summary>
         public int VideoCurrentTime
         {
             get => currentTime;
@@ -121,14 +140,14 @@ namespace AP2ex1.Model
             }
         }
 
+        /// <summary>
+        /// get all the variables of the flight.
+        /// </summary>
+        /// <returns> all names of the variables in the XML file. </returns>
         public IList<string> GetVarsNames()
         {
             return fp.GetPropertiesNames();
         }
-
-        public string ChosenProperty { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-        public string CorrelativeProperty => throw new NotImplementedException();
 
 
         public void LoadDeviationAlgorithm(string filePath)
