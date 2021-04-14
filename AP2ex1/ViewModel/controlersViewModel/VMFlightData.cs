@@ -10,9 +10,25 @@ namespace AP2ex1.ViewModel
     class VMFlightData : IVMFlightData
     {
         private Model.IMFlightData model;
+        public void NotifyPropertyChanged(string propName)
+        {
+            if (this.PropertyChanged != null)
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
+        }
+
         public VMFlightData(Model.IMFlightData model)
         {
             this.model = model;
+            model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e)
+             {
+                 string var = "VM_" + e.PropertyName;
+                 if(var.Equals("VM_CompassAngle")  || var.Equals("VM_Speed") || var.Equals("VM_Speed") || 
+                 var.Equals("VM_Height") || var.Equals("VM_JoystickX") || var.Equals("VM_JoystickY"))
+                 {
+                     NotifyPropertyChanged("VM_" + e.PropertyName);
+                 }
+             };
+
         }
         public int VM_CompassAngle
         {
@@ -53,5 +69,6 @@ namespace AP2ex1.ViewModel
             }
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

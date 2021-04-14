@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AP2ex1.ViewModel
 {
-    interface IVMFlightData
+    interface IVMFlightData : INotifyPropertyChanged
     {
         int VM_CompassAngle
         {
