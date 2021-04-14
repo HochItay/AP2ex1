@@ -96,22 +96,8 @@ namespace AP2ex1.Model
         public int VideoCurrentTime
         {
             get => currentTime;
-            set
-            {
-                // check boundaries
-                if (value >= VideoLength)
-                {
-                    currentTime = VideoLength - 1;
-                }
-                else if (value < 0)
-                {
-                    currentTime = 0;
-                }
-                else
-                {
-                    currentTime = value;
-                }
-
+            set 
+            { 
                 // also change current line
                 CurrentLine = (int)currentTime * FPS;
             }
@@ -224,8 +210,10 @@ namespace AP2ex1.Model
         /// </summary>
         private void run()
         {
-            server.Connect("127.0.0.1", serverPort);
-
+            if (!server.Connected)
+            {
+                server.Connect("127.0.0.1", serverPort);
+            }
             Stopwatch sw = new Stopwatch();
             while (isRunning)
             {
@@ -234,11 +222,12 @@ namespace AP2ex1.Model
                 sw.Restart();
                 
                 var values = fp.GetLine(currentLine);
-                byte[] msg = System.Text.Encoding.ASCII.GetBytes(string.Join(",", values));
+                byte[] msg = System.Text.Encoding.UTF8.GetBytes(string.Join(",", values) + "\n");
                 server.Send(msg);
+                
 
                 // going to the next line in the flight data file.
-                CurrentLine++;
+                CurrentLine = currentLine + 1;
 
                 if (currentLine == dataLength - 1)  // if we finished iterating through the data.
                 {
@@ -253,7 +242,7 @@ namespace AP2ex1.Model
                     Thread.Sleep((int)sleepTIme);
                 }
             }
-            server.Disconnect(true);
+            
         }
 
         private void NotifyPropertyChanged(string msg)
@@ -271,6 +260,7 @@ namespace AP2ex1.Model
 
         public string GetCorrelativeVar(string var)
         {
+            Console.WriteLine(var);
             return ad.GetCorrelatedFeature(var);
         }
 

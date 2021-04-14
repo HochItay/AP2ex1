@@ -64,7 +64,7 @@ namespace AP2ex1.ViewModel
 
         private void SetGraphs()
         {
-            vmLGraph.SetTitle("Choosen Variable Graph");
+            vmLGraph.SetTitle("Chosen Variable Graph");
             vmCLGraph.SetTitle("Correlative Variable Graph");
             vmDGraph.SetTitle("Anomaly Detection Graph");
         }
@@ -72,7 +72,7 @@ namespace AP2ex1.ViewModel
         public void RestartGraphs(string var)
         {
             string corrilativeVar = model.GetCorrelativeVar(var);
-            //set Axes tiltels
+            //set Axes titles.
             vmLGraph.SetXTitle("time");
             vmLGraph.SetYTitle(var);
 
