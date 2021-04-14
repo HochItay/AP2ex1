@@ -101,6 +101,10 @@ namespace AP2ex1.Model
         /// <returns> the property value at that line. </returns>
         public double GetPropertyAtLine(string propName, int lineNum)
         {
+            if (!propToIndex.ContainsKey(propName))
+            {
+                return 0;           // if property is not in XML file - returns default value - 0.
+            }
             int index = propToIndex[propName];
             return propValues[lineNum][index];
         }
