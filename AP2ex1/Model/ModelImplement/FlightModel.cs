@@ -30,7 +30,7 @@ namespace AP2ex1.Model
         private int dataLength;
         private string flightFilePath;
 
-        // anomlay related fields
+        // anomaly related fields
         private IAnomalyDetector ad;
         // maps each pair of properties to its anomalies
         private SortedDictionary<Tuple<string,string>, IList<Point>> anomaliesByFeatures;
@@ -46,7 +46,7 @@ namespace AP2ex1.Model
 
             set
             {
-                // check bounderies
+                // check boundaries
                 if (value >= fp.DataLength)
                 {
                     currentLine = fp.DataLength - 1;
@@ -99,7 +99,7 @@ namespace AP2ex1.Model
             get => currentTime;
             set
             {
-                // check bounderies
+                // check boundaries
                 if (value >= VideoLength)
                 {
                     currentTime = VideoLength - 1;
@@ -158,8 +158,8 @@ namespace AP2ex1.Model
         }
 
         /// <summary>
-        /// return a graph that represent the anomaly alogithm
-        /// the graph is reresented by a function, starting cordinate and ending cordinate
+        /// return a graph that represent the anomaly algorithm
+        /// the graph is represented by a function, starting coordinate and ending coordinate
         /// </summary>
         /// <param name="feature"> feature to get graph of</param>
         /// <returns> we return list of this tuples to be able to draw non-function graphs such as circle</returns>
