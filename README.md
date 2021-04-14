@@ -62,5 +62,5 @@ open the cmd in the `AP2e1` directory (where the `sln` and the `csproj` files ar
 dotnet run
 ```
 
-**note for both options:** make sure to download the packages (the libraries mentioned in the `Project Requirements` section), otherwise the build might fail the first time.
+**note for both options:** make sure to download the packages (the libraries mentioned in the `Project Requirements` section), otherwise the build might fail the first time (but the second attempt should succeed).
 
