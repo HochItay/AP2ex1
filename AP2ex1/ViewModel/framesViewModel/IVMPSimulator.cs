@@ -12,5 +12,6 @@ namespace AP2ex1.ViewModel
         IVMMediaController GetVMMediaController();
         IVMYPRDisplayer GetVMYPRDisplayer();
         VMGraphController GetVMGraphController();
+        IVMFlightControllers GetVMFlightControllers();
     }
 }

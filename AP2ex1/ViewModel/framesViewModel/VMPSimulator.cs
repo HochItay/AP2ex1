@@ -12,6 +12,7 @@ namespace AP2ex1.ViewModel
         private VMGraphController vmGraphController;
         private IVMMediaController vmMediaController;
         private IVMYPRDisplayer vmYPRDisplayer;
+        private IVMFlightControllers vmFlightControllers;
 
         public VMPSimulator(Model.IMPSimulator model)
         {
@@ -19,6 +20,7 @@ namespace AP2ex1.ViewModel
             vmGraphController = new VMGraphController(model);
             vmMediaController = new VMMediaController(model);
             vmYPRDisplayer = new VMYPRDisplayer(model);
+            vmFlightControllers = new VMFlightControllers(model);
         }
 
         public IVMFlightData GetVMFlightData()
@@ -30,7 +32,10 @@ namespace AP2ex1.ViewModel
         {
             return vmGraphController;
         }
-
+        public IVMFlightControllers GetVMFlightControllers()
+        {
+            return vmFlightControllers;
+        }
         public IVMMediaController GetVMMediaController()
         {
             return vmMediaController;

@@ -172,10 +172,10 @@
         <Label Content="{Binding VM_Elevetor}" Margin="15,20,5,5" Grid.Column="2"/>
         <Slider Style="{StaticResource Vertical_Slider}" x:Name="SElevetor" Grid.Column="2"  HorizontalAlignment="Left"
                   Margin="15,10,0,10" Maximum="1" Minimum="0" Value="{Binding VM_Elevetor,Mode=OneWay}" IsEnabled="False" />
-        <Label Content="Ruddel:" Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Center"/>
-        <Label Content="{Binding VM_Ruddel}" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" />
-        <Slider x:Name="SRuddel" Style="{StaticResource Horizontal_Slider}" Grid.Row="1" Grid.ColumnSpan="3" IsEnabled="False"
-                Margin="10,0,10,0"  VerticalAlignment="Bottom" Maximum="1" Minimum="-1" Value="{Binding VM_Ruddel,Mode=OneWay}"/>
+        <Label Content="Rudder:" Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Center"/>
+        <Label Content="{Binding VM_Rudder}" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" />
+        <Slider x:Name="SRudder" Style="{StaticResource Horizontal_Slider}" Grid.Row="1" Grid.ColumnSpan="3" IsEnabled="False"
+                Margin="10,0,10,0"  VerticalAlignment="Bottom" Maximum="1" Minimum="-1" Value="{Binding VM_Rudder,Mode=OneWay}"/>
 
     </Grid>
 

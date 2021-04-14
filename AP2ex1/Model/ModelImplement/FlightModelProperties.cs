@@ -13,7 +13,8 @@ namespace AP2ex1.Model
     public partial class FlightModel : IMMain
     {
         // all the properties of the plane (meaning, those we got from the data file, not those we set such as CurrentLine).
-        private readonly string[] properties =  { "CompassAngle", "Speed", "Height", "JoystickX", "JoystickY", "Yaw", "Pitch", "Roll"};
+        private readonly string[] properties =  { "CompassAngle", "Speed", "Height", "JoystickX", "JoystickY", "Yaw", "Pitch", "Roll","Aileron","Elevator",
+        "Throttle","Rudder"};
 
         /// <summary>
         /// the angle the plane is headed toward.
@@ -102,6 +103,38 @@ namespace AP2ex1.Model
             get
             {
                 return (int)fp.GetPropertyAtLine("roll-deg", currentLine);
+            }
+        }
+
+        public double Throttle
+        {
+            get
+            {
+                return (double)fp.GetPropertyAtLine("throttle", currentLine);
+            }
+        }
+
+        public double Aileron
+        {
+            get
+            {
+                return (double)fp.GetPropertyAtLine("aileron", currentLine);
+            }
+        }
+
+        public double Elevetor
+        {
+            get
+            {
+                return (double)fp.GetPropertyAtLine("elevetor", currentLine);
+            }
+        }
+
+        public double Rudder
+        {
+            get
+            {
+                return (double)fp.GetPropertyAtLine("rudder", currentLine);
             }
         }
 
