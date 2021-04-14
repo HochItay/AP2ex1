@@ -39,6 +39,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="resources\reg_flight.csv" />
     <None Remove="View\controls\images\IBrawseButton\folder.png" />
     <None Remove="View\controls\images\IBrawseFileButton\directory.png" />
     <None Remove="View\controls\images\ICompass\compass.png" />
@@ -65,6 +66,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="resources\reg_flight.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="View\controls\images\IBrawseButton\folder.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>

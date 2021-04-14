@@ -7,6 +7,7 @@ using System.Net.Sockets;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading;
+using System.IO;
 
 using PluginInterface;
 using System.Windows;
@@ -17,7 +18,7 @@ namespace AP2ex1.Model
     {
         private const int FPS = 10; // default value of FPS.
         private const double MILI = 1000.0; // second in milliseconds.
-        private const string regFlight = "reg_flight.csv";
+        private readonly string regFlight = Directory.GetCurrentDirectory() + @"\..\..\..\resources\reg_flight.csv";
         
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -36,6 +37,14 @@ namespace AP2ex1.Model
         private SortedDictionary<Tuple<string,string>, IList<Point>> anomaliesByFeatures;
 
         private FilesParser fp;
+
+        public FlightModel()
+        {
+            server = new Socket(SocketType.Stream, ProtocolType.Tcp);
+            fp = new FilesParser();
+            currentTime = 0;
+
+        }
 
         public int CurrentLine
         {
@@ -66,13 +75,6 @@ namespace AP2ex1.Model
             }
         }
 
-        public FlightModel()
-        {
-            server = new Socket(SocketType.Stream, ProtocolType.Tcp);
-            fp = new FilesParser();
-            currentTime = 0;
-            
-        }
 
         /// <summary>
         /// The speed of the flight video.
@@ -99,7 +101,7 @@ namespace AP2ex1.Model
             set 
             { 
                 // also change current line
-                CurrentLine = (int)currentTime * FPS;
+                CurrentLine = (int)value * FPS;
             }
         }
         
@@ -261,7 +263,6 @@ namespace AP2ex1.Model
 
         public string GetCorrelativeVar(string var)
         {
-            Console.WriteLine(var);
             return ad.GetCorrelatedFeature(var);
         }
 
