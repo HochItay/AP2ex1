@@ -33,7 +33,6 @@ namespace AP2ex1.View
 
         public MediaController()
         {
-            //vm = new VMMediaController();
             InitializeComponent();
         }
 
