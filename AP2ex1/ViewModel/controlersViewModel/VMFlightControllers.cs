@@ -40,11 +40,11 @@ namespace AP2ex1.ViewModel
             }
         }
 
-        public double VM_Elevetor
+        public double VM_Elevator
         {
             get
             {
-                return Math.Round(model.Elevetor, 2);
+                return Math.Round(model.Elevator, 2);
             }
         }
 

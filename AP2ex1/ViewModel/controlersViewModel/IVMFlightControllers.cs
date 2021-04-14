@@ -17,7 +17,7 @@ namespace AP2ex1.ViewModel
         {
             get;
         }
-        public double VM_Elevetor
+        public double VM_Elevator
         {
             get;
         }

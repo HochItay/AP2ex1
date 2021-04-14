@@ -13,7 +13,7 @@ namespace AP2ex1.Model
     public partial class FlightModel : IMMain
     {
         // all the properties of the plane (meaning, those we got from the data file, not those we set such as CurrentLine).
-        private readonly string[] properties =  { "CompassAngle", "Speed", "Height", "JoystickX", "JoystickY", "Yaw", "Pitch", "Roll","Aileron","Elevator",
+        private readonly string[] properties =  { "CompassAngle", "Speed", "Height", "JoystickX", "JoystickY", "Yaw", "Pitch", "Roll","Aileron","Elevetor",
         "Throttle","Rudder"};
 
         /// <summary>
@@ -122,11 +122,11 @@ namespace AP2ex1.Model
             }
         }
 
-        public double Elevetor
+        public double Elevator
         {
             get
             {
-                return (double)fp.GetPropertyAtLine("elevetor", currentLine);
+                return (double)fp.GetPropertyAtLine("elevator", currentLine);
             }
         }
 

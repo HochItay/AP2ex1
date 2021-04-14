@@ -17,7 +17,7 @@ namespace AP2ex1.Model
         {
             get;
         }
-        public double Elevetor
+        public double Elevator
         {
             get;
         }
