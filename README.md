@@ -57,7 +57,7 @@ for further explanation of the project structure go [here](project_structure.md)
 open the visual studio project using the `AP2ex1.sln` from the `AP2ex1` directory.
 now you can just run the project via visual studio.
 #### Second Option - using command prompt.
-open the cmd in the AP2e1 directory, an run;
+open the cmd in the `AP2e1` directory (where the `sln` and the `csproj` files are), and run;
 ```sh
 dotnet run
 ```
