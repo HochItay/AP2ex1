@@ -38,7 +38,7 @@ namespace AP2ex1.Model
         // anomaly related fields
         private IAnomalyDetector ad;
         // maps each pair of properties to its anomalies
-        private SortedDictionary<Tuple<string,string>, IList<Point>> anomaliesByFeatures;
+        private SortedDictionary<Tuple<string,string>, IList<Tuple<int, Point>>> anomaliesByFeatures;
 
         // we use FilesParser in order to parse the flight setting and data.
         private FilesParser fp;
@@ -218,23 +218,24 @@ namespace AP2ex1.Model
         {
             IList<Tuple<int, string, string>> allAnomalies = ad.DetectAnomalies(this.flightFilePath);
 
-            anomaliesByFeatures = new SortedDictionary<Tuple<string, string>, IList<Point>>();
+            anomaliesByFeatures = new SortedDictionary<Tuple<string, string>, IList<Tuple<int, Point>>>();
 
             // initialize all lists
             foreach (string feature1 in VarsNames)
             {
                 foreach (string feature2 in VarsNames)
                 {
-                    anomaliesByFeatures.Add(Tuple.Create(feature1, feature2), new List<Point>());
+                    anomaliesByFeatures.Add(Tuple.Create(feature1, feature2), new List<Tuple<int, Point>> ());
                 }
             }
 
+            // add all anomalies to the right list
             foreach (Tuple<int, string, string> anomaly in allAnomalies)
             {
                 Point p1 = new Point(fp.GetPropertyAtLine(anomaly.Item2, anomaly.Item1), fp.GetPropertyAtLine(anomaly.Item3, anomaly.Item1));
                 Point p2 = new Point(fp.GetPropertyAtLine(anomaly.Item3, anomaly.Item1), fp.GetPropertyAtLine(anomaly.Item2, anomaly.Item1));
-                anomaliesByFeatures[Tuple.Create(anomaly.Item2, anomaly.Item3)].Add(p1);
-                anomaliesByFeatures[Tuple.Create(anomaly.Item3, anomaly.Item2)].Add(p2);
+                anomaliesByFeatures[Tuple.Create(anomaly.Item2, anomaly.Item3)].Add(Tuple.Create(anomaly.Item1 / FPS, p1));
+                anomaliesByFeatures[Tuple.Create(anomaly.Item3, anomaly.Item2)].Add(Tuple.Create(anomaly.Item1 / FPS, p2));
             }
         } 
 
@@ -351,9 +352,9 @@ namespace AP2ex1.Model
         /// <param name="var"> the first variable name. </param>
         /// <param name="corrilativeVar"> the second variable name. </param>
         /// <returns> Tuple containing all said points. </returns>
-        public Tuple<IList<Point>, IList<Point>> GetAnomalyGraphPoints(string var, string corrilativeVar)
+        public Tuple<IList<Point>, IList<Tuple<int, Point>>> GetAnomalyGraphPoints(string var, string corrilativeVar)
         {
-            IList<Point> anomaliesPoints = anomaliesByFeatures[Tuple.Create(var, corrilativeVar)];
+            IList<Tuple<int, Point>> anomaliesPoints = anomaliesByFeatures[Tuple.Create(var, corrilativeVar)];
 
             IList<Point> allPoints = new List<Point>();
             for (int i = 0; i < fp.DataLength; i++)
