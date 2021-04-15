@@ -4,7 +4,7 @@ This can be used in order to detect anomalies in a flight.
 
 This application can load a text file of flight data. The application shows different properties on the screen while showing the flight itself on the FlightGear simulator. The application also support detecting anomalies in the flight data. The algorithm for detecting anomalies is implemented as plugin. 
 
-[A demonstration video of the app](https://youtu.be/me5cH46VgJE)
+[A demonstration video of the app](https://youtu.be/Ald_o11HCik)
 
 the general view of our app is:
 ![Flight Panel](pics_for_demo/demo1.PNG?raw=true "Flight Panel")
