@@ -29,8 +29,8 @@ namespace AP2ex1.ViewModel
 
         }
 
-        IList<Tuple<int, Point>> markedPoints;
-        public IList<Tuple<int,Point>> MarkedPoints
+        IList<Tuple<TimeSpan, Point>> markedPoints;
+        public IList<Tuple<TimeSpan, Point>> MarkedPoints
         {
             get => markedPoints;
             set
@@ -94,12 +94,12 @@ namespace AP2ex1.ViewModel
             vmLGraph.SetGraphData(model.GetVarPoints(varName));
             vmCLGraph.SetGraphData(model.GetVarPoints(corrilativeVar));
 
-            Tuple<IList<Point>, IList<Tuple<int, Point>>> anomalyPoints= model.GetAnomalyGraphPoints(varName, corrilativeVar);
+            Tuple<IList<Point>, IList<Tuple<TimeSpan, Point>>> anomalyPoints= model.GetAnomalyGraphPoints(varName, corrilativeVar);
             MarkedPoints = anomalyPoints.Item2;
             vmDGraph.SetGraphData(anomalyPoints.Item1, GetOnlyAnomalyPoints(anomalyPoints.Item2), model.GetGraphFuncs(varName));
         }
 
-        private IList<Point> GetOnlyAnomalyPoints(IList<Tuple<int, Point>> anomalyData)
+        private IList<Point> GetOnlyAnomalyPoints(IList<Tuple<TimeSpan, Point>> anomalyData)
         {
             List<Point> anomalyPoints = new List<Point>();
             foreach(var data in anomalyData)
