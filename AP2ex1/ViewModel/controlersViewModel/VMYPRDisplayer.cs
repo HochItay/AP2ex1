@@ -10,6 +10,10 @@ namespace AP2ex1.ViewModel
     class VMYPRDisplayer : IVMYPRDisplayer
     {
         Model.IMYPRDisplayer model;
+        /// <summary>
+        /// this func calls property changed for this class with the given property name.
+        /// </summary>
+        /// <param name="propName"> the name of the property that changed</param>
         public void NotifyPropertyChanged(string propName)
         {
             if (this.PropertyChanged != null)
@@ -18,10 +22,12 @@ namespace AP2ex1.ViewModel
         public VMYPRDisplayer(Model.IMYPRDisplayer model)
         {
             this.model = model;
+            // add a delegate to the model that when the model is changing is notify this vm about the change.
             model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e)
             {
-                string var = "VM_" + e.PropertyName;
-                if (var.Equals("VM_Yaw") || var.Equals("VM_Pitch") || var.Equals("VM_Roll"))
+                //we are clling the NotifyPropertyChanged only whenever the properties of this vm are change
+                string val = "VM_" + e.PropertyName;
+                if (val.Equals("VM_Yaw") || val.Equals("VM_Pitch") || val.Equals("VM_Roll"))
                 {
                     NotifyPropertyChanged("VM_" + e.PropertyName);
                 }
