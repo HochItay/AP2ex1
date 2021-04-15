@@ -16,11 +16,11 @@ namespace AP2ex1.ViewModel
             this.model = model;
             model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e)
             {
-                string var = "VM_" + e.PropertyName;
-                if (var.Equals("VM_Throttle") || var.Equals("VM_Aileron") || var.Equals("VM_Elevetor") ||
-                var.Equals("VM_Rudder"))
+                string val = "VM_" + e.PropertyName;
+                if (val.Equals("VM_Throttle") || val.Equals("VM_Aileron") || val.Equals("VM_Elevator") ||
+                val.Equals("VM_Rudder"))
                 {
-                    NotifyPropertyChanged("VM_" + e.PropertyName);
+                    NotifyPropertyChanged(val);
                 }
             };
         }

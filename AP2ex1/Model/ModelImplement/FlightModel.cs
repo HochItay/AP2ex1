@@ -41,7 +41,7 @@ namespace AP2ex1.Model
         private SortedDictionary<Tuple<string,string>, IList<Point>> anomaliesByFeatures;
 
         // we use FilesParser in order to parse the flight setting and data.
-        private FilesParser fp;     
+        private FilesParser fp;
 
         /// <summary>
         /// the constructor.
@@ -55,6 +55,7 @@ namespace AP2ex1.Model
 
         /// <summary>
         /// Property for current line in the data file.
+        /// it's also responsible for notifying changes in all Properties.
         /// </summary>
         public int CurrentLine
         {
@@ -120,6 +121,7 @@ namespace AP2ex1.Model
         
         /// <summary>
         /// whether or not the video is currently running.
+        /// if we change the state of this property from 'false' to 'true' it will also make the simulator starts running.
         /// </summary>
         public bool VideoIsRunning { 
             get => isRunning;

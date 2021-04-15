@@ -168,10 +168,10 @@
         <Label Content="{Binding VM_Aileron}" Margin="15,20,5,5" Grid.Column="1"/>
         <Slider Style="{StaticResource Vertical_Slider}" x:Name="SAileron" Grid.Column="1"  HorizontalAlignment="Center"
                   Margin="15,10,0,10" Minimum="-1" Maximum="1" Value="{Binding VM_Aileron,Mode=OneWay}" IsEnabled="False"/>
-        <Label Content="Elevetor:" Grid.Column="2"  Margin="5,5,5,5"/>
-        <Label Content="{Binding VM_Elevetor}" Margin="15,20,5,5" Grid.Column="2"/>
+        <Label Content="Elevator:" Grid.Column="2"  Margin="5,5,5,5"/>
+        <Label Content="{Binding VM_Elevator}" Margin="15,20,5,5" Grid.Column="2"/>
         <Slider Style="{StaticResource Vertical_Slider}" x:Name="SElevetor" Grid.Column="2"  HorizontalAlignment="Left"
-                  Margin="15,10,0,10" Maximum="1" Minimum="-1" Value="{Binding VM_Elevetor,Mode=OneWay}" IsEnabled="False" />
+                  Margin="15,10,0,10" Maximum="1" Minimum="-1" Value="{Binding VM_Elevator,Mode=OneWay}" IsEnabled="False" />
         <Label Content="Rudder:" Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Center"/>
         <Label Content="{Binding VM_Rudder}" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" />
         <Slider x:Name="SRudder" Style="{StaticResource Horizontal_Slider}" Grid.Row="1" Grid.ColumnSpan="3" IsEnabled="False"
