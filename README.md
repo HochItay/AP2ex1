@@ -37,7 +37,7 @@ for further explanation of the project structure go [here](project_structure.md)
 ## Project Requirements:
 - .net 5.0
 - FlightGear
-##### NuGet packages/libraries:
+##### NuGet packages/libraries (they should be downloaded automaticly, but if not you will need to download them manually):
 - oxyplot.core2.0.0
 - oxyplot.Wpf
 - Syncfusion.SfGauge.WPF
