@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace AP2ex1.Model
 {
-    public interface IMMain : IMPGetFiles, IMPSimulator, IMFlightControllers
+    /// <summary>
+    /// this interface is an extention of all the smaller vm interfaces. 
+    /// </summary>
+    public interface IMMain : IMPGetFiles, IMPSimulator
     {
     }
 }
