@@ -34,6 +34,7 @@ namespace AP2ex1.View
                 DataContext = vm;
             }
         }
+
         public GraphController()
         {
             InitializeComponent();

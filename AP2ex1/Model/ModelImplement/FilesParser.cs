@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.IO;
+using System.ComponentModel;
 
 namespace AP2ex1.Model
 {
@@ -26,7 +27,7 @@ namespace AP2ex1.Model
         public FilesParser()
         {
             propToIndex = new Dictionary<string, int>();
-            propList = new List<string>();
+            propList = new BindingList<string>();
             propValues = new List<double[]>();
         }
 
@@ -38,6 +39,7 @@ namespace AP2ex1.Model
         public void LoadSettings(string xmlPath)
         {
             propToIndex.Clear();
+            propList.Clear();
             XmlDocument doc = new XmlDocument();
             doc.Load(xmlPath);
             XmlNode root = doc.DocumentElement;

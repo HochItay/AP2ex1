@@ -18,7 +18,7 @@ namespace AP2ex1.ViewModel
         protected Axis yAxe;
         private Model.IMGraph model;
         private PlotModel plotModel;
-        private Thread thread;
+        protected Thread thread;
         public PlotModel PlotModel
         {
             get 
@@ -49,14 +49,26 @@ namespace AP2ex1.ViewModel
             PlotModel = new PlotModel();
             SetUpModel();
 
-            thread = new Thread(new ThreadStart(UpdateGraphPoints));
+            thread = new Thread(new ThreadStart(updateWithTread));
             this.model = model;
+            /*
             model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e) {
-                string var = "VM_" + e.PropertyName;
-                if (var.Equals("VM_CurrentLine")) {
+                string varName = "VM_" + e.PropertyName;
+                if (varName.Equals("VM_CurrentLine")) {
                     thread.Start();
                 }
             };
+            */
+        }
+
+        private void updateWithTread()
+        {
+            while(true)
+            {
+
+                UpdateGraphPoints();
+                Thread.Sleep(200);
+            }
         }
 
         public void SetTitle(string title)

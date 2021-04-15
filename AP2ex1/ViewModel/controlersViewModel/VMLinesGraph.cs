@@ -32,8 +32,11 @@ namespace AP2ex1.ViewModel
 
             PlotModel.Series.Add(displayedPoints);
 
-            isDataIntialized = true;
-            UpdateGraphPoints();
+            if (!isDataIntialized)
+            {
+                thread.Start();
+                isDataIntialized = true;
+            }
         }
         private List<DataPoint> GetDataPointList(IList<Point> allPoints)
         {

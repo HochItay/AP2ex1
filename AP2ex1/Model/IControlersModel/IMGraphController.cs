@@ -9,7 +9,10 @@ namespace AP2ex1.Model
 {
     public interface IMGraphController : IMGraph
     {
-        IList<string> GetVarsNames();
+        IList<string> VarsNames
+        {
+            get;
+        }
         int GetNumPointsPerSec();
         string GetCorrelativeVar(string var);
         IList<Point> GetVarPoints(string var);

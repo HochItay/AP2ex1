@@ -20,21 +20,11 @@ namespace AP2ex1.ViewModel
         public DependencyProperty CLPlotModel = DependencyProperty.Register("CLPlotModel", typeof(PlotModel), typeof(VMGraphController));
         public DependencyProperty DPlotModel = DependencyProperty.Register("DPlotModel", typeof(PlotModel), typeof(VMGraphController));
 
-        private IList<string> varsList;
-        public IList<string> VarsList
+        public IList<string> VM_VarsNames
         {
             get
             {
-                return varsList;
-            }
-
-            set
-            {
-                if (varsList != value)
-                {
-                    varsList = value;
-                    OnPropertyChanged("VarsList");
-                }
+                return model.VarsNames;
             }
 
         }
@@ -42,6 +32,15 @@ namespace AP2ex1.ViewModel
         public VMGraphController(Model.IMGraphController model)
         {
             this.model = model;
+            model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e)
+            {
+
+                string varName = "VM_" + e.PropertyName;
+                if (varName.Equals("VM_VarsNames"))
+                {
+                    NotifyPropertyChanged(varName);
+                }
+            };
 
             vmLGraph = new VMLinesGraph(model);
             
@@ -57,8 +56,6 @@ namespace AP2ex1.ViewModel
             BindingOperations.SetBinding(this, DPlotModel,
             new Binding("PlotModel") { Source = vmDGraph, UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged });
 
-            VarsList = model.GetVarsNames();
-
             SetGraphs();   
         }
 
@@ -69,31 +66,32 @@ namespace AP2ex1.ViewModel
             vmDGraph.SetTitle("Anomaly Detection Graph");
         }
 
-        public void RestartGraphs(string var)
+        public void RestartGraphs(string varName)
         {
-            string corrilativeVar = model.GetCorrelativeVar(var);
+
+            string corrilativeVar = model.GetCorrelativeVar(varName);
             //set Axes titles.
             vmLGraph.SetXTitle("time");
-            vmLGraph.SetYTitle(var);
+            vmLGraph.SetYTitle(varName);
 
             vmCLGraph.SetXTitle("time");
             vmCLGraph.SetYTitle(corrilativeVar);
 
-            vmDGraph.SetXTitle(var);
+            vmDGraph.SetXTitle(varName);
             vmDGraph.SetYTitle(corrilativeVar);
 
-            vmLGraph.SetGraphData(model.GetVarPoints(var));
+            vmLGraph.SetGraphData(model.GetVarPoints(varName));
             vmCLGraph.SetGraphData(model.GetVarPoints(corrilativeVar));
 
-            Tuple<IList<Point>, IList<Point>> anomalyPoints= model.GetAnomalyGraphPoints(var, corrilativeVar);
-            vmDGraph.SetGraphData(anomalyPoints.Item1, anomalyPoints.Item2, model.GetGraphFuncs(var));
+            Tuple<IList<Point>, IList<Point>> anomalyPoints= model.GetAnomalyGraphPoints(varName, corrilativeVar);
+            vmDGraph.SetGraphData(anomalyPoints.Item1, anomalyPoints.Item2, model.GetGraphFuncs(varName));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged(string propertyName)
+        public void NotifyPropertyChanged(string propName)
         {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+            if (this.PropertyChanged != null)
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
         }
     }
 }

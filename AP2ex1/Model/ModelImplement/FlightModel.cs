@@ -142,9 +142,10 @@ namespace AP2ex1.Model
         /// get all the variables of the flight.
         /// </summary>
         /// <returns> all names of the variables in the XML file. </returns>
-        public IList<string> GetVarsNames()
+        ///
+        public IList<string> VarsNames
         {
-            return fp.GetPropertiesNames();
+            get => fp.GetPropertiesNames();
         }
 
 
@@ -207,6 +208,7 @@ namespace AP2ex1.Model
         public void LoadSettingsFile(string filePath)
         {
             fp.LoadSettings(filePath);
+            NotifyPropertyChanged(nameof(VarsNames));
         }
 
         /// <summary>
@@ -219,9 +221,9 @@ namespace AP2ex1.Model
             anomaliesByFeatures = new SortedDictionary<Tuple<string, string>, IList<Point>>();
 
             // initialize all lists
-            foreach (string feature1 in this.GetVarsNames())
+            foreach (string feature1 in VarsNames)
             {
-                foreach (string feature2 in this.GetVarsNames())
+                foreach (string feature2 in VarsNames)
                 {
                     anomaliesByFeatures.Add(Tuple.Create(feature1, feature2), new List<Point>());
                 }

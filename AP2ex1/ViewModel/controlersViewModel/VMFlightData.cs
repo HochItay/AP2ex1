@@ -23,11 +23,11 @@ namespace AP2ex1.ViewModel
             this.model = model;
             model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e)
              {
-                 string var = "VM_" + e.PropertyName;
-                 if(var.Equals("VM_CompassAngle")  || var.Equals("VM_Speed") || var.Equals("VM_Speed") || 
-                 var.Equals("VM_Height") || var.Equals("VM_JoystickX") || var.Equals("VM_JoystickY"))
+                 string varNames = "VM_" + e.PropertyName;
+                 if(varNames.Equals("VM_CompassAngle")  || varNames.Equals("VM_Speed") || varNames.Equals("VM_Speed") || 
+                 varNames.Equals("VM_Height") || varNames.Equals("VM_JoystickX") || varNames.Equals("VM_JoystickY"))
                  {
-                     NotifyPropertyChanged("VM_" + e.PropertyName);
+                     NotifyPropertyChanged(varNames);
                  }
              };
 
