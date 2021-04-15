@@ -10,7 +10,11 @@ namespace AP2ex1.ViewModel
     {
         private IVMPGetFiles vmPGetFiles;
         private IVMPSimulator vmPSimulator;
-
+        /// <summary>
+        /// init the vm main with a model.
+        /// the vm communicates with his model by MVVM arcitecture.
+        /// </summary>
+        /// <param name="model"></param>
         public VMMain(Model.IMMain model)
         {
             vmPGetFiles = new VMPGetFiles(model);
