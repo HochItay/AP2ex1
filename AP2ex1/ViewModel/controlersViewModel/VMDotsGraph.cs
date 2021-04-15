@@ -55,8 +55,9 @@ namespace AP2ex1.ViewModel
             SetRegressionFunc(regFuncs, getMaxVal(allPoints), getMinVal(allPoints));
 
             isDataIntialized = true;
-            //UpdateGraphPoints();
+            UpdateGraphPoints();
         }
+
         private double getMinVal(IList<Point> allPoints)
         {
             double min = 0;
