@@ -27,6 +27,11 @@ namespace AP2ex1.View
             InitializeComponent();
         }
 
+        /// <summary>
+        /// does what is requried on pressed.
+        /// </summary>
+        /// <param name="sender">the sender</param>
+        /// <param name="e">the data</param>
         private void BrawseFiles(object sender, RoutedEventArgs e)
         {
             notifyAll();

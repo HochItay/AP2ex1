@@ -42,6 +42,11 @@ namespace AP2ex1.View
             CBDisplay.Text = CB_PLACE_HOLDER;
         }
 
+        /// <summary>
+        /// displays the graph when button is pressed.
+        /// </summary>
+        /// <param name="sender">the sender</param>
+        /// <param name="e">the data</param>
         private void DisplayGraphs(object sender, RoutedEventArgs e)
         {
             if (CBDisplay.Text.Equals(CB_PLACE_HOLDER))

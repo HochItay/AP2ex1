@@ -20,6 +20,7 @@ namespace AP2ex1.View
     /// </summary>
     public partial class PSimulator : Page
     {
+        //the default size of the page
         public static readonly int HEIGHT = 400;
         public static readonly int WIDTH = 900;
 
@@ -28,6 +29,10 @@ namespace AP2ex1.View
 
         private ViewModel.IVMPSimulator vmPSimulator;
 
+        /// <summary>
+        /// the constructor of this class
+        /// </summary>
+        /// <param name="vmPSimulator">the vm to fet data from</param>
         public PSimulator(ViewModel.IVMPSimulator vmPSimulator)
         {
             InitializeComponent();
@@ -46,6 +51,7 @@ namespace AP2ex1.View
             joystick.VM = this.vmPSimulator.GetVMFlightData();
             yprDisplayer.VM = this.vmPSimulator.GetVMYPRDisplayer();
         }
+
         /// <summary>
         /// switch to the other frame by calling the delagate.
         /// </summary>

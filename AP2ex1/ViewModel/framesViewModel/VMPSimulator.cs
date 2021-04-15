@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace AP2ex1.ViewModel
 {
+    /// <summary>
+    /// the view model simulator page part.
+    /// </summary>
     class VMPSimulator : IVMPSimulator
     {
         private IVMFlightData vmFlightData;
@@ -14,8 +17,13 @@ namespace AP2ex1.ViewModel
         private IVMYPRDisplayer vmYPRDisplayer;
         private IVMFlightControllers vmFlightControllers;
 
+        /// <summary>
+        /// the constructor of theis class
+        /// </summary>
+        /// <param name="model">the model to get data from</param>
         public VMPSimulator(Model.IMPSimulator model)
         {
+            //creates the sub vm's
             vmFlightData = new VMFlightData(model);
             vmGraphController = new VMGraphController(model);
             vmMediaController = new VMMediaController(model);
