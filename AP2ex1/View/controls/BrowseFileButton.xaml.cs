@@ -71,7 +71,7 @@ namespace AP2ex1.View
             }
             catch
             {
-                //Got Exeption
+                MessageBox.Show("Error in opning file dialog please try again", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace AP2ex1.ViewModel
 {
@@ -17,21 +18,28 @@ namespace AP2ex1.ViewModel
 
         public void FileDataChanged(string filePath)
         {
-            if (filePath.EndsWith(".exe"))
+            try
             {
-                getFilesM.FGPathChanged(filePath);
-            } 
-            else if (filePath.EndsWith(".dll"))
-            {
-                getFilesM.LoadDeviationAlgorithm(filePath);
+                if (filePath.EndsWith(".exe"))
+                {
+                    getFilesM.FGPathChanged(filePath);
+                }
+                else if (filePath.EndsWith(".dll"))
+                {
+                    getFilesM.LoadDeviationAlgorithm(filePath);
+                }
+                else if (filePath.EndsWith(".csv"))
+                {
+                    getFilesM.LoadFlightDataFile(filePath);
+                }
+                else if (filePath.EndsWith(".xml"))
+                {
+                    getFilesM.LoadSettingsFile(filePath);
+                }
             }
-            else if (filePath.EndsWith(".csv"))
+            catch
             {
-                getFilesM.LoadFlightDataFile(filePath);
-            }
-            else if (filePath.EndsWith(".xml"))
-            {
-                getFilesM.LoadSettingsFile(filePath);
+                MessageBox.Show("Error in loading file please try again", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }
