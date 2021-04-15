@@ -19,7 +19,9 @@ namespace AP2ex1.ViewModel
             }
             set
             {
+               //call the notify property change only if the vaue really changed.
                 if (model.VideoSpeed != value) {
+                    //we round the value one digit after the dot.
                     model.VideoSpeed = Math.Round(value, 1);
                     NotifyPropertyChanged("VM_VideoSpeed");
                 }
@@ -69,11 +71,13 @@ namespace AP2ex1.ViewModel
         public VMMediaController(Model.IMMediaController model)
         {
             this.model = model;
+            // add a delegate to the model that when the model is changing is notify this vm about the change.
             this.model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e)
             {
-                string var = "VM_" + e.PropertyName;
-                if(var.Equals("VM_VideoSpeed") || var.Equals("VM_VideoLength") ||
-                var.Equals("VM_VideoCurrentTime") || var.Equals("VM_VideoIsRunning"))
+                string val = "VM_" + e.PropertyName;
+                //we are clling the NotifyPropertyChanged only whenever the properties of this vm are change
+                if (val.Equals("VM_VideoSpeed") || val.Equals("VM_VideoLength") ||
+                val.Equals("VM_VideoCurrentTime") || val.Equals("VM_VideoIsRunning"))
                 {
                     NotifyPropertyChanged("VM_" + e.PropertyName);
                 }
@@ -103,6 +107,10 @@ namespace AP2ex1.ViewModel
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+        /// <summary>
+        /// this func calls property changed for this class with the given property name.
+        /// </summary>
+        /// <param name="propName"> the name of the property that changed</param>
         public void NotifyPropertyChanged(string propName)
         {
             if (this.PropertyChanged != null)
