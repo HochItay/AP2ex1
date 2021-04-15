@@ -262,9 +262,15 @@ namespace AP2ex1.Model
 
                 if (server.Connected)       // if we are connected to the server - we send it the data.
                 {
-                    var values = fp.GetLine(currentLine);
-                    byte[] msg = System.Text.Encoding.UTF8.GetBytes(string.Join(",", values) + "\n");
-                    server.Send(msg);
+                    try
+                    {
+
+                        var values = fp.GetLine(currentLine);
+                        byte[] msg = System.Text.Encoding.UTF8.GetBytes(string.Join(",", values) + "\n");
+                        server.Send(msg);
+                    }
+                    catch {}
+                            
                 }
 
                 // going to the next line in the flight data file.
