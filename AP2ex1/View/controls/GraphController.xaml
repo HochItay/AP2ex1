@@ -25,7 +25,7 @@
                 <ListView.View>
                     <GridView>
                         <GridViewColumn DisplayMemberBinding=
-                          "{Binding Path=Item1}"
+                          "{Binding Path=Item1, StringFormat=mm:ss}"
                       Header="Time" Width="50"/>
                         
                         <GridViewColumn DisplayMemberBinding=
