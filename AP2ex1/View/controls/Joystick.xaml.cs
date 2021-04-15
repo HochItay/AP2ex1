@@ -22,6 +22,9 @@ namespace AP2ex1.View
     public partial class Joystick : UserControl
     {
         IVMFlightData vm;
+        /// <summary>
+        /// the vm of the joystick.
+        /// </summary>
         public IVMFlightData VM
         {
             set
@@ -30,15 +33,12 @@ namespace AP2ex1.View
                 DataContext = vm;
             }
         }
-
+        /// <summary>
+        /// init the joystick
+        /// </summary>
         public Joystick()
         {
             InitializeComponent();
-
-        }
-
-        private void centerKnob_Completed(object sender, EventArgs e)
-        {
 
         }
     }

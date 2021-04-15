@@ -7,7 +7,7 @@
              xmlns:controls="clr-namespace:AP2ex1.View"
              mc:Ignorable="d"
              d:DesignHeight="125" d:DesignWidth="300">
-
+<!--here we create our own sliders.-->
     <UserControl.Resources>
         <Style x:Key="SliderRepeatButtonVertical" TargetType="RepeatButton">
             <Setter Property="SnapsToDevicePixels" Value="true" />
@@ -144,6 +144,7 @@
             </Style.Triggers>
         </Style>
     </UserControl.Resources>
+    <!--in the grid we are using the siders that we creayed earier.-->
     <Grid Background="#D65D6360">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -158,8 +159,6 @@
         <Border BorderThickness="2" BorderBrush="Black" Grid.Column="1" Grid.Row="0"/>
         <Border BorderThickness="2" BorderBrush="Black" Grid.Column="2" Grid.Row="0"/>
         <Border BorderThickness="2" BorderBrush="Black" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3"/>
-
-
         <Label Content="Throttle:"  Margin="5,5,5,5"/>
         <Label Content="{Binding VM_Throttle}" Margin="15,20,5,5"/>
         <Slider Style="{StaticResource Vertical_Slider}" x:Name="SThrottle"  HorizontalAlignment="Left"

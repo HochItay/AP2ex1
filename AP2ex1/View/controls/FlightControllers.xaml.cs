@@ -22,6 +22,9 @@ namespace AP2ex1.View
     public partial class FlightControllers : UserControl
     {
         private IVMFlightControllers vm;
+        /// <summary>
+        /// the vm of the FlightControllers .
+        /// </summary>
         public IVMFlightControllers VM
         {
             set

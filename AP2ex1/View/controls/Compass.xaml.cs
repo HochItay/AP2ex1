@@ -22,6 +22,9 @@ namespace AP2ex1.View
     public partial class Compass : UserControl
     {
         private IVMFlightData vm;
+        /// <summary>
+        /// the vm of the Compass.
+        /// </summary>
         public IVMFlightData VM
         {
             set

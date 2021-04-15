@@ -38,27 +38,47 @@ namespace AP2ex1.View
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// command the vm to execute startover
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BFastBackward_Click(object sender, RoutedEventArgs e)
         {
             vm.StartOver();
         }
-
+        /// <summary>
+        /// command the vm to execute go to end
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BFastForward_Click(object sender, RoutedEventArgs e)
         {
             vm.GoToEnd();
         }
-
+        /// <summary>
+        /// command the vm to execute skip ten
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BTenForward_Click(object sender, RoutedEventArgs e)
         {
             vm.SkipTen();
         }
-
+        /// <summary>
+        /// command the vm to execute go back ten
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BTenBackward_Click(object sender, RoutedEventArgs e)
         {
             vm.GoBackTen();
         }
-
+        /// <summary>
+        /// command the vm to execute PlayClicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BPlay_Click(object sender, RoutedEventArgs e)
         {
             vm.PlayClicked();
