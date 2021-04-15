@@ -7,7 +7,7 @@ This application can load a text file of flight data. The application shows diff
 [A demonstration video of the app](https://youtu.be/me5cH46VgJE)
 
 the general view of our app is:
-![Flight Panel](pics_for_demo/demo1.png?raw=true "Flight Panel")
+![Flight Panel](pics_for_demo/demo1.PNG?raw=true "Flight Panel")
 
 ### some features we implemented in the app:
 
