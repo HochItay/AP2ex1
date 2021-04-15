@@ -36,6 +36,7 @@ namespace AP2ex1.View
             this.vmPSimulator = vmPSimulator;
             DataContext = this.vmPSimulator;
 
+            //set the vm's for the controllers.
             graphController.VM = this.vmPSimulator.GetVMGraphController();
             mediaController.VM = this.vmPSimulator.GetVMMediaController();
             airspeedIndicator.VM = this.vmPSimulator.GetVMFlightData();
@@ -45,7 +46,9 @@ namespace AP2ex1.View
             joystick.VM = this.vmPSimulator.GetVMFlightData();
             yprDisplayer.VM = this.vmPSimulator.GetVMYPRDisplayer();
         }
-
+        /// <summary>
+        /// switch to the other frame by calling the delagate.
+        /// </summary>
         private void SwitchAll()
         {
             SwitchFrames();
