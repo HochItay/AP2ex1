@@ -7,13 +7,13 @@
              xmlns:Oxy="http://oxyplot.org/wpf"
              mc:Ignorable="d" >
     <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform">
-        <Grid Height="500" Width="800">
+        <Grid Height="500" Width="900">
             <Oxy:PlotView x:Name="LGraph" Height="230" Width="250" Model="{Binding LPlotModel}" Background="AliceBlue" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,210"/>
             <Oxy:PlotView x:Name="CLGraph" Height="230" Width="250" Model="{Binding CLPlotModel}" Background="AliceBlue" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
-            <Oxy:PlotView x:Name="DGraph" Height="500" Width="380" Model="{Binding DPlotModel}" Background="AliceBlue" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,160,0"/>
+            <Oxy:PlotView x:Name="DGraph" Height="500" Width="380" Model="{Binding DPlotModel}" Background="AliceBlue" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,260,0"/>
             <ComboBox x:Name="CBDisplay" IsEditable="True" IsReadOnly="True" ItemsSource="{Binding VM_VarsNames}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="170"/>
-            <Label Content="Anomaly points" HorizontalAlignment="Right" VerticalAlignment="Top" Background="LightGray" Width="150" HorizontalContentAlignment="Center" FontSize ="15"/>
-            <ListView Width="150" Height="475" HorizontalAlignment="Right" ItemsSource="{Binding MarkedPoints}" VerticalAlignment="Bottom">
+            <Label Content="Anomaly points" HorizontalAlignment="Right" VerticalAlignment="Top" Background="LightGray" Width="250" HorizontalContentAlignment="Center" FontSize ="15"/>
+            <ListView Width="250" Height="475" HorizontalAlignment="Right" ItemsSource="{Binding MarkedPoints}" VerticalAlignment="Bottom">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="{x:Type ListViewItem}">
                         <Setter Property="BorderBrush" Value="LightGray" />
@@ -30,11 +30,11 @@
 
                         <GridViewColumn DisplayMemberBinding=
                           "{Binding Path=Item2.X}"
-                      Header="X" Width="50"/>
+                      Header="X" Width="100"/>
 
                         <GridViewColumn DisplayMemberBinding=
                           "{Binding Path=Item2.Y}" 
-                      Header="Y" Width="50"/>
+                      Header="Y" Width="100"/>
                     </GridView>
                 </ListView.View>
             </ListView>
