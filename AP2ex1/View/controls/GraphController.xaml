@@ -8,11 +8,32 @@
              mc:Ignorable="d" >
     <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform">
         <Grid Height="500" Width="800">
-            <Oxy:PlotView x:Name="LGraph" Height="230" Width="290" Model="{Binding LPlotModel}" Background="AliceBlue" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,210"/>
-            <Oxy:PlotView x:Name="CLGraph" Height="230" Width="290" Model="{Binding CLPlotModel}" Background="AliceBlue" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
-            <Oxy:PlotView x:Name="DGraph" Height="500" Width="500" Model="{Binding DPlotModel}" Background="AliceBlue" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
-            <ComboBox x:Name="CBDisplay" IsEditable="True" IsReadOnly="True" ItemsSource="{Binding VM_VarsNames}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="210"/>
-            <Button x:Name="BDisplay" Content="Display" Height="23" Width="75" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="215,0,0,0" Click="DisplayGraphs"/>
+            <Oxy:PlotView x:Name="LGraph" Height="230" Width="250" Model="{Binding LPlotModel}" Background="AliceBlue" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,210"/>
+            <Oxy:PlotView x:Name="CLGraph" Height="230" Width="250" Model="{Binding CLPlotModel}" Background="AliceBlue" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+            <Oxy:PlotView x:Name="DGraph" Height="500" Width="380" Model="{Binding DPlotModel}" Background="AliceBlue" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,160,0"/>
+            <ComboBox x:Name="CBDisplay" IsEditable="True" IsReadOnly="True" ItemsSource="{Binding VM_VarsNames}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="170"/>
+            <ListView Width="150" HorizontalAlignment="Right" ItemsSource="{Binding MarkedPoints}">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListViewItem}">
+                        <Setter Property="BorderBrush" Value="LightGray" />
+                        <Setter Property="BorderThickness" Value="0,0,0,1" />
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="Width" Value="Auto" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn DisplayMemberBinding=
+                          "{Binding Path=X}"
+                      Header="X" Width="75"/>
+
+                        <GridViewColumn DisplayMemberBinding=
+                          "{Binding Path=Y}" 
+                      Header="Y" Width="75"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Button x:Name="BDisplay" Content="Display" Height="23" Width="75" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="175,0,0,0" Click="DisplayGraphs"/>
 
         </Grid>
     </Viewbox>
