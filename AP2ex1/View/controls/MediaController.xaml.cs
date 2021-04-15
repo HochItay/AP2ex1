@@ -22,6 +22,9 @@ namespace AP2ex1.View
     public partial class MediaController : UserControl
     {
         IVMMediaController vm;
+        /// <summary>
+        /// the vm of the MediaController.
+        /// </summary>
         public IVMMediaController VM
         {
             set

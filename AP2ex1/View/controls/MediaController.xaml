@@ -11,7 +11,6 @@
         <Image x:Name="IPause" x:Key="IPause" Source="images/IMediaController/pause.png"/>
         <ObjectDataProvider x:Key="Speed"/>
         <local:TimeToStrConverter x:Key="timeToStr"/>
-        <local:IsRunningToImageConverter x:Key="isRunningToImage"/>
         
     </UserControl.Resources>
 
@@ -26,14 +25,17 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
+            <!--we used a converter in order to convert time in seconds into readable view-->
             <Label x:Name="LVideoCurrentTime" Content="{Binding VM_VideoCurrentTime, Converter={StaticResource timeToStr}}" 
                    Foreground="White" FontSize="15" HorizontalAlignment="Center"/>
+            <!--we used a converter in order to convert time in seconds into readable view-->
             <Label x:Name="LVideoLength" Grid.Column="2"
                    Content="{Binding VM_VideoLength,Converter={StaticResource timeToStr}}" Foreground="White" FontSize="15" />
             <Slider x:Name="STime" Grid.Column="1" Margin="10,6,0,0" Minimum="0" Maximum="{Binding VM_VideoLength}"
                     Value="{Binding VM_VideoCurrentTime}"/>
             <Button x:Name="BPlay" Grid.Column="1" Grid.Row="1" Width="30" Height="30"
                      Margin="0,0,0,10" Click="BPlay_Click">
+                <!--we used a trigger that is bind to the is video running-->
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="Content" Value="{StaticResource IPlay}" />

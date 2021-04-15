@@ -22,6 +22,9 @@ namespace AP2ex1.View
     public partial class AirspeedIndicator : UserControl
     {
         private IVMFlightData vm;
+        /// <summary>
+        /// the vm of the AirspeedIndicator.
+        /// </summary>
         public IVMFlightData VM
         {
             set
