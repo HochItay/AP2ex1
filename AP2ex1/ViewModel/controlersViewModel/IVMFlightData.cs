@@ -1,5 +1,9 @@
-﻿using System.ComponentModel;
-
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 namespace AP2ex1.ViewModel
 {
     /// <summary>
@@ -40,7 +44,7 @@ namespace AP2ex1.ViewModel
             get;
         }
         /// <summary>
-        /// this is the vertical value of the joystick.
+        /// this is the verticaly value of the joystick.
         /// </summary>
         double VM_JoystickY
         {

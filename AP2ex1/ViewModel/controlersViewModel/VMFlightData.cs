@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace AP2ex1.ViewModel
 {
@@ -27,7 +31,7 @@ namespace AP2ex1.ViewModel
             // add a delegate to the model that when the model is changing is notify this vm about the change.
             model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e)
              {
-                 //we are clling the NotifyPropertyChanged only whenever the properties of this vm are changing.
+                 //we are clling the NotifyPropertyChanged only whenever the properties of this vm are change
                  string varNames = "VM_" + e.PropertyName;
                  if(varNames.Equals("VM_CompassAngle")  || varNames.Equals("VM_Speed") || varNames.Equals("VM_Speed") || 
                  varNames.Equals("VM_Height") || varNames.Equals("VM_JoystickX") || varNames.Equals("VM_JoystickY"))
