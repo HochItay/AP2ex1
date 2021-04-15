@@ -7,7 +7,7 @@ This application can load a text file of flight data. The application shows diff
 [A demonstration video of the app](https://youtu.be/me5cH46VgJE)
 
 the general view of our app is:
-![Flight Panel](pics_for_demo/demo1.png?raw=true "Flight Panel")
+![Flight Panel](pics_for_demo/demo1.PNG?raw=true "Flight Panel")
 
 ### some features we implemented in the app:
 
@@ -29,7 +29,8 @@ we used the MVVM architecture, and used WPF technology in order to create the ap
 this means we divided the project into three main parts: `View`, `ViewModel` and `Model`.
 the `Model` is responsible for reading the files, connecting the FlightGear etc.
 the `View` is responsible for the visual part, and for invoking commands as response to the user actions.
-the `ViewModel` is mainly responsible for linking these two parts, and in some cases for converting the data from one representation to another.
+the `ViewModel` is mainly responsible for linking these two parts, control the logic of the graph presentation and in some cases for converting the data from one representation to another.
+![General_UML](pics_for_demo/generalUML.png?raw=true "Flight Panel")
 for further explanation of the project structure go [here](project_structure.md)
 
 
