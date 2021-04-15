@@ -92,6 +92,10 @@ namespace AP2ex1.Model
         /// <returns> the data at that line. </returns>
         public double[] GetLine(int lineNum)
         {
+            if (lineNum >= propValues.Count)
+            {
+                return new double[0];   // return an empty array.
+            }
             return propValues[lineNum];
         }
 
@@ -103,9 +107,9 @@ namespace AP2ex1.Model
         /// <returns> the property value at that line. </returns>
         public double GetPropertyAtLine(string propName, int lineNum)
         {
-            if (!propToIndex.ContainsKey(propName))
+            if (!propToIndex.ContainsKey(propName) || lineNum >= propValues.Count)
             {
-                return 0;           // if property is not in XML file - returns default value - 0.
+                return 0;           // if property is not in XML file, or not enough lines - returns default value - 0.
             }
             int index = propToIndex[propName];
 
@@ -119,6 +123,10 @@ namespace AP2ex1.Model
         /// <returns> an array of the property values, from all the lines in the csv file. </returns>
         public double[] GetProperty(string propName)
         {
+            if (!propToIndex.ContainsKey(propName))
+            {
+                return new double[0];
+            }
             int index = propToIndex[propName];
             double[] res = new double[propValues.Count];
             for (int i = 0; i < propValues.Count; i++)
