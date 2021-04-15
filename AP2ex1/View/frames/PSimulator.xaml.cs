@@ -50,5 +50,6 @@ namespace AP2ex1.View
         {
             SwitchFrames();
         }
+
     }
 }
