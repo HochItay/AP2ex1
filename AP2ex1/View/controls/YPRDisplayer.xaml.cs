@@ -22,6 +22,9 @@ namespace AP2ex1.View
     public partial class YPRDisplayer : UserControl
     {
         private IVMYPRDisplayer vm;
+        /// <summary>
+        /// hte vm of the YPR displayer
+        /// </summary>
         public IVMYPRDisplayer VM
         {
             set
@@ -30,7 +33,9 @@ namespace AP2ex1.View
                 DataContext = vm;
             }
         }
-
+        /// <summary>
+        /// init the ypr dispalyer
+        /// </summary>
         public YPRDisplayer()
         {
             InitializeComponent();

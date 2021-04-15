@@ -22,6 +22,9 @@ namespace AP2ex1.View
     public partial class Altimeter : UserControl
     {
         IVMFlightData vm;
+        /// <summary>
+        /// the vm of the altimeter.
+        /// </summary>
         public IVMFlightData VM
         {
             set
@@ -30,6 +33,9 @@ namespace AP2ex1.View
                 DataContext = vm;
             }
         }
+        /// <summary>
+        /// init the altimeter.
+        /// </summary>
         public Altimeter()
         {
             InitializeComponent();

@@ -33,7 +33,9 @@ namespace AP2ex1.View
                 DataContext = vm;
             }
         }
-
+        /// <summary>
+        /// init the compass.
+        /// </summary>
         public Compass()
         {
             InitializeComponent();

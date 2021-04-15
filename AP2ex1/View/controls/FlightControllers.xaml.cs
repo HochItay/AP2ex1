@@ -33,7 +33,9 @@ namespace AP2ex1.View
                 DataContext = vm;
             }
         }
-
+        /// <summary>
+        /// init the FlightControllers.
+        /// </summary>
         public FlightControllers()
         {
             InitializeComponent();

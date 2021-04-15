@@ -34,6 +34,9 @@ namespace AP2ex1.View
             }
         }
 
+        /// <summary>
+        /// init the  AirspeedIndicator.
+        /// </summary>
         public AirspeedIndicator()
         {
             InitializeComponent();
