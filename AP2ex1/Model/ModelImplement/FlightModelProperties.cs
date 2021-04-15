@@ -110,7 +110,7 @@ namespace AP2ex1.Model
         {
             get
             {
-                return (double)fp.GetPropertyAtLine("throttle", currentLine);
+                return fp.GetPropertyAtLine("throttle", currentLine);
             }
         }
 
@@ -118,7 +118,7 @@ namespace AP2ex1.Model
         {
             get
             {
-                return (double)fp.GetPropertyAtLine("aileron", currentLine);
+                return fp.GetPropertyAtLine("aileron", currentLine);
             }
         }
 
@@ -126,7 +126,7 @@ namespace AP2ex1.Model
         {
             get
             {
-                return (double)fp.GetPropertyAtLine("elevator", currentLine);
+                return fp.GetPropertyAtLine("elevator", currentLine);
             }
         }
 
@@ -134,7 +134,7 @@ namespace AP2ex1.Model
         {
             get
             {
-                return (double)fp.GetPropertyAtLine("rudder", currentLine);
+                return fp.GetPropertyAtLine("rudder", currentLine);
             }
         }
 
