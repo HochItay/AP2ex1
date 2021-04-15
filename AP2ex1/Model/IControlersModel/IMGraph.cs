@@ -9,6 +9,9 @@ namespace AP2ex1.Model
 {
     public interface IMGraph : INotifyPropertyChanged
     {
+        /// <summary>
+        /// the current line that is fed to the flight geer.
+        /// </summary>
         int CurrentLine{
             get;
             set;
