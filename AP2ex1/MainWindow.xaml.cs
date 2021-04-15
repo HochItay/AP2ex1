@@ -28,18 +28,20 @@ namespace AP2ex1
         public MainWindow()
         {
             InitializeComponent();
-
+            //create the mode of the project.
             vmMain = new ViewModel.VMMain(new Model.FlightModel());
-
+            //create the pages
             pSimulator = new View.PSimulator(vmMain.GetVMPSimulator());
             pSimulator.SwitchFrames += SwitchFrames;
 
             pGetFiles = new View.PGetFiles(vmMain.GetVMPGetFiles());
             pGetFiles.SwitchFrames += SwitchFrames;
-
+            //displayfirst the simulator page.
             Display.Content = pSimulator;
         }
-
+        /// <summary>
+        /// switch the current frame to the other page.
+        /// </summary>
         void SwitchFrames()
         {
             if(Display.Content == pSimulator)
