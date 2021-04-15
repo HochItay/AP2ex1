@@ -1,17 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AP2ex1.ViewModel
 {
+    /// <summary>
+    /// implement the IVMFlightData interface.
+    /// </summary>
     class VMFlightData : IVMFlightData
     {
         private readonly int normalizeJoystick = 100;
         private readonly int centerlizeJoystick = 125;
         private Model.IMFlightData model;
+        /// <summary>
+        /// this func calls property changed for this class with the given property name.
+        /// </summary>
+        /// <param name="propName"> the name of the property that changed</param>
         public void NotifyPropertyChanged(string propName)
         {
             if (this.PropertyChanged != null)
@@ -21,8 +24,10 @@ namespace AP2ex1.ViewModel
         public VMFlightData(Model.IMFlightData model)
         {
             this.model = model;
+            // add a delegate to the model that when the model is changing is notify this vm about the change.
             model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e)
              {
+                 //we are clling the NotifyPropertyChanged only whenever the properties of this vm are changing.
                  string varNames = "VM_" + e.PropertyName;
                  if(varNames.Equals("VM_CompassAngle")  || varNames.Equals("VM_Speed") || varNames.Equals("VM_Speed") || 
                  varNames.Equals("VM_Height") || varNames.Equals("VM_JoystickX") || varNames.Equals("VM_JoystickY"))
