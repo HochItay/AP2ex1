@@ -25,12 +25,16 @@
                 <ListView.View>
                     <GridView>
                         <GridViewColumn DisplayMemberBinding=
-                          "{Binding Path=X}"
-                      Header="X" Width="75"/>
+                          "{Binding Path=Item1}"
+                      Header="Time" Width="50"/>
+                        
+                        <GridViewColumn DisplayMemberBinding=
+                          "{Binding Path=Item2.X}"
+                      Header="X" Width="50"/>
 
                         <GridViewColumn DisplayMemberBinding=
-                          "{Binding Path=Y}" 
-                      Header="Y" Width="75"/>
+                          "{Binding Path=Item2.Y}" 
+                      Header="Y" Width="50"/>
                     </GridView>
                 </ListView.View>
             </ListView>
