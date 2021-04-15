@@ -17,4 +17,7 @@ now, when you choose a property from the list in the top left corner its anomaly
 
 
 ##### An example for anomaly detectign:
-![example](pics_for_demo/graphsExample.PNG?raw=true "Graphs Example")
+![example](pics_for_demo/graphsExample.png?raw=true "Graphs Example")
+
+
+**note:** you can see that each second might have more than one anomaly - that's because in each seconds there are 10 frames; so in each second there are up to 10 anomalies points.
